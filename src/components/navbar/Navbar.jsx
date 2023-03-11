@@ -24,18 +24,41 @@ import {useState , useEffect} from "react"
 function Navbar() {
   /*---------- this state for the sidebar in -------------*/
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   /*------------------------------end----------------------------------- */
   const [menuOpen , setMenuOpen]= useState(null);
+  const [clothesDropDown , setClothesDropDown]= useState(null);
+  const [glassesDropDown , setGlassesDropDown]= useState(null);
+  const [bagDropDown , setBagDropDown]= useState(null);
 
   useEffect(() => {
     if(menuOpen){
-        console.log("open")
         document.getElementById("submenu-category-list").classList.add('active');
     }else if(menuOpen === false){
-        console.log("close")
         document.getElementById("submenu-category-list").classList.remove('active');
     }
   }, [menuOpen])
+  useEffect(() => {
+    if(clothesDropDown){
+        document.getElementById("clothes").classList.add('active');
+    }else if(clothesDropDown === false){
+        document.getElementById("clothes").classList.remove('active');
+    }
+  }, [clothesDropDown])
+  useEffect(() => {
+    if(glassesDropDown){
+        document.getElementById("glasses").classList.add('active');
+    }else if(glassesDropDown === false){
+        document.getElementById("glasses").classList.remove('active');
+    }
+  }, [glassesDropDown])
+  useEffect(() => {
+    if(bagDropDown){
+        document.getElementById("bag").classList.add('active');
+    }else if(bagDropDown === false){
+        document.getElementById("bag").classList.remove('active');
+    }
+  }, [bagDropDown])
   
 
   return (
@@ -97,11 +120,11 @@ function Navbar() {
         {/*-------------------start the navbar of phone and ipads-------------*/}
 
         <div className="mobile-bottom-navigation">
-            <button className="action-btn" data-mobile-menu-open-btn onClick={()=>setOpen(true)}><MenuRoundedIcon  sx={{ fontSize: 40 }} /></button>
+            <button className="action-btn"  onClick={()=>setOpen(true)}><MenuRoundedIcon  sx={{ fontSize: 40 }} /></button>
             <button className="action-btn"><LocalMallRoundedIcon/><span className="count">0</span></button>
             <button className="action-btn"><HomeRoundedIcon  sx={{ fontSize: 40 }}/></button>
             <button className="action-btn"><FavoriteRoundedIcon/><span className="count">0</span></button>
-            <button className="action-btn" data-mobile-menu-open-btn><GridViewRoundedIcon/></button>
+            <button className="action-btn"  onClick={()=>setOpen2(true)}><GridViewRoundedIcon/></button>
         </div>
 
         <Drawer variant='temporary' open={open} onClose={() => setOpen(false)}>
@@ -121,7 +144,7 @@ function Navbar() {
                         <li className="menu-category">
                             <button className="accordion-menu" onClick={()=>setMenuOpen(!menuOpen)}>
                                 <p className="menu-title">Currency</p>
-                                {menuOpen === false || menuOpen === null ? <KeyboardArrowUpRoundedIcon /> : <KeyboardArrowDownRoundedIcon />}
+                                {menuOpen === false || menuOpen === null ? <KeyboardArrowDownRoundedIcon /> : <KeyboardArrowUpRoundedIcon />}
                             </button>
                             <ul id="submenu-category-list" className="submenu-category-list">
                                 <li className="submenu-category">
@@ -140,6 +163,106 @@ function Navbar() {
                         <li><a href="#" className="social-link"><LinkedInIcon sx={{ fontSize: 25 }}/></a></li>
                     </ul>
                 </div>
+            </Box>
+        </Drawer>
+        <Drawer variant='temporary' open={open2} onClose={() => setOpen2(false)}>
+            <Box p={2} width='270px' textAlign='center' role='presentation'>
+                <div className="menu-top">
+                    <h2 className="menu-title">Category</h2>
+                    <button className="menu-close-btn" onClick={()=>setOpen2(false)}><HighlightOffRoundedIcon /></button>
+                </div>
+                <ul class="sidebar-menu-category-list">
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" onClick={()=>setClothesDropDown(!clothesDropDown)}>
+                    <div class="menu-title-flex"> <p class="menu-title">Clothes</p></div>
+                    <div>
+                        {
+                            clothesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
+                        }
+                    </div>
+                  </button>
+                  <ul id="clothes" class="sidebar-submenu-category-list">
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Shirt</p>
+                        <data value="300" class="stock" title="Available Stock">300</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">jacket</p>
+                        <data value="50" class="stock" title="Available Stock">50</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">dress & frock</p>
+                        <data value="87" class="stock" title="Available Stock">87</data>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" onClick={()=>setGlassesDropDown(!glassesDropDown)}>
+                    <div class="menu-title-flex"><p class="menu-title">Glasses</p></div>
+                    <div>
+                        {
+                            glassesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
+                        }
+                    </div>
+                  </button>
+                  <ul id="glasses" class="sidebar-submenu-category-list">
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Sunglasses</p>
+                        <data value="50" class="stock" title="Available Stock">50</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Lenses</p>
+                        <data value="48" class="stock" title="Available Stock">48</data>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" onClick={()=>setBagDropDown(!bagDropDown)}>
+                    <div class="menu-title-flex"><p class="menu-title">Bags</p></div>
+                    <div>
+                        {
+                            bagDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
+                        }
+                    </div>
+                  </button>
+                  <ul id="bag" class="sidebar-submenu-category-list" >
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Shopping Bag</p>
+                        <data value="62" class="stock" title="Available Stock">62</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Gym Backpack</p>
+                        <data value="35" class="stock" title="Available Stock">35</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Purse</p>
+                        <data value="80" class="stock" title="Available Stock">80</data>
+                      </a>
+                    </li>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">Wallet</p>
+                        <data value="75" class="stock" title="Available Stock">75</data>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </Box>
         </Drawer>
 
