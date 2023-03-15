@@ -1,3 +1,6 @@
+import EnhancedEncryptionOutlinedIcon from '@mui/icons-material/EnhancedEncryptionOutlined';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 const Cart = () => {
   return (
@@ -6,18 +9,9 @@ const Cart = () => {
         <img src={require('../../../assets/images/products/jacket-3.jpg')} alt="Mens Winter Leathers Jackets" width="300" class="product-img default"/>
         <p class="showcase-badge">15%</p>
         <div class="showcase-actions">
-            <button class="btn-action">
-            <ion-icon name="heart-outline"></ion-icon>
-            </button>
-            <button class="btn-action">
-            <ion-icon name="eye-outline"></ion-icon>
-            </button>
-            <button class="btn-action">
-            <ion-icon name="repeat-outline"></ion-icon>
-            </button>
-            <button class="btn-action">
-            <ion-icon name="bag-add-outline"></ion-icon>
-            </button>
+            <abbr title='add to favorite'><button class="btn-action"><FavoriteBorderRoundedIcon /></button></abbr>
+            <button class="btn-action"><RemoveRedEyeOutlinedIcon /></button>
+            <abbr title='add to cart'><button class="btn-action"><EnhancedEncryptionOutlinedIcon /></button></abbr>
         </div>
         </div>
         <div class="showcase-content">

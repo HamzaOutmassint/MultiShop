@@ -234,6 +234,7 @@
     -webkit-transition: var(--transition-timing);
     -o-transition: var(--transition-timing);
     transition: var(--transition-timing);
+    display: flex;
 }
 
 .product-grid .btn-action:hover {
@@ -289,14 +290,13 @@
     color: var(--eerie-black);
     margin-bottom: 10px;
 }
-
 .product-grid .price {
     font-weight: var(--weight-700);
 }
-
 .product-grid del {
     color: var(--sonic-silver);
 }
+
 
 /*-----------------------------------*\
     #RESPONSIVE
@@ -306,6 +306,7 @@
 /**
    * responsive larger than 480px screen
    */
+
 
 @media (min-width: 480px) {
 
@@ -658,7 +659,6 @@
         -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 /**
