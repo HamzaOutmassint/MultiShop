@@ -2,11 +2,8 @@ import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRound
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import mainBanner from "../../assets/images/banner-7.jpg"
 import therdBanner from "../../assets/images/banner-6.jpg"
-import deliveryTruck  from "../../assets/images/icons/delivery-truck-truck-svgrepo-com.svg"
-import returnBox  from "../../assets/images/icons/return-box.svg"
-import customerSupport  from "../../assets/images/icons/customer-support.svg"
 import "./home.css"
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import Cart from '../../component/navbar/cart/Cart';
 
 function Home() {
