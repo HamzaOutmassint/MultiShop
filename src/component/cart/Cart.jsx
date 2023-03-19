@@ -6,7 +6,7 @@ const Cart = () => {
   return (
     <div class="showcase">
         <div class="showcase-banner">
-        <img src={require('../../../assets/images/products/jacket-3.jpg')} alt="Mens Winter Leathers Jackets" width="300" class="product-img default"/>
+        <img src={require('../../assets/images/products/jacket-3.jpg')} alt="Mens Winter Leathers Jackets" width="300" class="product-img default"/>
         <p class="showcase-badge">15%</p>
         <div class="showcase-actions">
             <abbr title='add to favorite'><button class="btn-action"><FavoriteBorderRoundedIcon /></button></abbr>
