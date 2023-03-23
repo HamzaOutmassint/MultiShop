@@ -88,9 +88,9 @@ function Navbar() {
             <div className="container">
                 <ul className="desktop-menu-category-list">
                     <li className="menu-category"><a href="/" className="menu-title">Home</a></li>
-                    <li className="menu-category"><a href="/" className="menu-title">Men's</a></li>
-                    <li className="menu-category"><a href="/" className="menu-title">Women's</a></li>
-                    <li className="menu-category"><a href="/" className="menu-title">Accessories</a></li>
+                    <li className="menu-category"><a href="/men" className="menu-title">Men's</a></li>
+                    <li className="menu-category"><a href="/women" className="menu-title">Women's</a></li>
+                    <li className="menu-category"><a href="/accessories" className="menu-title">Accessories</a></li>
                 </ul>
             </div>
         </nav>

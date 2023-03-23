@@ -4,6 +4,7 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -16,19 +17,19 @@ export const Footer = () => {
                     <h2 className="nav-title">Categories</h2>
                 </li>
                 <li className="footer-nav-item">
-                    <a href="z" className="footer-nav-link">Women</a>
+                    <Link to="/women" className="footer-nav-link">Women</Link>
                 </li>
                 <li className="footer-nav-item">
-                    <a href="z" className="footer-nav-link">Men</a>
+                    <Link to="/men" className="footer-nav-link">Men</Link>
                 </li>
                 <li className="footer-nav-item">
-                    <a href="z" className="footer-nav-link">Accessories</a>
+                    <Link to="/accessories" className="footer-nav-link">Accessories</Link>
                 </li>
                 <li className="footer-nav-item">
-                    <a href="z" className="footer-nav-link">Bags</a>
+                    <Link to="z" className="footer-nav-link">Bags</Link>
                 </li>
                 <li className="footer-nav-item">
-                    <a href="z" className="footer-nav-link">Glasses</a>
+                    <Link to="z" className="footer-nav-link">Glasses</Link>
                 </li>
             </ul>
 
@@ -70,16 +71,16 @@ export const Footer = () => {
                 <li>
                     <ul className="social-link">
                         <li className="footer-nav-item">
-                            <a href="fd" className="footer-nav-link"><FacebookRoundedIcon/> </a>
+                            <Link to="fd" className="footer-nav-link"><FacebookRoundedIcon/> </Link>
                         </li>
                         <li className="footer-nav-item">
-                            <a href="fd" className="footer-nav-link"><TwitterIcon/> </a>
+                            <Link to="fd" className="footer-nav-link"><TwitterIcon/> </Link>
                         </li>
                         <li className="footer-nav-item">
-                            <a href="fd" className="footer-nav-link"><LinkedInIcon /></a>
+                            <Link to="fd" className="footer-nav-link"><LinkedInIcon /></Link>
                         </li>
                         <li className="footer-nav-item">
-                            <a href="fd" className="footer-nav-link"><InstagramIcon /></a>
+                            <Link to="fd" className="footer-nav-link"><InstagramIcon /></Link>
                         </li>
                     </ul>
                 </li>
