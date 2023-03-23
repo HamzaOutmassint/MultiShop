@@ -45,104 +45,104 @@ function Home() {
           </div>
         </div>
 
-        <div class="product-container">
-          <div class="container">
+        <div className="product-container">
+          <div className="container">
           {/* - SIDEBAR */}
-            <div class="sidebar  has-scrollbar">
-              <div class="sidebar-category">
-                <div class="sidebar-top">
-                  <h2 class="sidebar-title">Category</h2>
-                  <button class="sidebar-close-btn">
+            <div className="sidebar  has-scrollbar">
+              <div className="sidebar-category">
+                <div className="sidebar-top">
+                  <h2 className="sidebar-title">Category</h2>
+                  <button className="sidebar-close-btn">
                     <KeyboardArrowUpRoundedIcon />
                   </button>
                 </div>
-                <ul class="sidebar-menu-category-list">
-                  <li class="sidebar-menu-category">
-                    <button class="sidebar-accordion-menu" onClick={()=>setClothesDropDown(!clothesDropDown)}>
-                      <div class="menu-title-flex"> <p class="menu-title">Clothes</p></div>
+                <ul className="sidebar-menu-category-list">
+                  <li className="sidebar-menu-category">
+                    <button className="sidebar-accordion-menu" onClick={()=>setClothesDropDown(!clothesDropDown)}>
+                      <div className="menu-title-flex"> <p className="menu-title">Clothes</p></div>
                       <div>
                           {
                               clothesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
                           }
                       </div>
                     </button>
-                    <ul id="clothes" class={clothesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
-                      <li class="sidebar-submenu-category">
-                        <a href="#shirt" class="sidebar-submenu-title">
-                          <p class="product-name">Shirt</p>
-                          <data value="300" class="stock" title="Available Stock">300</data>
+                    <ul id="clothes" className={clothesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
+                      <li className="sidebar-submenu-category">
+                        <a href="#shirt" className="sidebar-submenu-title">
+                          <p className="product-name">Shirt</p>
+                          <data value="300" className="stock" title="Available Stock">300</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#jacket" class="sidebar-submenu-title">
-                          <p class="product-name">jacket</p>
-                          <data value="50" class="stock" title="Available Stock">50</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#jacket" className="sidebar-submenu-title">
+                          <p className="product-name">jacket</p>
+                          <data value="50" className="stock" title="Available Stock">50</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#dress" class="sidebar-submenu-title">
-                          <p class="product-name">dress & frock</p>
-                          <data value="87" class="stock" title="Available Stock">87</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#dress" className="sidebar-submenu-title">
+                          <p className="product-name">dress & frock</p>
+                          <data value="87" className="stock" title="Available Stock">87</data>
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="sidebar-menu-category">
-                    <button class="sidebar-accordion-menu" onClick={()=>setGlassesDropDown(!glassesDropDown)}>
-                      <div class="menu-title-flex"><p class="menu-title">Glasses</p></div>
+                  <li className="sidebar-menu-category">
+                    <button className="sidebar-accordion-menu" onClick={()=>setGlassesDropDown(!glassesDropDown)}>
+                      <div className="menu-title-flex"><p className="menu-title">Glasses</p></div>
                       <div>
                           {
                               glassesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
                           }
                       </div>
                     </button>
-                    <ul id="glasses" class={glassesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
-                      <li class="sidebar-submenu-category">
-                        <a href="#sunglasses" class="sidebar-submenu-title">
-                          <p class="product-name">Sunglasses</p>
-                          <data value="50" class="stock" title="Available Stock">50</data>
+                    <ul id="glasses" className={glassesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
+                      <li className="sidebar-submenu-category">
+                        <a href="#sunglasses" className="sidebar-submenu-title">
+                          <p className="product-name">Sunglasses</p>
+                          <data value="50" className="stock" title="Available Stock">50</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#leness" class="sidebar-submenu-title">
-                          <p class="product-name">Lenses</p>
-                          <data value="48" class="stock" title="Available Stock">48</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#leness" className="sidebar-submenu-title">
+                          <p className="product-name">Lenses</p>
+                          <data value="48" className="stock" title="Available Stock">48</data>
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="sidebar-menu-category">
-                    <button class="sidebar-accordion-menu" onClick={()=>setBagDropDown(!bagDropDown)}>
-                      <div class="menu-title-flex"><p class="menu-title">Bags</p></div>
+                  <li className="sidebar-menu-category">
+                    <button className="sidebar-accordion-menu" onClick={()=>setBagDropDown(!bagDropDown)}>
+                      <div className="menu-title-flex"><p className="menu-title">Bags</p></div>
                       <div>
                           {
                               bagDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
                           }
                       </div>
                     </button>
-                    <ul id="bag" class={bagDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"} >
-                      <li class="sidebar-submenu-category">
-                        <a href="#bag" class="sidebar-submenu-title">
-                          <p class="product-name">Shopping Bag</p>
-                          <data value="62" class="stock" title="Available Stock">62</data>
+                    <ul id="bag" className={bagDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"} >
+                      <li className="sidebar-submenu-category">
+                        <a href="#bag" className="sidebar-submenu-title">
+                          <p className="product-name">Shopping Bag</p>
+                          <data value="62" className="stock" title="Available Stock">62</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#backbag" class="sidebar-submenu-title">
-                          <p class="product-name">Gym Backpack</p>
-                          <data value="35" class="stock" title="Available Stock">35</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#backbag" className="sidebar-submenu-title">
+                          <p className="product-name">Gym Backpack</p>
+                          <data value="35" className="stock" title="Available Stock">35</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#purs" class="sidebar-submenu-title">
-                          <p class="product-name">Purse</p>
-                          <data value="80" class="stock" title="Available Stock">80</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#purs" className="sidebar-submenu-title">
+                          <p className="product-name">Purse</p>
+                          <data value="80" className="stock" title="Available Stock">80</data>
                         </a>
                       </li>
-                      <li class="sidebar-submenu-category">
-                        <a href="#h" class="sidebar-submenu-title">
-                          <p class="product-name">Wallet</p>
-                          <data value="75" class="stock" title="Available Stock">75</data>
+                      <li className="sidebar-submenu-category">
+                        <a href="#h" className="sidebar-submenu-title">
+                          <p className="product-name">Wallet</p>
+                          <data value="75" className="stock" title="Available Stock">75</data>
                         </a>
                       </li>
                     </ul>
@@ -152,9 +152,9 @@ function Home() {
             </div>
             {/* - PRODUCT GRID */}
 
-            <div class="product-main">
-              <h2 class="title">New Products</h2>
-              <div class="product-grid">
+            <div className="product-main">
+              <h2 className="title">New Products</h2>
+              <div className="product-grid">
                   {
                     <>
                     <Cart/>

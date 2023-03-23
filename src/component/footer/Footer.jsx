@@ -1,38 +1,42 @@
 import './footer.css';
 import paymentImg from "../../assets/images/payment.png"
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export const Footer = () => {
   return (
     
     <footer>
-        <div class="footer-nav">
-            <div class="container">
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Categories</h2>
+        <div className="footer-nav">
+            <div className="container">
+            <ul className="footer-nav-list">
+                <li className="footer-nav-item">
+                    <h2 className="nav-title">Categories</h2>
                 </li>
-                <li class="footer-nav-item">
-                    <a href="z" class="footer-nav-link">Women</a>
+                <li className="footer-nav-item">
+                    <a href="z" className="footer-nav-link">Women</a>
                 </li>
-                <li class="footer-nav-item">
-                    <a href="z" class="footer-nav-link">Men</a>
+                <li className="footer-nav-item">
+                    <a href="z" className="footer-nav-link">Men</a>
                 </li>
-                <li class="footer-nav-item">
-                    <a href="z" class="footer-nav-link">Accessories</a>
+                <li className="footer-nav-item">
+                    <a href="z" className="footer-nav-link">Accessories</a>
                 </li>
-                <li class="footer-nav-item">
-                    <a href="z" class="footer-nav-link">Bags</a>
+                <li className="footer-nav-item">
+                    <a href="z" className="footer-nav-link">Bags</a>
                 </li>
-                <li class="footer-nav-item">
-                    <a href="z" class="footer-nav-link">Glasses</a>
+                <li className="footer-nav-item">
+                    <a href="z" className="footer-nav-link">Glasses</a>
                 </li>
             </ul>
 
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">About Us</h2>
+            <ul className="footer-nav-list">
+                <li className="footer-nav-item">
+                    <h2 className="nav-title">About Us</h2>
                 </li>
-                <li class="footer-nav-item about-us-content">
+                <li className="footer-nav-item about-us-content">
                     Lorem ipsum dolor sit amet consectetur, 
                     adipisicing elit. Officia architecto
                     dolor sit amet consectetur, 
@@ -41,41 +45,41 @@ export const Footer = () => {
                 </li>
             </ul>
 
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Contact us</h2>
+            <ul className="footer-nav-list">
+                <li className="footer-nav-item">
+                    <h2 className="nav-title">Contact us</h2>
                 </li>
-                <li class="footer-nav-item flex">
-                    <address class="content">ADDRESS : MOROCCO MARRAKECH AIT OURIR 4521</address>
+                <li className="footer-nav-item flex">
+                    <address className="content">ADDRESS : MOROCCO MARRAKECH AIT OURIR 4521</address>
                 </li>
-                <li class="footer-nav-item flex">
-                    <phone class="content">PHONE : 0650402456</phone>
+                <li className="footer-nav-item flex">
+                    <address className="content">PHONE : 0650402456</address>
                 </li>
-                <li class="footer-nav-item flex">
-                    <email class="content">EMAIL : info@gmail.com </email>
+                <li className="footer-nav-item flex">
+                    <address className="content">EMAIL : info@gmail.com </address>
                 </li>
-                <li class="footer-nav-item flex">
-                    <span class="content">HOURS : all week from 9 am to 7 pm</span>
+                <li className="footer-nav-item flex">
+                    <span className="content">HOURS : all week from 9 am to 7 pm</span>
                 </li>
             </ul>
 
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Follow Us</h2>
+            <ul className="footer-nav-list">
+                <li className="footer-nav-item">
+                    <h2 className="nav-title">Follow Us</h2>
                 </li>
                 <li>
-                    <ul class="social-link">
-                        <li class="footer-nav-item">
-                            <a href="fd" class="footer-nav-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <ul className="social-link">
+                        <li className="footer-nav-item">
+                            <a href="fd" className="footer-nav-link"><FacebookRoundedIcon/> </a>
                         </li>
-                        <li class="footer-nav-item">
-                            <a href="fd" class="footer-nav-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <li className="footer-nav-item">
+                            <a href="fd" className="footer-nav-link"><TwitterIcon/> </a>
                         </li>
-                        <li class="footer-nav-item">
-                            <a href="fd" class="footer-nav-link"><ion-icon name="logo-linkedin"></ion-icon></a>
+                        <li className="footer-nav-item">
+                            <a href="fd" className="footer-nav-link"><LinkedInIcon /></a>
                         </li>
-                        <li class="footer-nav-item">
-                            <a href="fd" class="footer-nav-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <li className="footer-nav-item">
+                            <a href="fd" className="footer-nav-link"><InstagramIcon /></a>
                         </li>
                     </ul>
                 </li>
@@ -84,10 +88,10 @@ export const Footer = () => {
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <img src={paymentImg} alt="payment method" class="payment-img" />
-                <p class="copyright">
+        <div className="footer-bottom">
+            <div className="container">
+                <img src={paymentImg} alt="payment method" className="payment-img" />
+                <p className="copyright">
                     Copyright &copy; hamza outmassint | 2022-2023
                 </p>
             </div>
