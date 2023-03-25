@@ -7,7 +7,7 @@ import {useState } from 'react';
 import Cart from '../../component/cart/Cart';
 import { Footer } from '../../component/footer/Footer';
 
-function Home() {
+function Home({Alldata}) {
   const [clothesDropDown , setClothesDropDown]= useState(null);
   const [glassesDropDown , setGlassesDropDown]= useState(null);
   const [bagDropDown , setBagDropDown]= useState(null);
@@ -155,18 +155,13 @@ function Home() {
             <div className="product-main">
               <h2 className="title">New Products</h2>
               <div className="product-grid">
+                <>
                   {
-                    <>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    <Cart/>
-                    </>
-                  }
+                    Alldata.map(ele=>(
+                      <Cart details={ele} key={ele.product_id}/>
+                      )) 
+                    }
+                </>
               </div>
             </div>
         </div>
