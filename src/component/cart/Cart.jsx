@@ -1,12 +1,13 @@
 import EnhancedEncryptionOutlinedIcon from '@mui/icons-material/EnhancedEncryptionOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-
+import {FormatPrice} from "../Context/ContextFile"
+	
 const Cart = ({details}) => {
   return (
     <div className="showcase">
         <div className="showcase-banner">
-        <img src={require('../../assets/images/products/jacket-3.jpg')} alt="Mens Winter Leathers Jackets" width="300" className="product-img default"/>
+        <img src={require(`../../assets/images/products/${details.product_image}`)} alt="Mens Winter Leathers Jackets" width="300" className="product-img default"/>
         {
           details.status==="in stock" ? null : <p className="showcase-badge angle black">sale</p>
         }
@@ -27,8 +28,8 @@ const Cart = ({details}) => {
             <ion-icon name="star-outline"></ion-icon>
         </div>
         <div className="price-box">
-            <p className="price">${details.product_price}</p>
-            <del>${details.old_price}</del>
+            <p className="price">{FormatPrice(details.product_price)}</p> 
+            <del>{FormatPrice(details.old_price)}</del>
         </div>
         </div>
     </div>

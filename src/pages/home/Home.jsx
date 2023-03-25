@@ -1,13 +1,15 @@
-import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
+import {AllProductsContext} from "../../component/Context/ContextFile"
 import mainBanner from "../../assets/images/banner-7.jpg"
 import therdBanner from "../../assets/images/banner-6.jpg"
-import "./home.css"
-import {useState } from 'react';
-import Cart from '../../component/cart/Cart';
 import { Footer } from '../../component/footer/Footer';
+import {useState , useContext } from 'react';
+import Cart from '../../component/cart/Cart';
+import "./home.css"
 
-function Home({Alldata}) {
+function Home() {
+  const AllProducts = useContext(AllProductsContext)
   const [clothesDropDown , setClothesDropDown]= useState(null);
   const [glassesDropDown , setGlassesDropDown]= useState(null);
   const [bagDropDown , setBagDropDown]= useState(null);
@@ -157,7 +159,7 @@ function Home({Alldata}) {
               <div className="product-grid">
                 <>
                   {
-                    Alldata.map(ele=>(
+                    AllProducts.map(ele=>(
                       <Cart details={ele} key={ele.product_id}/>
                       )) 
                     }

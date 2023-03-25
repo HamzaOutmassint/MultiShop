@@ -421,6 +421,29 @@
    * responsive larger than 768px screen
    */
 
+@media (max-width: 768px) {
+    /* side bar */
+    
+    .sidebar {
+        background: var(--white);
+        position: fixed;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        width: 100%;
+        max-width: 320px;
+        padding: 30px;
+        overflow-y: scroll;
+        -ms-scroll-chaining: none;
+            overscroll-behavior: contain;
+        visibility: hidden;
+        -webkit-transition: 0.5s ease;
+        -o-transition: 0.5s ease;
+        transition: 0.5s ease;
+        z-index: 20;
+      }
+}
+
 @media (min-width: 768px) {
 
     /**

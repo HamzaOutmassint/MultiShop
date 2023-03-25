@@ -1,0 +1,23 @@
+.container-content {
+  background-color: #f7f8fa;
+}
+
+.breadcrumbs {
+  padding: 0 35px !important;
+}
+.breadcrumbs li {
+  text-decoration: none;
+  font-size: 17px;
+}
+.breadcrumbs li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: grey;
+  font-weight: 300;
+  transition: 0.1s ease;
+  font-family: 'Poppins';
+}
+.breadcrumbs li a:hover {
+  text-decoration: underline;
+  color: #3471ff;
+}/*# sourceMappingURL=breadcrumbs.css.map */

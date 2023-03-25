@@ -114,9 +114,9 @@ function Navbar() {
                 </div>
                 <div className="mainMenu">
                     <Link to="/">home <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/">men <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/">women <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/">accessories <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/men">men <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/women">women <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/accessories">accessories <KeyboardArrowRightRoundedIcon /></Link>
                 </div>
                 <div className="menu-bottom">
                     <ul className="menu-category-list">
@@ -136,10 +136,10 @@ function Navbar() {
                         </li>
                     </ul>
                     <ul className="menu-social-container">
-                        <li><a href="/" className="social-link"><FacebookRoundedIcon sx={{ fontSize: 25 }}/></a></li>
-                        <li><a href="/" className="social-link"><TwitterIcon sx={{ fontSize: 25 }}/></a></li>
-                        <li><a href="/" className="social-link"><InstagramIcon sx={{ fontSize: 25 }}/></a></li>
-                        <li><a href="/" className="social-link"><LinkedInIcon sx={{ fontSize: 25 }}/></a></li>
+                        <li><a href="#f" className="social-link"><FacebookRoundedIcon sx={{ fontSize: 25 }}/></a></li>
+                        <li><a href="#f" className="social-link"><TwitterIcon sx={{ fontSize: 25 }}/></a></li>
+                        <li><a href="#g" className="social-link"><InstagramIcon sx={{ fontSize: 25 }}/></a></li>
+                        <li><a href="#fg" className="social-link"><LinkedInIcon sx={{ fontSize: 25 }}/></a></li>
                     </ul>
                 </div>
             </Box>
