@@ -3,7 +3,6 @@ import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRound
 import {AllProductsContext} from "../../component/Context/ContextFile"
 import mainBanner from "../../assets/images/banner-7.jpg"
 import therdBanner from "../../assets/images/banner-6.jpg"
-import { Footer } from '../../component/footer/Footer';
 import {useState , useContext } from 'react';
 import Cart from '../../component/cart/Cart';
 import "./home.css"
@@ -169,7 +168,6 @@ function Home() {
         </div>
       </div>
     </main>
-    <Footer />
   </>
   )
 }

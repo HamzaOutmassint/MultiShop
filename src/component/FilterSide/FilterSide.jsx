@@ -17,7 +17,7 @@ function FilterSide({ProductBySize,ProductByType,brands,handlProduct,Data,filter
         Data={Data}
         id="s"
         />
-
+{/* 
         <FilterProduct 
         handlProduct={handlProduct} 
         title="size" 
@@ -40,7 +40,7 @@ function FilterSide({ProductBySize,ProductByType,brands,handlProduct,Data,filter
         filterByPrice={filterByPrice}
         Data={Data}
         id="j"
-        />
+        /> */}
 
     </nav>
   )

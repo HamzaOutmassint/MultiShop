@@ -2,6 +2,7 @@ import {AllProductsContext} from "./component/Context/ContextFile";
 import { BrowserRouter ,Routes ,Route  } from "react-router-dom";
 import { CategoryPage } from "./pages/categoryPage/CategoryPage";
 import Navbar from "./component/navbar/Navbar";
+import Footer from "./component/footer/Footer";
 import {useState , useEffect} from "react"
 import Home from "./pages/home/Home";
 import axios from "axios";
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
         </Routes>
       </AllProductsContext.Provider>
+      <Footer />
     </BrowserRouter>
     </>
     
