@@ -1,0 +1,200 @@
+/* .menPage {
+  font-family: Poppins, sans-serif;
+} */
+.menPage .men-products {
+  display: flex;
+  /* padding: 0 35px !important; */
+}
+.menPage .men-products .section-right {
+  flex: 4;
+  margin-left: 15px;
+}
+.menPage .men-products .section-right .title {
+  margin: 10px 0 0 0px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dcd7d7;
+  padding-bottom: 10px;
+}
+.menPage .men-products .section-right .title h6 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500;
+}
+.menPage .men-products .section-right .title .nb-pro {
+  font-size: 15px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+.menPage .men-products .section-right .title .nb-pro span {
+  margin-right: 7px;
+}
+.menPage .men-products .section-right .title .Product-style > * {
+  cursor: pointer;
+  color: lightgray;
+  transition: 0.1s ease;
+}
+.menPage .men-products .section-right .title .Product-style {
+  display: flex;
+  align-items: center;
+}
+.menPage .men-products .section-right .title .Product-style .Active {
+  color: black;
+}
+.menPage .men-products .section-right .title .Product-style span {
+  font-size: 15px;
+  margin-right: 10px;
+  color: black;
+  font-family: Poppins, sans-serif;
+}
+.menPage .men-products .section-right .title .Product-style .app-icon:hover, .menPage .men-products .section-right .title .Product-style .storage-icon:hover {
+  color: #000;
+}
+.menPage .men-products .section-right .products {
+  margin: 20px 0px 0 0px;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+/* .menPage .men-products .section-right .products div {
+  margin: 10px;
+  background-color: #fff;
+  position: relative;
+} */
+.menPage .men-products .section-right .products .AddwishlistSpan {
+  width: 43px;
+  height: 43px;
+  background-color: #3471ff;
+  position: absolute;
+  border-radius: 50%;
+  top: 13px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  z-index: 99 !important;
+  opacity: 0.5;
+}
+.menPage .men-products .section-right .products .AddwishlistSpan i {
+  font-size: 19px;
+  margin-top: 6px;
+  color: #fff;
+  z-index: -1;
+}
+.menPage .men-products .section-right .products .AddwishlistSpan:hover {
+  background-color: #3471ff;
+  opacity: 1;
+}
+.menPage .men-products .section-right .products .AddwishlistSpan:hover i {
+  color: #fff;
+}
+.menPage .men-products .section-right .products .active {
+  opacity: 1;
+  cursor: no-drop;
+}
+.menPage .men-products .section-right .products .title {
+  margin: 0px;
+  font-weight: 600;
+  font-size: 22px !important;
+  color: #000;
+}
+.menPage .men-products .section-right .products .empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.menPage .men-products .section-right .products .empty span {
+  font-size: 36px;
+  color: #aea8a8;
+  font-style: italic;
+}
+.menPage .men-products .section-right .products .noMoreItems {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17px 0;
+  cursor: default;
+  background-color: transparent;
+}
+.menPage .men-products .section-right .products .noMoreItems span {
+  font-size: 15px;
+  color: #999999;
+  border: 1px solid;
+  border-radius: 7px;
+  padding: 10px;
+}/*# sourceMappingURL=categorie.css.map */
+
+/**-------------
+  * RESPONSIVE *
+---------------**/
+@media (max-width: 570px) {
+  .menPage .men-products .section-right .title h6,
+  .menPage .men-products .section-right .title .Product-style{
+    display: none;
+  }
+}
+@media (min-width: 570px) {
+  /**
+    * #PRODUCT 
+    */
+
+  .menPage .men-products .section-right .products {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .menPage .men-products .section-left{display: none;}
+}
+@media (min-width: 768px) {
+  .menPage .men-products .section-left{display: none;}
+  
+  /**
+    * #PRODUCT 
+    */
+
+  .menPage .men-products .section-right .products {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .menPage .men-products .section-left{display: block;}
+  
+    /**
+     * #PRODUCT 
+     */
+
+    .menPage .men-products .section-right .products {
+        -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+  /**
+   * #PRODUCT
+   */
+
+  .menPage .men-products .section-right .products  {
+      -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(3, 1fr);
+  }
+
+}

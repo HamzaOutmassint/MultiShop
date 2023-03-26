@@ -1,0 +1,202 @@
+.section-left {
+  position: sticky;
+  top: 75px;
+  width: 248px !important;
+  height: 70vh;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.section-left .filter-section {
+  padding: 10px;
+}
+.section-left .filter-section:first-child {
+  border-radius: 5px 5px 0 0;
+  border: 1px solid rgba(211, 211, 211, 0.7803921569);
+  border-bottom: none;
+  background-color: #fff;
+}
+.section-left .filter-section:nth-child(2) {
+  border: 1px solid rgba(211, 211, 211, 0.7803921569);
+  background-color: #fff;
+}
+.section-left .filter-section:nth-child(3) {
+  border: 1px solid rgba(211, 211, 211, 0.7803921569);
+  border-top: none;
+  background-color: #fff;
+}
+.section-left .filter-section:last-child {
+  border-radius: 0px 0px 5px 5px;
+  border: 1px solid rgba(211, 211, 211, 0.7803921569);
+  border-top: none;
+  background-color: #fff;
+}
+.section-left .filter-section .title h5 {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #191919;
+  font-family: "Hind";
+}
+.section-left .filter-section .price {
+  display: flex;
+  margin-bottom: 14px;
+  align-items: end;
+}
+.section-left .filter-section .price span {
+  font-size: 17px;
+  font-weight: 300;
+}
+.section-left .filter-section .price input {
+  display: block;
+  width: 90%;
+  line-height: 1.5;
+  background: #f7f8fa;
+  font-size: 16px;
+  border: 1px solid #f7f8fa;
+  padding: 11px 12px 10px 15px;
+  font-family: "Hind", sans-serif;
+  box-shadow: none;
+  outline: none;
+  color: #777777;
+  border-radius: 6px;
+  height: 40px;
+  align-self: end;
+}
+.section-left .filter-section .price input:focus {
+  background: #fff;
+  border: 1px solid #3471ff;
+}
+.section-left .filter-section .price input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.section-left .filter-section .price input:focus::placeholder {
+  opacity: 0;
+}
+.section-left .filter-section .price input:hover {
+  background: #fff;
+  border: 1px solid #3471ff;
+}
+.section-left .filter-section .price input[type=number]::-webkit-inner-spin-button,
+.section-left .filter-section .price input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.section-left .filter-section button {
+  text-transform: none;
+  width: 100%;
+}
+
+.product-type,
+.product-size,
+.product-brand {
+  display: flex;
+  flex-direction: column;
+}
+.product-type .title,
+.product-size .title,
+.product-brand .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgba(158, 162, 169, 0.9568627451);
+  cursor: pointer;
+  margin-left: 3px;
+}
+.product-type .title p,
+.product-size .title p,
+.product-brand .title p {
+  font-size: 17px;
+  font-weight: 600;
+}
+.product-type .title .plus,
+.product-size .title .plus,
+.product-brand .title .plus {
+  margin-top: 5px;
+}
+.product-type .title .active,
+.product-size .title .active,
+.product-brand .title .active {
+  display: none;
+}
+
+.negative {
+  height: 0 !important;
+  z-index: -1;
+}
+.negative ul {
+  opacity: 0 !important;
+}
+
+.colorTitle {
+  color: gray;
+}
+
+.wear-type {
+  display: flex;
+  justify-content: start;
+  transition: 0.5s ease;
+  height: 235px;
+}
+.wear-type ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  transition: 0.2s ease-in;
+  width: 100%;
+}
+.wear-type ul a {
+  width: 100%;
+  padding: 8px 2px 8px 0px;
+  border-radius: 5px;
+  color: #000;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  letter-spacing: 0.8px;
+  font-weight: 100 !important;
+  font-family: "Hind", sans-serif;
+}
+.wear-type ul a:hover {
+  color: #3471ff;
+  background-color: rgba(227, 240, 255, 0.8823529412);
+}
+.wear-type ul a li {
+  font-weight: 300 !important;
+}
+.wear-type ul a li::first-letter {
+  text-transform: capitalize;
+}
+
+.wear-size {
+  display: flex;
+  justify-content: start;
+  transition: 0.9s ease;
+  margin-bottom: 10px;
+}
+.wear-size ul {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+.wear-size ul li {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 2px 0;
+  letter-spacing: 0.8px;
+  color: gray;
+  padding: 5px 10px;
+  background-color: rgba(241, 241, 241, 0.5215686275);
+  border-radius: 5px;
+  font-weight: 300;
+}
+.wear-size ul li:hover {
+  background-color: #3471ff;
+  color: #fff;
+}
+
+.display {
+  display: none;
+}/*# sourceMappingURL=filterSide.css.map */

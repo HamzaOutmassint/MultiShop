@@ -13,13 +13,13 @@ export const AddToWishlistContext = createContext(null);
 export const RemoveFromWishlistContext = createContext(null);
 
 // create the context men data 
-export const MenProductsContext = createContext(null);
+// export const MenProductsContext = createContext(null);
 
-// create the context women data 
-export const WomenProductsContext = createContext(null);
+// // create the context women data 
+// export const WomenProductsContext = createContext(null);
 
-// create the context Accessories data 
-export const AccessoriesProductsContext = createContext(null);
+// // create the context Accessories data 
+// export const AccessoriesProductsContext = createContext(null);
 
 // create the context All data 
 export const AllProductsContext = createContext(null);
