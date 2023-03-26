@@ -39,8 +39,8 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
       <div className="men-products container mt-4">
         <FilterSide
           handlProduct={handlProduct} 
-          ProductByType={filterByType} 
-          ProductBySize={filterBySize}
+          filterByType={filterByType} 
+          filterBySize={filterBySize}
           brands={brands}
           filterProducts={filterProducts}
           filterByPrice={filterByPrice}

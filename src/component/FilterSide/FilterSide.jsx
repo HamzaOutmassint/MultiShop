@@ -1,12 +1,94 @@
-import FilterProduct from "./FilterProduct"
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import { useState } from "react";
 import './filterSide.css'
 
-function FilterSide({ProductBySize,ProductByType,brands,handlProduct,Data,filterProducts,filterByPrice}) {
-
+function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterProducts,filterByPrice}) {
+  const [clothesDropDown , setClothesDropDown]= useState(null);
+  const [glassesDropDown , setGlassesDropDown]= useState(null);
+  var min = document.getElementById("min")
+  var max = document.getElementById("max")
 
   return (
     <nav className="section-left">
-      <FilterProduct 
+      <div className="sidebar  has-scrollbar">
+        <div className="sidebar-category">
+          <ul className="sidebar-menu-category-list">
+            <li className="sidebar-menu-category">
+              <button className="sidebar-accordion-menu" onClick={()=>setClothesDropDown(!clothesDropDown)}>
+                <div className="menu-title-flex"> <p className="menu-title">Department</p></div>
+                <div>
+                    {
+                        clothesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
+                    }
+                </div>
+              </button>
+              <ul id="clothes" className={clothesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
+                <div className='wear-type'>
+                  {
+                    filterByType.map(ele=>(
+                      <Link to={`?department =${ele}`}>
+                        <li>
+                            <p>{ele}</p>
+                        </li>
+                      </Link>
+                    ))
+                  }
+                </div>
+              </ul>
+            </li>
+            <li className="sidebar-menu-category">
+              <button className="sidebar-accordion-menu" onClick={()=>setGlassesDropDown(!glassesDropDown)}>
+                <div className="menu-title-flex"><p className="menu-title">Size</p></div>
+                <div>
+                    {
+                        glassesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
+                    }
+                </div>
+              </button>
+              <ul id="glasses" className={glassesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
+                <div className='wear-size'>
+                {
+                  filterBySize.map(ele=>(
+                    <Link to={`?size =${ele}`}>
+                      <li>
+                          <p>{ele}</p>
+                      </li>
+                    </Link>
+                  ))
+                }
+                </div>
+              </ul>
+            </li>
+            <li className="sidebar-menu-category">
+              <div className="price">
+                <div>
+                  <span>min</span>
+                  <input type="number" placeholder="$0.00" id="min" required />
+                </div>
+                <span style={{ marginBottom: "6px"}}>-</span>
+                <div style={{display: "flex" , flexDirection: "column"}}>
+                  <span style={{marginLeft: "14px"}}>max</span>
+                  <input type="number" placeholder="$0.00" id="max" required />
+                </div>
+              </div>
+              <Button variant="outlined" size="small" onClick={(e)=>{if(min.value==="" || max.value===""){e.preventDefault()}else{filterByPrice(min.value,max.value);min.value="";max.value=""}}}>
+                Apply
+              </Button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+    </nav>
+  )
+}
+
+export default FilterSide
+
+/* <FilterProduct 
         handlProduct={handlProduct} 
         title="department" 
         mainClass="product-type"
@@ -16,7 +98,7 @@ function FilterSide({ProductBySize,ProductByType,brands,handlProduct,Data,filter
         filterProducts={filterProducts}
         Data={Data}
         id="s"
-        />
+        /> *
 {/* 
         <FilterProduct 
         handlProduct={handlProduct} 
@@ -40,10 +122,4 @@ function FilterSide({ProductBySize,ProductByType,brands,handlProduct,Data,filter
         filterByPrice={filterByPrice}
         Data={Data}
         id="j"
-        /> */}
-
-    </nav>
-  )
-}
-
-export default FilterSide
+        /> */

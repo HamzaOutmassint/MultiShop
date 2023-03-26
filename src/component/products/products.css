@@ -9,6 +9,9 @@
   flex: 4;
   margin-left: 15px;
 }
+.menPage .men-products .section-left {
+  flex: 1.5;
+}
 .menPage .men-products .section-right .title {
   margin: 10px 0 0 0px;
   display: flex;

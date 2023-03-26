@@ -38,16 +38,16 @@
   color: #191919;
   font-family: "Hind";
 }
-.section-left .filter-section .price {
+.price {
   display: flex;
   margin-bottom: 14px;
   align-items: end;
 }
-.section-left .filter-section .price span {
+.price span {
   font-size: 17px;
   font-weight: 300;
 }
-.section-left .filter-section .price input {
+.price input {
   display: block;
   width: 90%;
   line-height: 1.5;
@@ -63,26 +63,26 @@
   height: 40px;
   align-self: end;
 }
-.section-left .filter-section .price input:focus {
+.price input:focus {
   background: #fff;
   border: 1px solid #3471ff;
 }
-.section-left .filter-section .price input:focus::-moz-placeholder {
+.price input:focus::-moz-placeholder {
   opacity: 0;
 }
-.section-left .filter-section .price input:focus::placeholder {
+.price input:focus::placeholder {
   opacity: 0;
 }
-.section-left .filter-section .price input:hover {
+.price input:hover {
   background: #fff;
   border: 1px solid #3471ff;
 }
-.section-left .filter-section .price input[type=number]::-webkit-inner-spin-button,
-.section-left .filter-section .price input[type=number]::-webkit-outer-spin-button {
+.price input[type=number]::-webkit-inner-spin-button,
+.price input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.section-left .filter-section button {
+.price ~ button {
   text-transform: none;
   width: 100%;
 }
@@ -134,53 +134,38 @@
 
 .wear-type {
   display: flex;
+  flex-direction: column;
   justify-content: start;
   transition: 0.5s ease;
-  height: 235px;
 }
-.wear-type ul {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  transition: 0.2s ease-in;
+
+.wear-type li {
   width: 100%;
-}
-.wear-type ul a {
-  width: 100%;
-  padding: 8px 2px 8px 0px;
+  padding: 8px 2px 8px 8px;
   border-radius: 5px;
   color: #000;
   display: flex;
   justify-content: start;
   align-items: flex-start;
   letter-spacing: 0.8px;
-  font-weight: 100 !important;
-  font-family: "Hind", sans-serif;
+  font-weight: 400 !important;
+  font-size: var(--fs-7);
+  text-transform: capitalize;
 }
-.wear-type ul a:hover {
+.wear-type li:hover {
   color: #3471ff;
   background-color: rgba(227, 240, 255, 0.8823529412);
 }
-.wear-type ul a li {
-  font-weight: 300 !important;
-}
-.wear-type ul a li::first-letter {
-  text-transform: capitalize;
-}
+
 
 .wear-size {
   display: flex;
   justify-content: start;
   transition: 0.9s ease;
   margin-bottom: 10px;
-}
-.wear-size ul {
-  display: flex;
-  align-items: start;
   justify-content: space-between;
-  width: 100%;
 }
-.wear-size ul li {
+.wear-size li {
   display: flex;
   justify-content: start;
   align-items: flex-start;
@@ -192,7 +177,7 @@
   border-radius: 5px;
   font-weight: 300;
 }
-.wear-size ul li:hover {
+.wear-size li:hover {
   background-color: #3471ff;
   color: #fff;
 }
