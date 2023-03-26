@@ -85,6 +85,7 @@
 .price ~ button {
   text-transform: none;
   width: 100%;
+  font-size: 18px;
 }
 
 .product-type,
