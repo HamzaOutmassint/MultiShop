@@ -98,6 +98,8 @@
   font-weight: 400 !important;
   font-size: var(--fs-7);
   text-transform: capitalize;
+  transition: all 0.2s linear;
+
 }
 .wear-type li:hover {
   color: #3471ff;
@@ -123,6 +125,7 @@
   background-color: rgba(241, 241, 241, 0.5215686275);
   border-radius: 5px;
   font-weight: 300;
+  transition: all 0.2s linear;
 }
 .wear-size li:hover {
   background-color: #3471ff;

@@ -1,3 +1,4 @@
+import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import StorageIcon from '@mui/icons-material/Storage';
 // import FilterSide from "../FilterSide/FilterSide"
 import FilterSide from '../FilterSide/FilterSide';
@@ -48,6 +49,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
         />
         <div className="section-right">
           <div className="title">
+            <button className='filter-title nb-pro'><FilterListRoundedIcon style={{"fontSize":"24px" , "marginRight":"5px"}}/> <span>Filter</span></button>
             <span className="nb-pro"> <span> {count === 0 ? productsData.length : data.length}</span> Products</span>
             <h6>{page}</h6>
             <div className="Product-style">

@@ -162,9 +162,20 @@
 }
 @media (max-width: 768px) {
   .menPage .men-products .section-left{display: none;}
+  .menPage .men-products .section-right .title h6{
+    display: none;
+  }
+  .menPage .men-products .section-right .title .filter-title{
+    display: flex;
+  }
+  .menPage .men-products .section-right .title .filter-title:hover{color: #3471ff;}
+}
+@media (min-width: 769px) {
+  .menPage .men-products .section-right .title .filter-title{display: none;}
 }
 @media (min-width: 768px) {
   .menPage .men-products .section-left{display: none;}
+  
   
   /**
     * #PRODUCT 
