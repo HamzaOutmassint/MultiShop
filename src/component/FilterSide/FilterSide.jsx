@@ -1,5 +1,6 @@
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
+import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -13,6 +14,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
 
   return (
     <nav className="section-left">
+      <div className='filter-title'><FilterListRoundedIcon/> <span>Filter by :</span></div>
       <div className="sidebar  has-scrollbar">
         <div className="sidebar-category">
           <ul className="sidebar-menu-category-list">
@@ -29,7 +31,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
                 <div className='wear-type'>
                   {
                     filterByType.map(ele=>(
-                      <Link to={`?department =${ele}`}>
+                      <Link to={`?department =${ele}`} key={ele}>
                         <li>
                             <p>{ele}</p>
                         </li>
@@ -52,7 +54,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
                 <div className='wear-size'>
                 {
                   filterBySize.map(ele=>(
-                    <Link to={`?size =${ele}`}>
+                    <Link to={`?size =${ele}`} key={ele}>
                       <li>
                           <p>{ele}</p>
                       </li>
