@@ -42,6 +42,8 @@
   display: flex;
   margin-bottom: 14px;
   align-items: end;
+  padding-top: 13px;
+  border-top: 1px solid var(--cultured);
 }
 .price span {
   font-size: 17px;

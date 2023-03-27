@@ -1,9 +1,7 @@
-/* .menPage {
-  font-family: Poppins, sans-serif;
-} */
+
 .menPage .men-products {
   display: flex;
-  /* padding: 0 35px !important; */
+  margin-bottom: 50px;
 }
 .menPage .men-products .section-right {
   flex: 4;

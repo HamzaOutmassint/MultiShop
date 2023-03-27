@@ -6,8 +6,8 @@ import { useState } from "react";
 import './filterSide.css'
 
 function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterProducts,filterByPrice}) {
-  const [clothesDropDown , setClothesDropDown]= useState(null);
-  const [glassesDropDown , setGlassesDropDown]= useState(null);
+  const [clothesDropDown , setClothesDropDown]= useState(true);
+  const [glassesDropDown , setGlassesDropDown]= useState(true);
   var min = document.getElementById("min")
   var max = document.getElementById("max")
 
@@ -63,6 +63,9 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
               </ul>
             </li>
             <li className="sidebar-menu-category">
+              <button className="sidebar-accordion-menu">
+                <div className="menu-title-flex"><p className="menu-title">Prices</p></div>
+              </button>
               <div className="price">
                 <div>
                   <span>min</span>
