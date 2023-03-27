@@ -8,11 +8,6 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
-import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
@@ -20,6 +15,11 @@ import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRound
 import {Link} from "react-router-dom"
 import { Drawer, Box } from '@mui/material'
 import {useState , useEffect} from "react"
+import shoppingCratIcon from "../../assets/images/icons/shopping-bag.png";
+import homeIcon from "../../assets/images/icons/home.png";
+import heartIcon from "../../assets/images/icons/heart (1).png";
+import dashboardIcon from "../../assets/images/icons/dashboard.png";
+import hamburgerIcon from "../../assets/images/icons/hamburger.png";
 
 function Navbar() {
   /*---------- this state for the sidebar in -------------*/
@@ -99,11 +99,11 @@ function Navbar() {
         {/*-------------------start the navbar of phone and ipads-------------*/}
 
         <div className="mobile-bottom-navigation">
-            <button className="action-btn"  onClick={()=>setOpen(true)}><MenuRoundedIcon  sx={{ fontSize: 40 }} /></button>
-            <button className="action-btn"><LocalMallRoundedIcon/><span className="count">0</span></button>
-            <button className="action-btn"><HomeRoundedIcon  sx={{ fontSize: 40 }}/></button>
-            <button className="action-btn"><FavoriteRoundedIcon/><span className="count">0</span></button>
-            <button className="action-btn"  onClick={()=>setOpen2(true)}><GridViewRoundedIcon/></button>
+            <button className="action-btn"  onClick={()=>setOpen(true)}><img src={hamburgerIcon} alt="hamburgerIcon" width={40}/></button>
+            <button className="action-btn"><img src={shoppingCratIcon} alt="shoppingCartIcon" width={35}/><span className="count">0</span></button>
+            <button className="action-btn"><img src={homeIcon} alt="homeIcon" width={35}/></button>
+            <button className="action-btn"><img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span></button>
+            <button className="action-btn"  onClick={()=>setOpen2(true)}><img src={dashboardIcon} alt="dashboardIcon" width={35}/></button>
         </div>
 
         <Drawer variant='temporary' open={open} onClose={() => setOpen(false)}>
