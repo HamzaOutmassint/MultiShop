@@ -159,7 +159,7 @@ function Home() {
                 <>
                   {
                     AllProducts.map(ele=>(
-                      <Cart details={ele} key={ele.product_id}/>
+                      <Cart details={ele} key={ele.product_id} style={`firstStyle`} />
                       )) 
                     }
                 </>
