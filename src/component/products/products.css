@@ -58,23 +58,16 @@
 .menPage .men-products .section-right .title .Product-style .app-icon:hover, .menPage .men-products .section-right .title .Product-style .storage-icon:hover {
   color: #000;
 }
-.menPage .men-products .section-right .products {
+.menPage .men-products .section-right .productsInFirstStyle,
+.menPage .men-products .section-right .productsInSecondStyle {
   margin: 20px 0px 0 0px;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; */
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   gap: 25px;
 }
-/* .menPage .men-products .section-right .products div {
-  margin: 10px;
-  background-color: #fff;
-  position: relative;
-} */
-.menPage .men-products .section-right .products .AddwishlistSpan {
+.menPage .men-products .section-right .productsInFirstStyle .AddwishlistSpan {
   width: 43px;
   height: 43px;
   background-color: #3471ff;
@@ -89,42 +82,42 @@
   z-index: 99 !important;
   opacity: 0.5;
 }
-.menPage .men-products .section-right .products .AddwishlistSpan i {
+.menPage .men-products .section-right .productsInFirstStyle .AddwishlistSpan i {
   font-size: 19px;
   margin-top: 6px;
   color: #fff;
   z-index: -1;
 }
-.menPage .men-products .section-right .products .AddwishlistSpan:hover {
+.menPage .men-products .section-right .productsInFirstStyle .AddwishlistSpan:hover {
   background-color: #3471ff;
   opacity: 1;
 }
-.menPage .men-products .section-right .products .AddwishlistSpan:hover i {
+.menPage .men-products .section-right .productsInFirstStyle .AddwishlistSpan:hover i {
   color: #fff;
 }
-.menPage .men-products .section-right .products .active {
+.menPage .men-products .section-right .productsInFirstStyle .active {
   opacity: 1;
   cursor: no-drop;
 }
-.menPage .men-products .section-right .products .title {
+.menPage .men-products .section-right .productsInFirstStyle .title {
   margin: 0px;
   font-weight: 600;
   font-size: 22px !important;
   color: #000;
 }
-.menPage .men-products .section-right .products .empty {
+.menPage .men-products .section-right .productsInFirstStyle .empty {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 400px;
 }
-.menPage .men-products .section-right .products .empty span {
+.menPage .men-products .section-right .productsInFirstStyle .empty span {
   font-size: 36px;
   color: #aea8a8;
   font-style: italic;
 }
-.menPage .men-products .section-right .products .noMoreItems {
+.menPage .men-products .section-right .productsInFirstStyle .noMoreItems {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -133,7 +126,7 @@
   cursor: default;
   background-color: transparent;
 }
-.menPage .men-products .section-right .products .noMoreItems span {
+.menPage .men-products .section-right .productsInFirstStyle .noMoreItems span {
   font-size: 15px;
   color: #999999;
   border: 1px solid;
@@ -155,11 +148,12 @@
     * #PRODUCT 
     */
 
-  .menPage .men-products .section-right .products {
+  .menPage .men-products .section-right .productsInFirstStyle {
     -ms-grid-columns: (1fr)[3];
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 768px) {
   .menPage .men-products .section-left{display: none;}
   .menPage .men-products .section-right .title h6{
@@ -169,10 +163,30 @@
     display: flex;
   }
   .menPage .men-products .section-right .title .filter-title:hover{color: #3471ff;}
+
+   /* sidebar */
+    
+  .sidebar {
+    background: var(--white) !important;
+    top: 0 !important;
+    left: -100% !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    overflow-y: scroll !important;
+    overscroll-behavior: contain !important;
+    transition: 0.5s ease !important;
+    z-index: 20 !important;
+    position: inherit !important;
+    padding: 0 !important;
+    visibility: visible !important;
+  }
 }
+
 @media (min-width: 769px) {
   .menPage .men-products .section-right .title .filter-title{display: none;}
 }
+
 @media (min-width: 768px) {
   .menPage .men-products .section-left{display: none;}
   
@@ -181,7 +195,7 @@
     * #PRODUCT 
     */
 
-  .menPage .men-products .section-right .products {
+  .menPage .men-products .section-right .productsInFirstStyle {
     -ms-grid-columns: (1fr)[3];
     grid-template-columns: repeat(2, 1fr);
   }
@@ -193,7 +207,7 @@
      * #PRODUCT 
      */
 
-    .menPage .men-products .section-right .products {
+    .menPage .men-products .section-right .productsInFirstStyle {
         -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(2, 1fr);
     }
@@ -204,7 +218,7 @@
    * #PRODUCT
    */
 
-  .menPage .men-products .section-right .products  {
+  .menPage .men-products .section-right .productsInFirstStyle  {
       -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(3, 1fr);
   }

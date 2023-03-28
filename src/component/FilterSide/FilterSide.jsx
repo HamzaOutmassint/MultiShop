@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import './filterSide.css'
 
-function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterProducts,filterByPrice}) {
+function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterProducts,filterByPrice,newClassForSideBar}) {
   const [clothesDropDown , setClothesDropDown]= useState(true);
   const [glassesDropDown , setGlassesDropDown]= useState(true);
   var min = document.getElementById("min")
@@ -15,7 +15,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
   return (
     <nav className="section-left">
       <div className='filter-title'><FilterListRoundedIcon/> <span>Filter by :</span></div>
-      <div className="sidebar  has-scrollbar">
+      <div className={`sidebar  has-scrollbar ${newClassForSideBar}`}>
         <div className="sidebar-category">
           <ul className="sidebar-menu-category-list">
             <li className="sidebar-menu-category">

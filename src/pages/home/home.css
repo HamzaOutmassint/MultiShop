@@ -435,7 +435,7 @@
         padding: 30px;
         overflow-y: scroll;
         -ms-scroll-chaining: none;
-            overscroll-behavior: contain;
+        overscroll-behavior: contain;
         visibility: hidden;
         -webkit-transition: 0.5s ease;
         -o-transition: 0.5s ease;

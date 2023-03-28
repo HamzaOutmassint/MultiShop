@@ -10,8 +10,6 @@ export const CategoryPage = ({get}) => {
     const [MenProducts,setMenProducts] = useState([])
     const [WomenProducts,setWomenProducts] = useState([])
     const [AccessoriesProducts,setAccessoriesProducts] = useState([])
-    const [style,setStyle] = useState("firstStyle")
-
 
     /*-------------------------------------------get data from database----------------------------------- */
 
@@ -42,21 +40,6 @@ export const CategoryPage = ({get}) => {
 
     /*-------------------------------------------(end)get data from database----------------------------------- */
 
-
-    /*-------------------------this functions it's for switch between firstStyle and secondStyle--------------------*/
-    const handlFirstProductStyle = ()=>{
-        document.querySelector(".Product-style .app-icon").setAttribute("class","MuiSvgIcon-root MuiSvgIcon-fontSizeMedium app-icon Active css-bq05nv-MuiSvgIcon-root")
-        document.querySelector(".Product-style .storage-icon").setAttribute("class",".MuiSvgIcon-root MuiSvgIcon-fontSizeMedium storage-icon css-bq05nv-MuiSvgIcon-root")
-        setStyle("firstStyle")
-    }
-    const handlSecondProductStyle = ()=>{
-        document.querySelector(".Product-style .storage-icon").setAttribute("class",".MuiSvgIcon-root MuiSvgIcon-fontSizeMedium storage-icon Active css-bq05nv-MuiSvgIcon-root")
-        document.querySelector(".Product-style .app-icon").setAttribute("class","MuiSvgIcon-root MuiSvgIcon-fontSizeMedium app-icon css-bq05nv-MuiSvgIcon-root")
-        setStyle("secondStyle")
-    }
-    /*-----------------------------------------------------end--------------------------------------------------------*/
-
-
     if(get==="Men"){
         return (
           <>
@@ -66,9 +49,7 @@ export const CategoryPage = ({get}) => {
             handlProduct={handlProduct} 
             filterByType={Departments} 
             filterBySize={Sizes}
-            brands={brands} Style={style} 
-            handlSecondProductStyle={handlSecondProductStyle} 
-            handlFirstProductStyle={handlFirstProductStyle}
+            brands={brands}
             productsData={MenProducts}
           />
           </>
@@ -82,9 +63,7 @@ export const CategoryPage = ({get}) => {
             handlProduct={handlProduct} 
             filterByType={Departments} 
             filterBySize={Sizes}
-            brands={brands} Style={style} 
-            handlSecondProductStyle={handlSecondProductStyle} 
-            handlFirstProductStyle={handlFirstProductStyle}
+            brands={brands}
             productsData={WomenProducts}
           />
           </>
@@ -98,9 +77,7 @@ export const CategoryPage = ({get}) => {
             handlProduct={handlProduct} 
             filterByType={Departments} 
             filterBySize={Sizes}
-            brands={brands} Style={style} 
-            handlSecondProductStyle={handlSecondProductStyle} 
-            handlFirstProductStyle={handlFirstProductStyle}
+            brands={brands}
             productsData={AccessoriesProducts}
           />
           </>

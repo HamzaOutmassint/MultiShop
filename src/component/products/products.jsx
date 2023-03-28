@@ -1,38 +1,57 @@
 import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import StorageIcon from '@mui/icons-material/Storage';
-// import FilterSide from "../FilterSide/FilterSide"
 import FilterSide from '../FilterSide/FilterSide';
 import AppsIcon from '@mui/icons-material/Apps';
 import Skeleton from '@mui/material/Skeleton';
+import { Drawer, Box } from '@mui/material'
 import { useState } from "react";
 import Cart from "../cart/Cart";
 import "./products.css";
 
 
 var  data 
-function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirstProductStyle,handlSecondProductStyle,Style,productsData}){
-  const [count, setCount] = useState(0)
+function Products({page,handlProduct,filterBySize,filterByType,brands,productsData}){
+  const [style,setStyle] = useState("firstStyle")
+  const [countFilter, setCountFilter] = useState(0)
+
+  /*---------- this state for the sidebar in -------------*/
+  const [open, setOpen] = useState(false);
+  /*------------------------------end----------------------------------- */
+
+  /*-------------------------this functions it's for switch between firstStyle and secondStyle--------------------*/
+  const handlFirstProductStyle = ()=>{
+    document.querySelector(".Product-style .app-icon").setAttribute("class","MuiSvgIcon-root MuiSvgIcon-fontSizeMedium app-icon Active css-bq05nv-MuiSvgIcon-root")
+    document.querySelector(".Product-style .storage-icon").setAttribute("class",".MuiSvgIcon-root MuiSvgIcon-fontSizeMedium storage-icon css-bq05nv-MuiSvgIcon-root")
+    setStyle("firstStyle")
+  }
+  const handlSecondProductStyle = ()=>{
+    document.querySelector(".Product-style .storage-icon").setAttribute("class",".MuiSvgIcon-root MuiSvgIcon-fontSizeMedium storage-icon Active css-bq05nv-MuiSvgIcon-root")
+    document.querySelector(".Product-style .app-icon").setAttribute("class","MuiSvgIcon-root MuiSvgIcon-fontSizeMedium app-icon css-bq05nv-MuiSvgIcon-root")
+    setStyle("secondStyle")
+  }
+  /*-----------------------------------------------------end--------------------------------------------------------*/
+ 
   const filterProducts =(ele,title)=>{
     if(ele==="jacket"){
       data = productsData.filter(item =>(
         item.product_name === ele
       ))
-      setCount(count + 1 )
+      setCountFilter(countFilter + 1 )
     }else if(ele==="all products"){
       data = [...productsData]
-      setCount(count + 1 )
+      setCountFilter(countFilter + 1 )
     }else{
       data = productsData.filter(item =>(
         item[title] === ele
       ))
-      setCount(count + 1 )
+      setCountFilter(countFilter + 1 )
     }
   }
   const filterByPrice =(min,max)=>{
     data = productsData.filter(item =>(
       parseInt(item.product_price) >= parseInt(min) && parseInt(item.product_price) <= parseInt(max)
     ))
-    setCount(count + 1 )
+    setCountFilter(countFilter + 1 )
   } 
 
   return (
@@ -49,8 +68,25 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
         />
         <div className="section-right">
           <div className="title">
-            <button className='filter-title nb-pro'><FilterListRoundedIcon style={{"fontSize":"24px" , "marginRight":"5px"}}/> <span>Filter</span></button>
-            <span className="nb-pro"> <span> {count === 0 ? productsData.length : data.length}</span> Products</span>
+            <button className='filter-title nb-pro' onClick={()=>setOpen(true)}>
+              <FilterListRoundedIcon style={{"fontSize":"24px" , "marginRight":"5px"}}/> 
+              <span>Filter</span>
+            </button>
+            <Drawer variant='temporary' open={open} onClose={() => setOpen(false)}>
+              <Box p={2} width='270px' textAlign='center' role='presentation'>
+              <FilterSide
+                handlProduct={handlProduct} 
+                filterByType={filterByType} 
+                filterBySize={filterBySize}
+                brands={brands}
+                filterProducts={filterProducts}
+                filterByPrice={filterByPrice}
+                productsData={productsData}
+                newClassForSideBar="sidebarInFilterMethod"
+              />
+              </Box>
+            </Drawer>
+            <span className="nb-pro"> <span> {countFilter === 0 ? productsData.length : data.length}</span> Products</span>
             <h6>{page}</h6>
             <div className="Product-style">
               <span>View as</span>
@@ -58,9 +94,9 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
               <AppsIcon sx={{ fontSize: 30 }} className="app-icon Active" onClick={handlFirstProductStyle} />
             </div>
           </div>
-          <div className="products"> 
+          <div  className={style==="firstStyle"?"productsInFirstStyle":"productsInSecondStyle"}> 
             {
-              count === 0 ?
+              countFilter === 0 ?
                 productsData.length === 0 
                 ? 
                 <>
@@ -78,7 +114,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
                     <Cart 
                       details={ele} 
                       key={ele.product_id}
-                      Style={Style}
+                      style={style}
                       page={page}
                     />    
                   )) }
@@ -99,7 +135,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,handlFirst
                   <Cart
                     details={ele} 
                     key={ele.product_id}
-                    Style={Style}
+                    style={style}
                     page={page}
                   />    
                 ))
