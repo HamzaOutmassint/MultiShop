@@ -3,6 +3,7 @@ import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 // import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import {FormatPrice} from "../Context/ContextFile"
+import Rating from '@mui/material/Rating';
 // import { styled } from '@mui/material/styles';
 // import Zoom from '@mui/material/Zoom';
 import { Link } from 'react-router-dom';
@@ -31,7 +32,7 @@ const Cart = ({details , style , page}) => {
               {/* <LightTooltip TransitionComponent={Zoom} title="Remove from Wishlist" placement="left"> */}
                 <abbr title='add to favorite'><button className="btn-action"><FavoriteBorderRoundedIcon /></button></abbr>
               {/* </LightTooltip> */}
-                <button className="btn-action"><RemoveRedEyeOutlinedIcon /></button>
+                <Link to={`/product?${page}#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
                 <abbr title='add to cart'><button className="btn-action"><EnhancedEncryptionOutlinedIcon /></button></abbr>
             </div>
           </div>
@@ -39,11 +40,7 @@ const Cart = ({details , style , page}) => {
           <a href="#jh" className="showcase-category">{details.product_name}</a>
           <a href="#j"><h3 className="showcase-title">{details.description}</h3></a>
           <div className="showcase-rating">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
+            <Rating name="half-rating" value={0} precision={0.5} readOnly size="small"/>
           </div>
           <div className="price-box">
               <p className="price">{FormatPrice(details.product_price)}</p> 
@@ -62,16 +59,20 @@ const Cart = ({details , style , page}) => {
           </div>
           <Link to={`/product?${page}#${details.product_id}`} className="description">
             <div>
-              {/* <div className="Title"><span>{details.product_name}</span></div>
+            <div className="Title"><span>{details.product_name}</span></div>
               <div className="rating">
-                {
+                <Rating name="half-rating" value={0} precision={0.5} readOnly size="small"/>
+                <span className="rating-avg">0</span>
+                <span className="total-reviews">(0 reviews)</span>
+              {/*   {
                   rating.avg === undefined 
                   ? <Rating name="half-rating" value={0} precision={0.5} readOnly/>
                   : <Rating name="half-rating" value={rating.avg} precision={0.5} readOnly/>
                 }
                 <span className="rating-avg">{rating.avg===undefined?0:rating.avg.toFixed(1)}</span>
                 <span className="total-reviews">({rating.total_review} reviews)</span>
-              </div> */}
+               */}
+              </div>
               <p>{details.description}</p>
             </div>
           </Link>

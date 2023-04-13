@@ -210,10 +210,11 @@ padding: 10px;
 color: gray;
 }
 .productInSecondStyle .description .Title {
-font-weight: 600;
-color: black;
-font-size: 17px;
-margin: 10px 0px 0 0 !important;
+    color: var(--salmon-pink);
+    font-size: var(--fs-9);
+    font-weight: var(--weight-500);
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
 .productInSecondStyle .description .rating {
 margin: 0 !important;

@@ -7,6 +7,7 @@ import {useState , useEffect} from "react"
 import Home from "./pages/home/Home";
 import axios from "axios";
 import "./app.css"
+import Product from "./component/product/product";
 
 
 function App() {
@@ -23,7 +24,6 @@ function App() {
     });
   }, []);
   /*-------------------------------------------(end)get data from database----------------------------------- */
-
   return (
     <>
     <BrowserRouter>
@@ -34,6 +34,7 @@ function App() {
           <Route exact path="/men" element={<CategoryPage get="Men" />} />
           <Route exact path="/women" element={<CategoryPage get="Women" />} />
           <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
+          <Route path="product" element={<Product />} />
         </Routes>
       </AllProductsContext.Provider>
       <Footer />
