@@ -204,8 +204,8 @@
 }
 .product-cart .Reviews .Ratings .customer div h2 {
   font-size: 21px;
-  font-weight: 700;
-  font-family: "Roboto";
+  font-weight: 600;
+  font-family: Hind, sans-serif;
 }
 .product-cart .Reviews .Ratings .customer .globalRatings {
   font-weight: 500;
@@ -225,7 +225,7 @@
 .product-cart .Reviews .Ratings .customer table tr {
   font-size: 16px;
   color: #3c8383;
-  font-family: "Roboto";
+  font-family: Hind, sans-serif;
   display: flex;
   min-width: 352px;
   margin: 8px 0;
@@ -259,8 +259,8 @@
 }
 .product-cart .Reviews .reviewsContent .WriteReviews .ForThanks h2 {
   font-size: 21px;
-  font-weight: 700;
-  font-family: "Roboto";
+  font-weight: 600;
+  font-family: Hind, sans-serif;
 }
 .product-cart .Reviews .reviewsContent .WriteReviews .ForThanks .megReview {
   font-weight: 200;
@@ -297,7 +297,7 @@
 .product-cart .Reviews .reviewsContent .spr-review {
   border-top: 1px solid #edc7c7;
   padding-bottom: 12px;
-  font-family: "Roboto";
+  font-family: Hind, sans-serif;
   padding-top: 4px;
 }
 .product-cart .Reviews .reviewsContent .spr-review .spr-review-header {
@@ -344,7 +344,7 @@
   font-size: 14px;
   line-height: 22px;
   font-weight: 300;
-  font-family: "Roboto";
+  font-family: Hind, sans-serif;
   max-height: 300px;
   color: #0F1111 !important;
 }/*# sourceMappingURL=product.css.map */

@@ -37,8 +37,8 @@ const Cart = ({details , style , page}) => {
             </div>
           </div>
           <div className="showcase-content">
-          <a href="#jh" className="showcase-category">{details.product_name}</a>
-          <a href="#j"><h3 className="showcase-title">{details.description}</h3></a>
+          <Link to={`/product?${page}#${details.product_id}`} className="showcase-category">{details.product_name}</Link>
+          <Link to={`/product?${page}#${details.product_id}`}><h3 className="showcase-title">{details.description}</h3></Link>
           <div className="showcase-rating">
             <Rating name="half-rating" value={0} precision={0.5} readOnly size="small"/>
           </div>
