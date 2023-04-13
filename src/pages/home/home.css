@@ -4,6 +4,7 @@
 
 .banner {
     margin-bottom: 30px;
+    font-family: "Poppins", sans-serif;
 }
 
 .slider-container {
@@ -101,9 +102,12 @@
 /*-----------------------------------*\
     #PRODUCT GRID
   \*-----------------------------------*/
-
+.product-container{
+    font-family: "Poppins", sans-serif;
+}
 .product-main {
     margin-bottom: 30px;
+    font-family: "Poppins", sans-serif;
 }
 
 .product-grid {

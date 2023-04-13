@@ -5,7 +5,10 @@
 
 .header-top,
 .header-user-actions,
-.desktop-navigation-menu{ display: none; }
+.desktop-navigation-menu{ 
+  display: none; 
+  font-family: "Poppins", sans-serif;
+}
 
 .header-main {
     padding: 20px 0;
@@ -27,6 +30,7 @@
   -webkit-border-radius: var(--border-radius-md);
   border-radius: var(--border-radius-md);
   outline: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .search-field::-webkit-search-cancel-button { display: none; }

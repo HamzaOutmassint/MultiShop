@@ -119,6 +119,10 @@
   
   li { list-style: none; }
   
+  abbr{
+    text-decoration: none;
+  }
+
   button {
     background: none;
     font: inherit;
@@ -131,7 +135,8 @@
   span { display: inline-block; }
   
   *{
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
+    /* font-family: "Hind", sans-serif !important; */
     -ms-scroll-chaining: none;
         overscroll-behavior: contain;
   }
@@ -732,7 +737,7 @@
   
   .sidebar-submenu-category-list.active {
     padding: 13px 0 8px;
-    max-height: 250px;
+    max-height: 257px;
     visibility: visible;
   }
   

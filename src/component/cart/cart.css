@@ -10,6 +10,7 @@
     -webkit-transition: var(--transition-timing);
     -o-transition: var(--transition-timing);
     transition: var(--transition-timing);
+    font-family: "Poppins", sans-serif;
 }
 
 .showcase:hover {
@@ -187,6 +188,7 @@
     display: flex;
     width: 100%;
     transition: ease 0.2s;
+    font-family: "Poppins", sans-serif;
 }
 .productInSecondStyle:hover {
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1882352941);

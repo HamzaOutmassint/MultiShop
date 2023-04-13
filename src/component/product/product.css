@@ -2,7 +2,7 @@
   background-color: #fff;
 }
 .product-cart > *{
-  font-family: "Hind", sans-serif !important;
+  font-family: Hind, sans-serif;
 }
 .product-cart .Row {
   display: flex;
@@ -67,6 +67,9 @@
 .product-cart .Row .description h5 {
   margin-top: 15px;
   margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 .product-cart .Row .description .price {
   font-size: 19px;
@@ -197,6 +200,7 @@
 }
 .product-cart .Reviews .Ratings .customer {
   padding-bottom: 8px;
+  font-family: Hind, sans-serif;
 }
 .product-cart .Reviews .Ratings .customer div h2 {
   font-size: 21px;

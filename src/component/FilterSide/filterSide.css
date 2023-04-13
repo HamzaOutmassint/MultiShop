@@ -5,6 +5,7 @@
   height: 70vh;
   padding-top: 10px;
   border-radius: 5px;
+  font-family: "Poppins", sans-serif;
 }
 .section-left .filter-title{
   display: flex;

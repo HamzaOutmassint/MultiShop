@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import "./breadcrumbs.css"
+import { capitalize } from '@mui/material';
 
 function handleClick(event) {
   // event.preventDefault();
@@ -15,9 +16,6 @@ export default function CustomSeparator({Get,name}) {
     const breadcrumbs = [
       <Link  key="1" href="/" onClick={handleClick}> Home </Link>,
       <Link key="2" href="Men" onClick={handleClick}> Men </Link>,
-      // <Typography key="3" color="text.primary">
-      //   Breadcrumb
-      // </Typography>,
     ];
 
     return (
@@ -181,7 +179,7 @@ export default function CustomSeparator({Get,name}) {
   }else if(Get==="product"){
     const breadcrumbs = [
       <Link  key="1" href="/" onClick={handleClick}> Home </Link>,
-      <Typography key="3" color="inherit" fontSize="7px" fontFamily='Hind'>
+      <Typography key="3" color="inherit" fontSize="7px" fontFamily='Hind' textTransform="capitalize">
         {name}
       </Typography>,
     ];
