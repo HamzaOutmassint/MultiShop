@@ -53,9 +53,9 @@ function Home() {
               <div className="sidebar-category">
                 <div className="sidebar-top">
                   <h2 className="sidebar-title">Category</h2>
-                  <button className="sidebar-close-btn">
+                  {/* <button className="sidebar-close-btn">
                     <KeyboardArrowUpRoundedIcon />
-                  </button>
+                  </button> */}
                 </div>
                 <ul className="sidebar-menu-category-list">
                   <li className="sidebar-menu-category">
