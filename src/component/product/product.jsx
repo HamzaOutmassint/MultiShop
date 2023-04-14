@@ -14,6 +14,8 @@ import "./product.css"
 import {AllProductsContext} from "../../component/Context/ContextFile"
 import { styled } from '@mui/material/styles';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 
 const style = {
   position: 'absolute', top: '40%', left: '50%',
@@ -32,12 +34,13 @@ const style2 = {
 
 // this style for progress of stars review
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 18,
+  height: 20,
+  // borderRadius: 5, 
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
   },
   [`& .${linearProgressClasses.bar}`]: {
-    backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    backgroundColor: theme.palette.mode === 'light' ? '#ffc107' : '#308fe8',
   },
 }));
 
@@ -222,9 +225,9 @@ function Product() {
                     </div>
                     <div className="Quantity">
                       <div className="QTY">
-                        <button type="button"  id="positif" onClick={click_negatif}><i className="bi bi-dash"></i></button>
+                        <button type="button"  id="positif" onClick={click_negatif}><RemoveRoundedIcon/></button>
                         <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={Quantity}/>
-                        <button type="button" id="nigatif" onClick={click_positif}><i className="bi bi-plus"></i></button>
+                        <button type="button" id="nigatif" onClick={click_positif}><AddRoundedIcon /></button>
                       </div>
                       {
                         result.status === "out of stock"
@@ -247,9 +250,7 @@ function Product() {
                     </div>
                     <div className="footer_payment">
                       <label>Payment methods</label>
-                      <ul>
-                        <li><img src={paymentImg} alt="payment method" className="payment-img" /></li>
-                      </ul>
+                      <img src={paymentImg} alt="payment method" className="payment-img" />
                     </div>
                   </div>
                 </div>
@@ -259,14 +260,14 @@ function Product() {
                         <div>
                           <h2>Customer reviews</h2>
                           <Stack spacing={1} className="AllRating">
-                          {
-                          Ratings.avg === undefined
-                          ?<Rating name="half-rating" value={0} precision={0.5} readOnly />
-                          :<Rating name="half-rating" value={Ratings.avg} precision={0.5} readOnly/>
-                          }
-                          <span className="globalRatings">{Ratings.avg===undefined?0:Ratings.avg.toFixed(1)} out of 5</span>
+                            {
+                            Ratings.avg === undefined
+                            ?<Rating name="half-rating" value={0} precision={0.5} readOnly />
+                            :<Rating name="half-rating" value={Ratings.avg} precision={0.5} readOnly/>
+                            }
+                            <span className="globalRatings">{Ratings.avg===undefined?0:Ratings.avg.toFixed(1)} out of 5</span>
                           </Stack>
-                          <span className="basedReview">{Ratings.total_review} ratings</span>
+                          <span className="basedReview">{Ratings.total_review===undefined?0:Ratings.total_review} ratings</span>
                         </div>
                         <table>
                           <tbody>
@@ -274,8 +275,7 @@ function Product() {
                               <td>5 start</td>
                               <td>
                                 <div className="progress">
-                                  <div className="progress-bar bg-warning" role="progressbar" style={isNaN(fiveStar)?{"width": `0%`}:{"width": `${fiveStar}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                  <BorderLinearProgress variant="determinate" value={50} />
+                                  <BorderLinearProgress variant="determinate" value={isNaN(fiveStar)?0:fiveStar} />
                                 </div>
                               </td>
                               <td>{isNaN(fiveStar)? 0 : fiveStar}%</td>
@@ -284,7 +284,7 @@ function Product() {
                               <td>4 start</td>
                               <td>
                                 <div className="progress">
-                                  <div className="progress-bar bg-warning" role="progressbar" style={isNaN(fourStar)?{"width": `0%`}:{"width": `${fourStar}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                  <BorderLinearProgress variant="determinate" value={isNaN(fourStar)?0:fourStar} />
                                 </div>
                               </td>
                               <td>{isNaN(fourStar)? 0 : fourStar}%</td>
@@ -293,7 +293,7 @@ function Product() {
                               <td>3 start</td>
                               <td>
                                 <div className="progress">
-                                  <div className="progress-bar bg-warning" role="progressbar" style={isNaN(threeStar)?{"width": `0%`}:{"width": `${threeStar}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                  <BorderLinearProgress variant="determinate" value={isNaN(threeStar)?0:threeStar} />
                                 </div>
                               </td>
                               <td>{isNaN(threeStar)? 0 : threeStar}%</td>
@@ -302,7 +302,7 @@ function Product() {
                               <td>2 start</td>
                               <td>
                                 <div className="progress">
-                                  <div className="progress-bar bg-warning" role="progressbar" style={isNaN(twoStar)?{"width": `0%`}:{"width": `${twoStar}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                  <BorderLinearProgress variant="determinate" value={isNaN(twoStar)?0:twoStar} />
                                 </div>
                               </td>
                               <td>{isNaN(twoStar)? 0 : twoStar}%</td>
@@ -311,7 +311,7 @@ function Product() {
                               <td>1 start</td>
                               <td>
                                 <div className="progress">
-                                  <div className="progress-bar bg-warning" role="progressbar" style={isNaN(oneStar)?{"width": `0%`}:{"width": `${oneStar}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                  <BorderLinearProgress variant="determinate" value={isNaN(oneStar)?0:oneStar} />
                                 </div>
                               </td>
                               <td>{isNaN(oneStar)? 0 : oneStar}%</td>
@@ -323,7 +323,7 @@ function Product() {
                   <div className="reviewsContent">
                     <div className="WriteReviews">
                       <div className="ForThanks">
-                        <h2>REVIEWS</h2>
+                        <h2>Reviews</h2>
                         {
                           thanksFroReview === true ? <div className="megReview">Thank you for submitting a review!</div> : null
                         }

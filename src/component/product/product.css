@@ -55,6 +55,7 @@
 }
 .product-cart .Row .description .ProductDescreption h6 {
   font-size: 20px;
+  font-weight: 500;
 }
 .product-cart .Row .description .ProductDescreption p {
   font-size: 17px;
@@ -202,6 +203,11 @@
   padding-bottom: 8px;
   font-family: Hind, sans-serif;
 }
+.product-cart .Reviews .Ratings .customer .AllRating{
+  display: flex !important;
+  flex-direction: row !important;
+  margin-top: 10px !important;
+}
 .product-cart .Reviews .Ratings .customer div h2 {
   font-size: 21px;
   font-weight: 600;
@@ -212,7 +218,7 @@
   font-size: 19px !important;
   line-height: 24px !important;
   color: #0F1111 !important;
-  margin-left: 10px;
+  margin-left: 13px !important;
 }
 .product-cart .Reviews .Ratings .customer .basedReview {
   font-weight: 500;
@@ -253,6 +259,7 @@
 .product-cart .Reviews .reviewsContent .WriteReviews {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #edc7c7;
 }
 .product-cart .Reviews .reviewsContent .WriteReviews .ForThanks {
   display: flex;
@@ -261,6 +268,7 @@
   font-size: 21px;
   font-weight: 600;
   font-family: Hind, sans-serif;
+  margin-bottom: 12px;
 }
 .product-cart .Reviews .reviewsContent .WriteReviews .ForThanks .megReview {
   font-weight: 200;

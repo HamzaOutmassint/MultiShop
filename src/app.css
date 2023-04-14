@@ -24,10 +24,7 @@
       text-transform: uppercase;
   }
   
-  
-  
-  
-  
+
   /*-----------------------------------*\
     #CUSTOM PROPERTY
   \*-----------------------------------*/
@@ -1585,4 +1582,129 @@
      */
   
     .container { max-width: 1350px; }
+}
+
+/*
+  * this for material ui classes
+*/
+.MuiBox-root {
+  border-radius: 7px;
+  font-family: Hind, sans-serif;
+}
+.MuiBox-root h6 {
+  font-size: 17px !important;
+  line-height: 26px !important;
+  margin: 0 !important;
+  padding: 0 0 1px 0 !important;
+  text-transform: uppercase;
+}
+.MuiBox-root .field {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+.MuiBox-root .field label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+.MuiBox-root .field input, .MuiBox-root .field textarea {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  background: #f7f8fa;
+  font-size: 16px;
+  border: 1px solid #f7f8fa;
+  font-family: "Hind", sans-serif;
+  box-shadow: none;
+  outline: none;
+  color: #777777;
+  border-radius: 6px;
+  height: 40px;
+  transition: ease-out 0.1s linear;
+  padding: 11px 12px 10px 15px;
+}
+.MuiBox-root .field input:focus, .MuiBox-root .field textarea:focus {
+  background: #fff;
+  border: 1px solid #3471ff;
+}
+.MuiBox-root .field input:focus::-moz-placeholder, .MuiBox-root .field textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+.MuiBox-root .field input:focus::placeholder, .MuiBox-root .field textarea:focus::placeholder {
+  opacity: 0;
+}
+.MuiBox-root .field select {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  background: #f7f8fa;
+  font-size: 16px;
+  border: 1px solid #f7f8fa;
+  font-family: "Hind", sans-serif;
+  box-shadow: none;
+  outline: none;
+  color: #777777;
+  border-radius: 6px;
+  height: 40px;
+  transition: ease-out 0.1s linear;
+  padding: 6px 12px 10px 15px;
+}
+.MuiBox-root .field select:focus {
+  background: #fff;
+  border: 1px solid #3471ff;
+}
+.MuiBox-root .field select:focus::-moz-placeholder {
+  opacity: 0;
+}
+.MuiBox-root .field select:focus::placeholder {
+  opacity: 0;
+}
+.MuiBox-root .field span {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.MuiBox-root button {
+  border: 2px solid #3471ff;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 6px 29px;
+  border-radius: 6px;
+  background-color: #3471ff;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all ease 0.2s;
+  margin: 3px;
+  margin-right: 12px;
+}
+.MuiBox-root button:hover {
+  color: #fff;
+  background-color: #1a5df7;
+}
+.MuiBox-root .ErrorMsg {
+  font-size: 15px;
+  background: #dd2e33;
+  color: #FFF;
+  padding: 5px 10px;
+  font-weight: 100;
+  border-radius: 3px;
+}
+
+.css-1okj3ks-MuiStack-root {
+  flex-direction: row !important;
+  align-items: center !important;
+}
+.css-1okj3ks-MuiStack-root .stock {
+  font-size: 17px;
+  margin-left: 7px;
+  color: #999999;
+  margin-top: 0 !important;
+}
+.css-ryrseu-MuiRating-root {
+  font-size: 20px !important;
+}
+.css-34he1w-MuiRating-decimal {
+  position: relative;
+  display: inline-flex;
 }
