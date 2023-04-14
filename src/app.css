@@ -1201,6 +1201,12 @@
    * responsive larger than 480px screen
    */
   
+  @media (max-width: 480px) {
+    .css-10bvztf {
+      top: 46% !important;
+      width: 336px !important;
+  }
+  }
   @media (min-width: 480px) {
   
     /**
