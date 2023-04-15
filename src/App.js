@@ -8,6 +8,8 @@ import Home from "./pages/home/Home";
 import axios from "axios";
 import "./app.css"
 import Product from "./component/product/product";
+import Register from "./component/signin/Register";
+import Login from "./component/login/Login";
 
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
           <Route exact path="/women" element={<CategoryPage get="Women" />} />
           <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
           <Route path="product" element={<Product />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
         </Routes>
       </AllProductsContext.Provider>
       <Footer />
