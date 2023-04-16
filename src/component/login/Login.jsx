@@ -87,7 +87,7 @@ export default function Login() {
                     error(errors.email,"ele2")
                   ) : null}
                 </div>
-                <div className="mt-2">
+                <div className="buttonLogin">
                   <button type="submit" id="login">Login</button>
                   <button className="btn btn-primary loading-btn-none " type="button" disabled id="loading">
                     <div className="spinner-border spinner-border-sm loading-scroll" role="status"></div>

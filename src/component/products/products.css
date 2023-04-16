@@ -166,7 +166,7 @@
 
    /* sidebar */
     
-  .sidebar {
+  .sidebarInFilterMethod {
     background: var(--white) !important;
     top: 0 !important;
     left: -100% !important;

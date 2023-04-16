@@ -2,8 +2,11 @@
   /**
    * footer nav 
    */
+  footer{
+    margin-top: 77px !important;
+  }
   
-   .footer-nav {
+  .footer-nav {
     border-bottom: 1px solid var(--onyx);
     padding-bottom: 30px;
     margin-bottom: 30px;

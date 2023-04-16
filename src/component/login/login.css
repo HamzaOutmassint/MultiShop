@@ -1,6 +1,7 @@
 .login {
   font-family: Hind, sans-serif;
   margin: 58px auto;
+  margin-bottom:90px;
 }
 .login h5 {
   padding-bottom: 38px;
@@ -29,7 +30,7 @@
 }
 .login .LoginForm .miniParent h6 {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.5rem;
   line-height: 30px;
   padding: 0 0 14px 0;
   font-weight: 500;
@@ -73,6 +74,10 @@
 .login .LoginForm .miniParent form input:focus::placeholder {
   opacity: 0;
 }
+.login .LoginForm .miniParent form .buttonLogin {
+  display: flex;
+  align-items: center;
+}
 .login .LoginForm .miniParent form button {
   border: 2px solid #3471ff;
   font-size: 16px;
@@ -93,6 +98,7 @@
 .login .LoginForm .miniParent form a {
   font-size: 14px;
   color: #3471ff;
+  display: inline-block;
 }
 .login .LoginForm .miniParent form a:hover {
   text-decoration: underline;

@@ -55,7 +55,7 @@ function Register() {
               {({ errors, touched }) => (
               <Form>
                 <ul><li></li></ul>
-                <div className='mb-2' id="ele1">
+                <div className='loginFiald' id="ele1">
                   <div className="required">
                     <label>First Name *</label><span>* Required Fields</span>
                   </div>
@@ -64,28 +64,28 @@ function Register() {
                     error(errors.first_name,"ele1")
                   ) : null}
                 </div>
-                <div className='mb-2' id="ele2">
+                <div className='loginFiald' id="ele2">
                   <label>Last Name *</label>
                   <Field  type="text" name="last_name" placeholder="Enter last name" />
                   {errors.last_name && touched.last_name ? (
                     error(errors.last_name,"ele2")
                   ) : null}
                 </div>
-                <div className='mb-2' id="ele3">
+                <div className='loginFiald' id="ele3">
                   <label>Email *</label>
                   <Field  type="email" name="email" placeholder="Enter email" id="email" />
                   {errors.email && touched.email ? (
                     error(errors.email,"ele3")
                   ) : null}
                 </div>
-                <div id="ele4">
+                <div className="loginFiald" id="ele4">
                 <label>Password *</label><br />
                   <Field  type="password" name="password"  placeholder="Enter password" autoComplete="off"/> 
                   {errors.password && touched.password ? (
                     error(errors.password,"ele4")
                   ) : null}
                 </div>
-                <div className="mt-2">
+                <div className="buttonLogin">
                   <button type="submit">CREATE</button>
                   <span>Already have an account? <Link to="/login">Sign in</Link></span>
                 </div>

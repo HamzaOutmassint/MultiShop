@@ -6,6 +6,7 @@ import therdBanner from "../../assets/images/banner-6.jpg"
 import {useState , useContext } from 'react';
 import Cart from '../../component/cart/Cart';
 import "./home.css"
+import Skeleton from '@mui/material/Skeleton';
 
 function Home() {
   const AllProducts = useContext(AllProductsContext)
@@ -53,9 +54,6 @@ function Home() {
               <div className="sidebar-category">
                 <div className="sidebar-top">
                   <h2 className="sidebar-title">Category</h2>
-                  {/* <button className="sidebar-close-btn">
-                    <KeyboardArrowUpRoundedIcon />
-                  </button> */}
                 </div>
                 <ul className="sidebar-menu-category-list">
                   <li className="sidebar-menu-category">
@@ -152,16 +150,28 @@ function Home() {
               </div>
             </div>
             {/* - PRODUCT GRID */}
-
             <div className="product-main">
               <h2 className="title">New Products</h2>
               <div className="product-grid">
                 <>
                   {
+                    AllProducts.lenght > 0
+                    ?
                     AllProducts.map(ele=>(
                       <Cart details={ele} key={ele.product_id} style={`firstStyle`} />
                       )) 
-                    }
+                    :
+                    <>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                      <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    </>
+                  }
                 </>
               </div>
             </div>
