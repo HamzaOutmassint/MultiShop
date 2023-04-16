@@ -71,16 +71,16 @@ export default function Login() {
             {({ errors, touched }) => (
               <Form>
                 <ul><li>Please check your email and password and try again.</li></ul>
-                <div className='mb-2' id="ele1">
+                <div className='loginFiald' id="ele1">
                   <div className="required">
-                    <label>Email *</label><span>* Required Fields</span>
+                    <label>E-mail *</label><span>* Required Fields</span>
                     </div>
                   <Field  type="email" name="email" placeholder="Enter email" id="email"/>
                   {errors.email && touched.email ? (
                     error(errors.email,"ele1")
                   ) : null}
                 </div>
-                <div id="ele2">
+                <div className="loginFiald" id="ele2">
                 <label>Password *</label><br />
                   <Field  type="password" name="password"  placeholder="Enter password" autoComplete="off"/> 
                   {errors.password && touched.password ? (

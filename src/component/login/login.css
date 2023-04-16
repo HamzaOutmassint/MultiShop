@@ -1,5 +1,15 @@
+.login {
+  font-family: Hind, sans-serif;
+  margin: 58px auto;
+}
 .login h5 {
-  padding-bottom: 32px;
+  padding-bottom: 38px;
+    font-size: 34px;
+    line-height: 44px;
+    font-weight: 500;
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
 }
 .login span {
   font-size: 17px;
@@ -19,9 +29,16 @@
 }
 .login .LoginForm .miniParent h6 {
   margin: 0;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0 0 14px 0;
+  font-weight: 500;
 }
 .login .LoginForm .miniParent form {
   margin: 23px 18px 18px 0;
+}
+.login .LoginForm .miniParent form .loginFiald {
+  margin-bottom: 18px;
 }
 .login .LoginForm .miniParent form .required {
   display: flex;
