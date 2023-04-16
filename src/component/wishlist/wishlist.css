@@ -3,8 +3,11 @@
 }
 
 .WishlistContent {
-  margin-bottom: 25px;
-  font-family: Hind;
+  display: flex;
+  flex-direction: column;
+  padding: 59px;
+  align-items: center;
+  font-family: 'Hind';
 }
 .WishlistContent .IfTheListIsEmpty {
   display: flex;
