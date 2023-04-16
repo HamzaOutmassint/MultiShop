@@ -517,7 +517,7 @@
       display: block;
     }
     .header-user-actions .AccountDropDown button:hover ~ ul,
-    .header-user-actions .CartDropDown button:hover ~ ul{
+    .header-user-actions .CartDropDown a:hover ~ ul{
       display: block;
     }
     .header-user-actions .AccountDropDown ul a{

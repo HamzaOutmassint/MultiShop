@@ -11,11 +11,18 @@ import Product from "./component/product/product";
 import Register from "./component/signin/Register";
 import Login from "./component/login/Login";
 import ViewCart from "./component/viewCart/ViewCart";
+import Wishlist from "./component/wishlist/Wishlist";
 
 
 function App() {
   const [AllProducts,setAllProducts] = useState([])
-  const [reloadInChangesForWishlist] = useState([])
+  // const [reloadInChangesForWishlist , setReloadInChangesForWishlist] = useState([])
+  const [reloadInChangesForCart , setReloadInChangesForCart] = useState([])
+  const getTheCartFromLocalstorage = JSON.parse(localStorage.getItem("cart") || "[]" )
+  const [cartItem , setCartItem] = useState(() => {
+    return JSON.parse(window.localStorage.getItem("seccess")) === true ? [] : getTheCartFromLocalstorage
+  })
+  const [wishlist , setWishlist] = useState([])
   
   /*-------------------------------------------get data from database----------------------------------- */
   // to get all products from database
@@ -27,6 +34,26 @@ function App() {
     });
   }, []);
   /*-------------------------------------------(end)get data from database----------------------------------- */
+
+  // method to remove one product from the cart
+  const DeleteItemFromTheCart =(item)=>{
+    if(JSON.parse(window.localStorage.getItem("seccess")) === true){
+      const product_id = item["product_id"]
+      const Item = {product_id}
+      axios.post('http://localhost/data/deleteFromShoppinCart.php',Item).then((response) => {
+        // console.log(response)
+        setReloadInChangesForCart([...reloadInChangesForCart , Item])
+      }).catch((error)=> {
+        console.log(error);
+      })
+    }else{
+      const newCartItem = cartItem.filter(ele=> ele.product_id !== item.product_id)
+      setCartItem(newCartItem)
+      localStorage.setItem("cart",JSON.stringify(newCartItem))
+    }
+  }
+
+
   return (
     <>
     <BrowserRouter>
@@ -41,12 +68,13 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="cart" element={<ViewCart 
-                                        // cartItem={cartItem} 
-                                        // DeleteItemFromTheCart={DeleteItemFromTheCart} 
+                                        cartItem={cartItem} 
+                                        DeleteItemFromTheCart={DeleteItemFromTheCart} 
                                         // handlInecrement={handlInecrement} 
                                         // handlDecrement={handlDecrement} 
                                         // clearAll={ClearShopingCart} 
                                         />} />
+          <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
         </Routes>
       </AllProductsContext.Provider>
       <Footer />

@@ -82,8 +82,11 @@ function Navbar() {
                       <Link to="register"><li>Register</li></Link>
                     </ul>
                   </div>
+                  <div>
+                    <Link  to="wishlist" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
+                  </div>
                   <div className="CartDropDown">
-                    <Link  to="cart" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
+                    <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">8</span></Link>
                     <ul>
                       <li>
                         <i className="bi bi-handbag"></i>
@@ -91,7 +94,6 @@ function Navbar() {
                       </li>
                     </ul>
                   </div>
-                  <button className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">8</span></button>
                 </div>
             </div>
         </div>

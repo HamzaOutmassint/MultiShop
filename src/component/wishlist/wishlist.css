@@ -1,0 +1,119 @@
+.SecondWishlistContent {
+  justify-content: center;
+}
+
+.WishlistContent {
+  margin-bottom: 25px;
+  font-family: Hind;
+}
+.WishlistContent .IfTheListIsEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 34px;
+}
+.WishlistContent .IfTheListIsEmpty .emptyHeart {
+  font-size: 115px;
+  opacity: 0.2;
+  position: relative;
+}
+.WishlistContent .IfTheListIsEmpty .emptyHeart span {
+  position: absolute;
+  width: 194px;
+  height: 10px;
+  background-color: rgba(41, 39, 39, 0.768) !important;
+  left: -3px;
+  color: #000 !important;
+  top: 36%;
+  transform: rotate(-35deg);
+}
+.WishlistContent .IfTheListIsEmpty span {
+  font-size: 16px;
+  color: rgba(128, 128, 128, 0.768);
+}
+.WishlistContent .IfTheListIsEmpty .Button {
+  border: 2px solid #3471ff;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 6px 29px;
+  border-radius: 6px;
+  background-color: #3471ff;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all ease 0.2s;
+  margin-top: 0px;
+  margin-right: 12px;
+}
+.WishlistContent .IfTheListIsEmpty .Button:hover {
+  color: #fff;
+  background-color: #1a5df7;
+}
+.WishlistContent .IfTheListIsEmpty .registerButton {
+  border: 2px solid #3471ff;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 29px;
+  border-radius: 6px;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: #3471ff;
+  transition: all ease 0.2s;
+  margin-top: 25px;
+  margin-right: 12px;
+}
+.WishlistContent .IfTheListIsEmpty .registerButton:hover {
+  color: #fff;
+  background-color: #1a5df7;
+}
+.WishlistContent .IfTheListIsEmpty h5 {
+  margin-top: 0;
+}
+.WishlistContent .IfTheListIsFullOff {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px 10px 30px;
+  justify-content: center;
+  border-radius: 5px;
+}
+.WishlistContent .IfTheListIsFullOff .Card {
+  margin: 0 35px 20px 10px;
+  position: relative;
+}
+.WishlistContent .IfTheListIsFullOff .Card:hover .RemovewishlistSpan {
+  opacity: 1;
+}
+.WishlistContent .RemovewishlistSpan {
+  width: 43px;
+  height: 43px;
+  background-color: #3471ff;
+  position: absolute;
+  border-radius: 50%;
+  top: 13px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  z-index: 99 !important;
+  opacity: 0;
+  transition: ease 0.1s;
+}
+.WishlistContent .RemovewishlistSpan i {
+  font-size: 19px;
+  margin-top: 6px;
+  color: #fff;
+  z-index: -1;
+}
+.WishlistContent .RemovewishlistSpan:hover {
+  background-color: #1A5DF7;
+}
+.WishlistContent .RemovewishlistSpan:hover i {
+  color: #fff;
+}
+.WishlistContent h5 {
+  margin: 16px 0 16px 0;
+  text-transform: uppercase;
+}/*# sourceMappingURL=wishlist.css.map */

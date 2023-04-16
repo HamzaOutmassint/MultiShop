@@ -16,22 +16,14 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
     <CustomSeparator Get="cart"/>
     <div className="container">
         <div>
-        <div className='emptyCart'>
-            <LocalMallOutlinedIcon sx={{ fontSize: 145 , color:"rgb(192 178 178 / 52%)" }} />
-            <h5>SHOPPING CART IS EMPTY</h5> 
-            <span>You have no items in your shopping cart.</span>
-            <Link to="/" ><button className="Button">CONTINUE SHOPPING</button></Link>
-        </div>
-          {/* {cartItem.length === 0
+          {cartItem.length === 0
            ?
-            <>
-              <div className='text-center emptyCart'>
-                  <i className="bi bi-handbag" ></i>
-                  <h5>SHOPPING CART IS EMPTY</h5> 
-                  <span>You have no items in your shopping cart.</span><br />
-                  <Link to="/" ><button className="Button">CONTINUE SHOPPING</button></Link>
-              </div>
-            </>
+            <div className='emptyCart'>
+              <LocalMallOutlinedIcon sx={{ fontSize: 145 , color:"rgb(192 178 178 / 52%)" }} />
+              <h5>SHOPPING CART IS EMPTY</h5> 
+              <span>You have no items in your shopping cart.</span>
+              <Link to="/" ><button className="Button">CONTINUE SHOPPING</button></Link>
+            </div>
             :
             <>
             <div className="mb-4">
@@ -45,7 +37,7 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                         return (
                           <tr key={index}>
                             <td style={{marginRight:"10px"}}>
-                              <img  className="image" src={require(`../images/${item.product_image}`)} alt="" />
+                              <img  className="image" src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
                             </td>
                             <td className="name"><Link to={`/product#${item.product_id}`}>{item.product_name}</Link></td>
                             <td className="price">{FormatPrice(item.product_price)}</td>
@@ -88,7 +80,7 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
             </div>
             </>
           }
-             */}
+            
         </div>
     </div>
     {/* {
