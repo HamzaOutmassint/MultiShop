@@ -14,19 +14,18 @@
   margin-top: 34px;
 }
 .WishlistContent .IfTheListIsEmpty .emptyHeart {
-  font-size: 115px;
   opacity: 0.2;
   position: relative;
 }
 .WishlistContent .IfTheListIsEmpty .emptyHeart span {
   position: absolute;
-  width: 194px;
+  width: 201px;
   height: 10px;
   background-color: rgba(41, 39, 39, 0.768) !important;
-  left: -3px;
+  left: -6px;
   color: #000 !important;
-  top: 36%;
-  transform: rotate(-35deg);
+  top: 42%;
+  transform: rotate(-14deg)
 }
 .WishlistContent .IfTheListIsEmpty span {
   font-size: 16px;
@@ -68,6 +67,8 @@
 }
 .WishlistContent .IfTheListIsEmpty h5 {
   margin-top: 0;
+  font-size: 1.75rem;
+  font-weight: 500;
 }
 .WishlistContent .IfTheListIsFullOff {
   display: flex;
