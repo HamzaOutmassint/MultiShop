@@ -492,7 +492,7 @@
       position: relative;
     }
   
-    .header-user-actions .dropDown {
+    .header-user-actions .AccountDropDown {
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -500,7 +500,7 @@
       right: 104px;
       top: 1px;
     }
-    .header-user-actions .dropDown ul{
+    .header-user-actions .AccountDropDown ul{
       display: none;
       position: absolute;
       background-color: #fff;
@@ -512,19 +512,45 @@
       left: -130px;
       border-radius: 5px;
     }
-    .header-user-actions .dropDown ul:hover{
+    .header-user-actions .AccountDropDown ul:hover,
+    .header-user-actions .CartDropDown ul:hover{
       display: block;
     }
-    .header-user-actions .dropDown button:hover ~ ul {
+    .header-user-actions .AccountDropDown button:hover ~ ul,
+    .header-user-actions .CartDropDown button:hover ~ ul{
       display: block;
     }
-    .header-user-actions .dropDown ul a{
+    .header-user-actions .AccountDropDown ul a{
       padding: 10px;
       cursor: pointer;
       padding-left: 22px;
     }
-    .header-user-actions .dropDown ul a:hover{
+    .header-user-actions .AccountDropDown ul a:hover{
       background-color: #e1dede38;
+    }
+    .header-user-actions .CartDropDown {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      /* left: 0; */
+      right: 48px;
+      top: 1px;
+    }
+    .header-user-actions .CartDropDown ul{
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 185px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 0;
+      z-index: 1;
+      top: 60px;
+      left: -130px;
+      border-radius: 5px;
+    }
+    .header-user-actions .CartDropDown ul li i{
+      color: rgba(174, 146, 146, 0.766) !important;
+      font-size: 40px;
     }
 
     .header-user-actions .action-btn {

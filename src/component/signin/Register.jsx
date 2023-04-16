@@ -72,7 +72,7 @@ function Register() {
                   ) : null}
                 </div>
                 <div className='loginFiald' id="ele3">
-                  <label>Email *</label>
+                  <label>E-mail *</label>
                   <Field  type="email" name="email" placeholder="Enter email" id="email" />
                   {errors.email && touched.email ? (
                     error(errors.email,"ele3")

@@ -75,14 +75,22 @@ function Navbar() {
                 </div>
 
                 <div className="header-user-actions">
-                  <div className="dropDown">
+                  <div className="AccountDropDown">
                     <button className="action-btn"><PersonOutlineRoundedIcon fontSize="26px" style={{":hover":{"color":'/fff'}}}/></button>
                     <ul>
                       <Link to="login"><li>Sign in</li></Link>
                       <Link to="register"><li>Register</li></Link>
                     </ul>
                   </div>
-                  <button className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></button>
+                  <div className="CartDropDown">
+                    <Link  to="cart" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
+                    <ul>
+                      <li>
+                        <i className="bi bi-handbag"></i>
+                        <p>No Products in the Cart</p>
+                      </li>
+                    </ul>
+                  </div>
                   <button className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">8</span></button>
                 </div>
             </div>

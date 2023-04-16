@@ -10,6 +10,7 @@ import "./app.css"
 import Product from "./component/product/product";
 import Register from "./component/signin/Register";
 import Login from "./component/login/Login";
+import ViewCart from "./component/viewCart/ViewCart";
 
 
 function App() {
@@ -39,6 +40,13 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
+          <Route path="cart" element={<ViewCart 
+                                        // cartItem={cartItem} 
+                                        // DeleteItemFromTheCart={DeleteItemFromTheCart} 
+                                        // handlInecrement={handlInecrement} 
+                                        // handlDecrement={handlDecrement} 
+                                        // clearAll={ClearShopingCart} 
+                                        />} />
         </Routes>
       </AllProductsContext.Provider>
       <Footer />
