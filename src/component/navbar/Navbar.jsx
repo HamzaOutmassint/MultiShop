@@ -82,14 +82,14 @@ function Navbar() {
                       <Link to="register"><li>Register</li></Link>
                     </ul>
                   </div>
-                  <div>
+                  <div className="WishlistDropDown">
                     <Link  to="wishlist" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
                   </div>
                   <div className="CartDropDown">
-                    <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">8</span></Link>
+                    <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">0</span></Link>
                     <ul>
                       <li>
-                        <i className="bi bi-handbag"></i>
+                        <LocalMallOutlinedIcon sx={{ fontSize: 70 , color:"rgb(192 178 178 / 52%)", marginBottom:"8px" }} />
                         <p>No Products in the Cart</p>
                       </li>
                     </ul>
@@ -116,9 +116,9 @@ function Navbar() {
 
         <div className="mobile-bottom-navigation">
             <button className="action-btn"  onClick={()=>setOpen(true)}><img src={hamburgerIcon} alt="hamburgerIcon" width={40}/></button>
-            <button className="action-btn"><img src={shoppingCratIcon} alt="shoppingCartIcon" width={35}/><span className="count">0</span></button>
-            <button className="action-btn"><img src={homeIcon} alt="homeIcon" width={35}/></button>
-            <button className="action-btn"><img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span></button>
+            <Link  to="cart" className="action-btn"><img src={shoppingCratIcon} alt="shoppingCartIcon" width={35}/><span className="count">0</span></Link>
+            <Link  to="/" className="action-btn"><img src={homeIcon} alt="homeIcon" width={35}/></Link>
+            <Link  to="wishlist" className="action-btn"><img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span></Link>
             <button className="action-btn"  onClick={()=>setOpen2(true)}><img src={dashboardIcon} alt="dashboardIcon" width={35}/></button>
         </div>
 
@@ -129,10 +129,10 @@ function Navbar() {
                     <button className="menu-close-btn" onClick={()=>setOpen(false)}><HighlightOffRoundedIcon /></button>
                 </div>
                 <div className="mainMenu">
-                    <Link to="/">home <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/men">men <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/women">women <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/accessories">accessories <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/" onClick={() => setOpen(false)}>home <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/men" onClick={() => setOpen(false)}>men <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/women" onClick={() => setOpen(false)}>women <KeyboardArrowRightRoundedIcon /></Link>
+                    <Link to="/accessories" onClick={() => setOpen(false)}>accessories <KeyboardArrowRightRoundedIcon /></Link>
                 </div>
                 <div className="menu-bottom">
                     <ul className="menu-category-list">
@@ -143,10 +143,10 @@ function Navbar() {
                             </button>
                             <ul id="submenu-category-list" className="submenu-category-list">
                                 <li className="submenu-category">
-                                    <a href="/" className="submenu-title">USD &dollar;</a>
+                                    <a href="#usd" className="submenu-title">USD &dollar;</a>
                                 </li>
                                 <li className="submenu-category">
-                                    <a href="/" className="submenu-title">EUR &euro;</a>
+                                    <a href="#eur" className="submenu-title">EUR &euro;</a>
                                 </li>
                             </ul>
                         </li>

@@ -15,11 +15,13 @@
     border-bottom: 1px solid var(--cultured);
 }
 
-/* .header-logo { margin-bottom: 20px; } */
+/* .header-logo { flex: 0.5; } */
 
 .header-logo img { margin: auto; width: 90px !important;}
 
-.header-search-container { position: relative; }
+.header-search-container { 
+  position: relative;
+ }
 
 .header-search-container .search-field {
   font-size: var(--fs-7);
@@ -399,7 +401,7 @@
   /**
    * responsive larger than 768px screen
    */
-  
+
 @media (min-width: 768px) {
   
     /**
@@ -492,12 +494,20 @@
       position: relative;
     }
   
+    .header-user-actions .WishlistDropDown {
+      display: flex;
+      flex-direction: column;
+      /* position: absolute; */
+      /* left: 0; */
+      /* right: 113px; */
+      top: 1px;
+    }
     .header-user-actions .AccountDropDown {
       display: flex;
       flex-direction: column;
-      position: absolute;
+      /* position: absolute; */
       /* left: 0; */
-      right: 104px;
+      right: 113px;
       top: 1px;
     }
     .header-user-actions .AccountDropDown ul{
@@ -531,9 +541,9 @@
     .header-user-actions .CartDropDown {
       display: flex;
       flex-direction: column;
-      position: absolute;
+      /* position: absolute; */
       /* left: 0; */
-      right: 48px;
+      right: 26px;
       top: 1px;
     }
     .header-user-actions .CartDropDown ul{
@@ -542,15 +552,19 @@
       background-color: #fff;
       min-width: 185px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      padding: 12px 0;
       z-index: 1;
       top: 60px;
-      left: -130px;
+      left: -64px;
       border-radius: 5px;
+      width: 251.44px;
+      padding: 26px 20px 23px;
     }
-    .header-user-actions .CartDropDown ul li i{
-      color: rgba(174, 146, 146, 0.766) !important;
-      font-size: 40px;
+    .header-user-actions .CartDropDown ul li{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: rgba(140, 113, 113, 0.766);
     }
 
     .header-user-actions .action-btn {

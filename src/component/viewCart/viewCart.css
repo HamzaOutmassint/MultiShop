@@ -29,6 +29,7 @@
 .emptyCart span {
   font-size: 16px;
   color: rgba(128, 128, 128, 0.768);
+  text-align: center;
 }
 .emptyCart .Button {
   border: 2px solid #3471ff;
@@ -313,3 +314,40 @@
   z-index: 5;
   right: 38px;
 }/*# sourceMappingURL=viewCart.css.map */
+
+/*-----------------------------------*\
+  #RESPONSIVE
+\*-----------------------------------*/
+/**
+  * responsive larger than 480px screen
+  */
+
+@media (max-width: 480px) {
+  .emptyCart{
+    padding: 32px !important;
+  }
+  .emptyCart h5  {
+    font-size: 0.25rem !important;
+  }
+  .emptyCart span {
+    font-size: 15px !important;
+  }
+}
+/**
+  * responsive larger than 570px screen
+  */
+
+@media (max-width: 570px) {
+  .emptyCart h5  {
+    font-size: 0.8rem !important;
+  }
+}
+/**
+  * responsive larger than 768px screen
+  */
+
+@media (max-width: 768px) {
+  .WishlistContent .IfTheListIsEmpty h5 {
+    font-size: 0.9rem;
+  }
+}

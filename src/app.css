@@ -1671,7 +1671,7 @@
   width: -moz-fit-content;
   width: fit-content;
 }
-.MuiBox-root button {
+.MuiBox-root .submit {
   border: 2px solid #3471ff;
   font-size: 16px;
   font-weight: 100;
@@ -1684,7 +1684,7 @@
   margin: 3px;
   margin-right: 12px;
 }
-.MuiBox-root button:hover {
+.MuiBox-root .submit:hover {
   color: #fff;
   background-color: #1a5df7;
 }

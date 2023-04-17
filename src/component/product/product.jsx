@@ -345,7 +345,7 @@ function Product() {
                             <input type="text" name="name" onChange={(e)=>handlChange(e)} placeholder="Enter your name" id="name"/>
                           </div>
                           <div className="field">
-                            <label>EMAIL</label>
+                            <label>E-MAIL</label>
                             <input type="email" name="email" onChange={(e)=>handlChange(e)} placeholder="hamza.out@example.com" id="email" />
                           </div>
                           <div className="field">
@@ -360,7 +360,7 @@ function Product() {
                             <label>BODY OF REVIEW</label>
                             <textarea cols="30" rows="10" onChange={(e)=>handlChange(e)} name="content" placeholder="Write your comments here" style={{"minHeight":"100px"}} id="content"></textarea>
                           </div>
-                          <button onClick={(e)=>{sendReview(e)}}>SUBMIT REVIEW</button>
+                          <button onClick={(e)=>{sendReview(e)}} className="submit">SUBMIT REVIEW</button>
                         </form>
                       </Box>
                       </Modal>
