@@ -342,12 +342,3 @@
     font-size: 0.8rem !important;
   }
 }
-/**
-  * responsive larger than 768px screen
-  */
-
-@media (max-width: 768px) {
-  .WishlistContent .IfTheListIsEmpty h5 {
-    font-size: 0.9rem;
-  }
-}

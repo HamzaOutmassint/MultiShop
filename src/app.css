@@ -1258,7 +1258,16 @@
   /**
    * responsive larger than 570px screen
    */
-  
+  @media (max-width: 479px){
+   .css-6e8hyd {
+       width: 342px !important;
+   }
+  }
+  @media (min-width: 480px) and (max-width: 570px) { 
+    .css-6e8hyd{
+      width: 462px !important;
+    }
+   }
   @media (min-width: 570px) {  
   
     /**

@@ -155,7 +155,7 @@ function Home() {
               <div className="product-grid">
                 <>
                   {
-                    AllProducts.lenght > 0
+                    AllProducts.length > 0
                     ?
                     AllProducts.map(ele=>(
                       <Cart details={ele} key={ele.product_id} style={`firstStyle`} />

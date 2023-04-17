@@ -18,7 +18,7 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 
 const style = {
-  position: 'absolute', top: '40%', left: '50%',
+  position: 'absolute', top: '50%', left: '50%',
   transform: 'translate(-50%, -50%)', width: 580,
   height:"auto" ,  bgcolor: 'background.paper',
   boxShadow: 24, p: 4,
