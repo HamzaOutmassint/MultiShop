@@ -1,0 +1,74 @@
+.accountBox {
+  display: flex;
+  justify-content: center;
+}
+.accountBox .accountContent {
+  width: 1000px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1019607843);
+  margin: 5px 0;
+}
+.accountBox .accountContent .accountHolder {
+  padding: 30px;
+}
+.accountBox .accountContent .accountHolder .section {
+  margin-bottom: 15px;
+}
+.accountBox .accountContent .accountHolder .fullName {
+  display: flex;
+  align-items: center;
+}
+.accountBox .accountContent .accountHolder .fullName div {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.accountBox .accountContent .accountHolder .fullName button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.accountBox .accountContent .accountHolder .email {
+  display: flex;
+  align-items: center;
+}
+.accountBox .accountContent .accountHolder .email div {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.accountBox .accountContent .accountHolder .email button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.accountBox .accountContent .accountHolder .email div {
+  text-transform: none !important;
+}
+.accountBox .accountContent .accountHolder .password {
+  display: flex;
+  align-items: center;
+  align-items: end !important;
+}
+.accountBox .accountContent .accountHolder .password div {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.accountBox .accountContent .accountHolder .password button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.accountBox .accountContent .accountHolder .password div {
+  line-height: 1;
+}
+.accountBox .accountContent .accountHolder h1 {
+  color: #007185;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 0;
+}/*# sourceMappingURL=manageProfiel.css.map */

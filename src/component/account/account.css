@@ -130,3 +130,9 @@
 .accountBox .r_shd {
   box-shadow: none !important;
 }/*# sourceMappingURL=account.css.map */
+/* 
+@media (min-width: 570px) and (max-width: 768px){
+  .accountBox .accountContent .accountMain .AccountDetails a {
+    flex: 1.3 1;
+  }
+} */
