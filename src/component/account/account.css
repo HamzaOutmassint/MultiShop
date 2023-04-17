@@ -1,0 +1,132 @@
+.accountBox {
+  display: flex;
+  justify-content: center;
+}
+.accountBox .accountContent {
+  width: 1000px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1019607843);
+  margin: 5px 0;
+}
+.accountBox .accountContent .accountMain {
+  padding: 30px;
+}
+.accountBox .accountContent .accountMain .AccountDetails {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.accountBox .accountContent .accountMain .AccountDetails .moreDetails {
+  margin-left: 18px;
+  position: relative;
+  flex: 5 1;
+  padding-top: 9px;
+}
+.accountBox .accountContent .accountMain .AccountDetails .moreDetails .name {
+  font-weight: 600;
+}
+.accountBox .accountContent .accountMain .AccountDetails .moreDetails .emailCountry {
+  position: relative;
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+}
+.accountBox .accountContent .accountMain .AccountDetails a {
+  flex: 1.1 1;
+  font-size: 20px;
+  font-weight: 400;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #3471ff;
+}
+.accountBox .accountContent .accountMain .AccountDetails a:hover {
+  background-color: rgba(227, 240, 255, 0.8823529412);
+}
+.accountBox .accountContent .accountMain .addresses {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.accountBox .accountContent .accountMain .addresses .address {
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 2px 6px;
+  background-color: #FCF5EE;
+  border: 1px solid #FBD8B4;
+  margin: 3px 0;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 9px;
+  width: 468px;
+  max-width: 468px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.accountBox .accountContent .accountMain .addresses .address button {
+  border: none;
+  background-color: transparent;
+  color: #007185;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+  padding-left: 3px;
+}
+.accountBox .accountContent .accountMain .addresses .address button:hover {
+  text-decoration: underline;
+}
+.accountBox .accountContent .accountMain .addresses .address input {
+  margin-top: 3px !important;
+  margin-right: 3px !important;
+  cursor: pointer;
+  flex: 1;
+}
+.accountBox .accountContent .accountMain .addresses .address label {
+  cursor: pointer;
+  flex: 23 1;
+}
+.accountBox .accountContent .accountMain .addresses .address i {
+  font-size: 17px;
+  font-weight: bold;
+}
+.accountBox .accountContent .accountMain .addresses .address .manageAddress {
+  flex: 6;
+  display: flex;
+  justify-content: space-around;
+}
+.accountBox .accountContent .accountMain .addNewAddress {
+  border: none;
+  background-color: transparent;
+  color: #007185;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: end;
+}
+.accountBox .accountContent .accountMain .addNewAddress:hover {
+  text-decoration: underline;
+}
+.accountBox .accountContent .orderMain {
+  padding: 30px;
+}
+.accountBox .accountContent .orderMain .noOrders {
+  width: 100%;
+  height: 222px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.accountBox .r_shd {
+  box-shadow: none !important;
+}/*# sourceMappingURL=account.css.map */

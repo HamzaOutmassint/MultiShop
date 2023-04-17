@@ -80,6 +80,7 @@ function Navbar() {
                     <ul>
                       <Link to="login"><li>Sign in</li></Link>
                       <Link to="register"><li>Register</li></Link>
+                      <Link to="account"><li>Account</li></Link>
                     </ul>
                   </div>
                   <div className="WishlistDropDown">

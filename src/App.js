@@ -12,6 +12,7 @@ import Register from "./component/signin/Register";
 import Login from "./component/login/Login";
 import ViewCart from "./component/viewCart/ViewCart";
 import Wishlist from "./component/wishlist/Wishlist";
+import Account from "./component/account/Account";
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
                                         // clearAll={ClearShopingCart} 
                                         />} />
           <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
+          <Route path="account" element={<Account />} />
         </Routes>
       </AllProductsContext.Provider>
       <Footer />
