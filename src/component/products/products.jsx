@@ -10,7 +10,7 @@ import "./products.css";
 
 
 var  data 
-function Products({page,handlProduct,filterBySize,filterByType,brands,productsData}){
+function Products({page,handlProduct,filterBySize,filterByType,brands,productsData,Error}){
   const [style,setStyle] = useState("firstStyle")
   const [countFilter, setCountFilter] = useState(0)
 
@@ -96,54 +96,54 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
           </div>
           <div  className={style==="firstStyle"?"productsInFirstStyle":"productsInSecondStyle"}> 
             {
-              countFilter === 0 ?
-                productsData.length === 0 
-                ? 
-                <>
-                <div className='text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                <div className=' text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                <div className=' text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                <div className=' text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                <div className=' text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                <div className=' text-center col-lg-3 col-sm-12'><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
-                </>
+              countFilter === 0 
+              ?
+                Error !== "Network Error"
+                ?
+                  productsData.length === 0 
+                  ? 
+                    <div className="empty">
+                      <span>There is no products</span>
+                    </div>
+                  :
+                    <>
+                    {
+                      productsData.map((ele)=>(
+                        <Cart 
+                          details={ele} 
+                          key={ele.product_id}
+                          style={style}
+                        />    
+                      )) }
+                      {
+                        productsData.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
+                      }
+                    </>
                 :
-                <>
-                 {
-                  productsData.map((ele)=>(
-                    <Cart 
-                      details={ele} 
-                      key={ele.product_id}
-                      style={style}
-                      page={page}
-                    />    
-                  )) }
-                  {
-                    productsData.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
-                  }
-                </>
+                  <div className="empty">
+                    <span>{Error}, Please try again later.</span>
+                  </div> 
               :  
-              data.length === 0 
-              ? 
-                <div className="empty">
-                  <span>There is no products</span>
-                </div>
-              :
-              <>
-               {
-                 data.map((ele)=>(
-                  <Cart
-                    details={ele} 
-                    key={ele.product_id}
-                    style={style}
-                    page={page}
-                  />    
-                ))
-               }
-               {
-                  data.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
-                }
-              </>
+                data.length === 0 
+                ? 
+                  <div className="empty">
+                    <span>There is no products</span>
+                  </div>
+                :
+                  <>
+                    {
+                      data.map((ele)=>(
+                        <Cart
+                          details={ele} 
+                          key={ele.product_id}
+                          style={style}
+                        />    
+                      ))
+                    }
+                    {
+                      data.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
+                    }
+                  </>
               }
           </div>
         </div>

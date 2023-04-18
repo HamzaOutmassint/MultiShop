@@ -7,6 +7,7 @@ import { useState ,  useEffect} from 'react'
 import axios from "axios";
 
 export const CategoryPage = ({get}) => {
+    const [Error,setError] = useState(null)
     const [MenProducts,setMenProducts] = useState([])
     const [WomenProducts,setWomenProducts] = useState([])
     const [AccessoriesProducts,setAccessoriesProducts] = useState([])
@@ -19,21 +20,21 @@ export const CategoryPage = ({get}) => {
             axios.get('http://localhost/data/Men.php').then((response) => {
                 setMenProducts(response.data);
             }).catch((error)=> {
-                console.log(error);
+                setError(error.message);
             });
         }else if(get==="Women"){
             // to get all women products from database
             axios.get('http://localhost/data/Women.php').then((response) => {
                 setWomenProducts(response.data);
             }).catch((error)=> {
-                console.log(error);
+                setError(error.message);
             });
         }else{
             // to get all accessories products from database
             axios.get('http://localhost/data/accesories.php').then((response) => {
                 setAccessoriesProducts(response.data);
             }).catch((error)=> {
-                console.log(error);
+                setError(error.message);
             });
         }
     }, []);
@@ -51,6 +52,7 @@ export const CategoryPage = ({get}) => {
             filterBySize={Sizes}
             brands={brands}
             productsData={MenProducts}
+            Error={Error}
           />
           </>
         )
@@ -65,6 +67,7 @@ export const CategoryPage = ({get}) => {
             filterBySize={Sizes}
             brands={brands}
             productsData={WomenProducts}
+            Error={Error}
           />
           </>
         )
@@ -79,6 +82,7 @@ export const CategoryPage = ({get}) => {
             filterBySize={Sizes}
             brands={brands}
             productsData={AccessoriesProducts}
+            Error={Error}
           />
           </>
         )

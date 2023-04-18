@@ -19,7 +19,7 @@ import "./cart.css"
 //     boxShadow: theme.shadows[1], fontSize: 11, fontWeight:100, fontFamily:'Hind',},
 // }));
 
-const Cart = ({details , style , page}) => {
+const Cart = ({details , style}) => {
   if(style === 'firstStyle'){
     return (
       <div className="showcase">
@@ -32,13 +32,13 @@ const Cart = ({details , style , page}) => {
               {/* <LightTooltip TransitionComponent={Zoom} title="Remove from Wishlist" placement="left"> */}
                 <abbr title='add to favorite'><button className="btn-action"><FavoriteBorderRoundedIcon /></button></abbr>
               {/* </LightTooltip> */}
-                <Link to={`/product?${page}#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
+                <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
                 <abbr title='add to cart'><button className="btn-action"><EnhancedEncryptionOutlinedIcon /></button></abbr>
             </div>
           </div>
           <div className="showcase-content">
-          <Link to={`/product?${page}#${details.product_id}`} className="showcase-category">{details.product_name}</Link>
-          <Link to={`/product?${page}#${details.product_id}`}><h3 className="showcase-title">{details.description}</h3></Link>
+          <Link to={`/product#${details.product_id}`} className="showcase-category">{details.product_name}</Link>
+          <Link to={`/product#${details.product_id}`}><h3 className="showcase-title">{details.description}</h3></Link>
           <div className="showcase-rating">
             <Rating name="half-rating" value={0} precision={0.5} readOnly size="small"/>
           </div>
@@ -53,11 +53,11 @@ const Cart = ({details , style , page}) => {
     return(
       <div className="productInSecondStyle">
           <div className="productImage">
-            <Link to={`/product?${page}#${details.product_id}`}>
+            <Link to={`/product#${details.product_id}`}>
             <img src={require(`../../assets/images/products/${details.product_image}`)} loading="lazy"  alt="sweatshirt blue" />
             </Link>
           </div>
-          <Link to={`/product?${page}#${details.product_id}`} className="description">
+          <Link to={`/product#${details.product_id}`} className="description">
             <div>
             <div className="Title"><span>{details.product_name}</span></div>
               <div className="rating">
