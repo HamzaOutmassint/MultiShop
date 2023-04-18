@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import userImage from "../../assets/images/icons/user-image.png"
 import { Link } from 'react-router-dom';
 import RemoveShoppingCartOutlinedIcon from '@mui/icons-material/RemoveShoppingCartOutlined';
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import axios from 'axios';
 import { useState , useEffect } from 'react';
 import Skeleton from '@mui/material/Skeleton';
@@ -13,7 +14,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
 const style = {
-  position: 'absolute', top: '45%', left: '50%',
+  position: 'absolute', top: '50%', left: '50%',
   transform: 'translate(-50%, -50%)', width: 680,
   height:"auto" ,  bgcolor: 'background.paper',
   boxShadow: 24, p: 4,
@@ -156,9 +157,20 @@ function Account() {
                     <span>{Customer[0]["email"]}</span>
                   </div>
                 </div>
-                <Link to="/manage-your-profiles">Profile setting</Link>
+                <Link to="/manage-your-profiles" className='profileSetting'>Profile setting</Link>
+                <Link to="/manage-your-profiles" className='profileSettingIcon'><ManageAccountsRoundedIcon /></Link>
+              </div>
+              <div className='AccountDetailsResponsive'>
+                <div className='moreDetails'>
+                  <div className='name'>{`${Customer[0]["first_name"]} ${Customer[0]["last_name"]}`}</div>
+                  <div className='emailCountry'>
+                    <span>{Customer[0]["email"]}</span>
+                  </div>
+                </div>
+                <Link to="/manage-your-profiles" className='profileSettingIcon'><ManageAccountsRoundedIcon /></Link>
               </div>
               <div className='addresses'>
+                {/* this part it's for edit an address */}
                   {
                     TakenAddress.map((ele,idx)=>(
                       <div className='address' key={idx}>
@@ -225,7 +237,9 @@ function Account() {
                     :
                     null
                   }
+                  {/*------------------------------------end------------------------------------- */}
               </div>
+              {/* this part it's for add new address */}
               <button className='addNewAddress' onClick={handleOpen}><AddOutlinedIcon sx={{ fontSize: 25 }}/>  add new address</button>
               <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
               <Box sx={style}>

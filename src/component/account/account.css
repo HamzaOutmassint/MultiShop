@@ -22,7 +22,8 @@
   flex: 5 1;
   padding-top: 9px;
 }
-.accountBox .accountContent .accountMain .AccountDetails .moreDetails .name {
+.accountBox .accountContent .accountMain .AccountDetails .moreDetails .name ,
+.accountBox .accountContent .accountMain .AccountDetailsResponsive .moreDetails .name{
   font-weight: 600;
 }
 .accountBox .accountContent .accountMain .AccountDetails .moreDetails .emailCountry {
@@ -31,7 +32,8 @@
   display: flex;
   justify-content: space-between;
 }
-.accountBox .accountContent .accountMain .AccountDetails a {
+.accountBox .accountContent .accountMain .AccountDetails a,
+.accountBox .accountContent .accountMain .AccountDetailsResponsive a {
   flex: 1.1 1;
   font-size: 20px;
   font-weight: 400;
@@ -44,9 +46,23 @@
   border-radius: 50px;
   color: #3471ff;
 }
+.accountBox .accountContent .accountMain .AccountDetailsResponsive a{
+  justify-content: end !important;
+}
 .accountBox .accountContent .accountMain .AccountDetails a:hover {
   background-color: rgba(227, 240, 255, 0.8823529412);
 }
+/*---------------------------------end-------------------------------------*/
+/*---------------------------- start responsive -------------------------- */
+.accountBox .accountContent .accountMain .AccountDetailsResponsive {
+  margin: 0 0 14px 0;
+  justify-content: space-between;
+}
+.accountBox .accountContent .accountMain .AccountDetailsResponsive .emailCountry {
+  line-height: 1.2;
+}
+/*---------------------------------end-------------------------------------*/
+
 .accountBox .accountContent .accountMain .addresses {
   display: flex;
   justify-content: space-between;
@@ -130,9 +146,41 @@
 .accountBox .r_shd {
   box-shadow: none !important;
 }/*# sourceMappingURL=account.css.map */
-/* 
-@media (min-width: 570px) and (max-width: 768px){
-  .accountBox .accountContent .accountMain .AccountDetails a {
-    flex: 1.3 1;
+
+@media (max-width: 480px){
+  .accountBox .accountContent .accountMain .AccountDetailsResponsive {
+    display: flex !important;
   }
-} */
+  .accountBox .accountContent .accountMain .AccountDetails{
+    display: none !important;
+  } 
+}
+@media (min-width: 481px){
+  .accountBox .accountContent .accountMain .AccountDetailsResponsive {
+    display: none ;
+  }
+}
+@media (max-width: 616px){
+  .accountBox .accountContent .accountMain .AccountDetails .profileSetting {
+    display: none !important;
+  }
+  .accountBox .accountContent .accountMain .AccountDetails .profileSettingIcon {
+    display: flex !important;
+  }
+} 
+@media (min-width: 616px){
+  .accountBox .accountContent .accountMain .AccountDetails .profileSettingIcon {
+    display: none !important;
+  }
+} 
+@media (max-width: 768px){
+  .accountBox .accountContent .accountMain .AccountDetails .moreDetails {
+    flex: 3 1;
+  }
+  .accountBox .accountContent .accountMain .AccountDetails .profileSetting {
+    display: flex;
+  }
+  .accountBox .accountContent .accountMain .AccountDetails .profileSettingIcon {
+    display: none;
+  }
+} 
