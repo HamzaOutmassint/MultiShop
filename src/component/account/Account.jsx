@@ -123,6 +123,7 @@ function Account() {
   if(Customer.length === 0){
     return (
       <>
+        <CustomSeparator Get="account"/>
         <div className="container mt-4 mb-5 login">
           <div className="accountBox">
             <div className="accountContent r_shd">

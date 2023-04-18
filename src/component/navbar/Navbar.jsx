@@ -12,6 +12,8 @@ import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
+import LockOpenRoundedIcon from '@mui/icons-material/LockOpenRounded';
+import HowToRegRoundedIcon from '@mui/icons-material/HowToRegRounded';
 import {Link} from "react-router-dom"
 import { Drawer, Box } from '@mui/material'
 import {useState , useEffect} from "react"
@@ -78,7 +80,7 @@ function Navbar() {
                   <div className="AccountDropDown">
                     <button className="action-btn"><PersonOutlineRoundedIcon fontSize="26px" style={{":hover":{"color":'/fff'}}}/></button>
                     <ul>
-                      <Link to="login"><li>Sign in</li></Link>
+                      <Link to="login"><li> Sign in</li></Link>
                       <Link to="register"><li>Register</li></Link>
                       <Link to="account"><li>Account</li></Link>
                     </ul>
@@ -134,6 +136,13 @@ function Navbar() {
                     <Link to="/men" onClick={() => setOpen(false)}>men <KeyboardArrowRightRoundedIcon /></Link>
                     <Link to="/women" onClick={() => setOpen(false)}>women <KeyboardArrowRightRoundedIcon /></Link>
                     <Link to="/accessories" onClick={() => setOpen(false)}>accessories <KeyboardArrowRightRoundedIcon /></Link>
+                </div>
+                <div className="mainMenu">
+                  <ul>
+                    <Link to="login"><li><LockOpenRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} /> Sign in</li></Link>
+                    <Link to="register"><li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Register</li></Link>
+                    <Link to="account"><li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Account</li></Link>
+                  </ul>
                 </div>
                 <div className="menu-bottom">
                     <ul className="menu-category-list">

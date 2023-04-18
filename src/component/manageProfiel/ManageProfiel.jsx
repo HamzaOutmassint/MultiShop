@@ -199,6 +199,7 @@ import CustomSeparator from "../breadcrumbs/breadcrumbs";
     }else{
         return(
             <>
+            <CustomSeparator Get="manageYourProfiel"/>
             <div className="container mt-4 mb-5 login">
               <div className="accountBox">
                 <div className="accountContent r_shd">
