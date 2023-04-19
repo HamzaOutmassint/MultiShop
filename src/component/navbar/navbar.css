@@ -556,9 +556,10 @@
       top: 60px;
       left: -109px;
       border-radius: 5px;
-      /* width: 251.44px; */
       width: 292.44px;
       padding: 26px 20px 23px;
+      max-height: 600px;
+      overflow: scroll;
     }
     .header-user-actions .CartDropDown ul li{
       display: flex;
@@ -574,6 +575,7 @@
     }
     .header-user-actions .CartDropDown ul .shopingCart .ProductDetails{
       display: flex;
+      border-bottom: 1px solid rgb(186 182 182 / 76%);
     }
     .header-user-actions .CartDropDown ul .shopingCart .ProductDetails img{
       flex: 3;
@@ -612,7 +614,54 @@
       flex: 1;
       padding-top: 5px;
     }
-
+    .header-user-actions .CartDropDown ul .shopingCart .Total{
+      display: flex;
+      justify-content: space-between;
+      padding:8px;
+      width: 100%;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .Total .total{
+      font-size: 15px;
+      font-weight: 500
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .Total .price{
+      font-size: 16px;
+      font-weight: 600
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .buttons{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-family: Hind;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .buttons .checkout{
+      border: 2px solid #3471ff;
+      font-size: 16px;
+      font-weight: 100;
+      padding: 6px 20px;
+      border-radius: 6px;
+      background-color: #3471ff;
+      color: #fff;
+      transition: all ease .2s;
+      width: 100%;
+      font-family: ROBOTO;
+      font-weight: normal;
+      display: flex;
+      justify-content: center;
+      font-family: Hind;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .buttons .checkout:hover{
+      color: #fff;
+      background-color: #1a5df7;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .buttons .viewCart{
+      font-size: 15px;
+      color: #3471ff;
+      margin-top: 10px;
+    }
+  
     .header-user-actions .action-btn {
       position: relative;
       font-size: 35px;

@@ -45,6 +45,11 @@ function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
     }
   }, [menuOpen])
   
+  /*---------------------function to calcule the total price of items-------------------- */
+  let total = cartItem.reduce((total , item)=>{ 
+    return total += (parseInt(item.product_price)*parseInt(item.product_quantity) )
+  },0)
+  /*------------------------------------------end----------------------------------------- */
 
   return (
     <header>
@@ -128,6 +133,14 @@ function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
                                 </Fragment>
                               ))
                             }
+                            <div className='Total'>
+                              <span className='total'>TOTAL:</span>
+                              <span className='price'>{FormatPrice(total)}</span>
+                            </div>
+                            <div className='buttons'>
+                              <Link to="/checkout" className='checkout'>Checkout</Link>
+                              <Link to='cart' className='viewCart'> VIEW CART </Link>
+                            </div>
                           </li>
                         :
                           <li>
