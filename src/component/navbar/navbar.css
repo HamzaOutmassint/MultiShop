@@ -92,17 +92,16 @@
 }
 
 .mobile-bottom-navigation .count {
-    background: var(--bittersweet);
-    color: var(--white);
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-    font-weight: var(--weight-500);
-    line-height: 1;
-    padding: 2px 4px;
-    -webkit-border-radius: 20px;
-            border-radius: 20px;
+  background: var(--bittersweet);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: var(--weight-500);
+  padding: 0px 8px;
+  border-radius: 20px;
+  font-family: 'Hind';
 }
 .mobile-navigation-menu {
     background: var(--white);
@@ -558,8 +557,6 @@
       border-radius: 5px;
       width: 292.44px;
       padding: 26px 20px 23px;
-      max-height: 600px;
-      overflow: scroll;
     }
     .header-user-actions .CartDropDown ul li{
       display: flex;

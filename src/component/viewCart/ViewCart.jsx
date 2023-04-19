@@ -1,14 +1,14 @@
 import CustomSeparator from "../breadcrumbs/breadcrumbs";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
 import { Link } from "react-router-dom"
 import "./viewCart.css"
 import { FormatPrice } from "../Context/ContextFile";
-// import RecommendedItemsSlider from "../Slider/RecommendedItemsSlider";
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 
-function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInecrement , clearAll}) {
+function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInecrement , clearShopingCart}) {
 
   let totalCartPrice = 0;
   return (
@@ -26,8 +26,8 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
             </div>
             :
             <>
-            <div className="mb-4">
-              <h5 className="text-center mt-3 mb-3">SHOPPING CART</h5>
+            <div className="container-shopping-cart">
+              <h5 className="shopping-cart-title">SHOPPING CART</h5>
               <div className="shopcart">
                 <div className="shopcart-items">
                   <table>
@@ -43,9 +43,9 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                             <td className="price">{FormatPrice(item.product_price)}</td>
                             <td className="quntity">
                               <div className="QTY">
-                                <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><i className="bi bi-dash"></i></button>
+                                <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><RemoveRoundedIcon/></button>
                                   <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={item.product_quantity}/>
-                                <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><i className="bi bi-plus"></i></button>
+                                <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><AddRoundedIcon /></button>
                               </div>
                             </td>
                             <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
@@ -58,34 +58,28 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                         )})}
                     </tbody>
                   </table>
-                  <Link to="/cart" onClick={()=>clearAll()} className="clear-all"><span className="clearAll"  >CLEAR SHOPPING CART</span></Link>
+                  <Link to="/cart" onClick={()=>clearShopingCart()} className="clear-all"><span className="clearAll"  >CLEAR SHOPPING CART</span></Link>
                 </div>
                 <div className="shopcart-total">
-                  <div>
-                    <div className="subTotal">
-                      <span>SUBTOTAL</span>
-                      <span className="price">{FormatPrice(totalCartPrice)}</span>
-                    </div>
-                    <div className="grandTotal">
-                      <span>GRAND TOTAL</span>
-                      <span className="price">{FormatPrice(totalCartPrice)}</span>
-                    </div>
-                    <div className="buttons">
-                      <Link to="/checkout" className="checkout">Proceed to checkout</Link>
-                      <Link to="/"><Button variant="outlined" size="small" className='backToShop'> Back to shop </Button></Link>
-                    </div>
+                  <ul>
+                    <li>SUBTOTAL</li>
+                    <li>{FormatPrice(totalCartPrice)}</li>
+                  </ul>
+                  <div className="grandTotal">
+                    <span>GRAND TOTAL</span>
+                    <span className="price">{FormatPrice(totalCartPrice)}</span>
+                  </div>
+                  <div className="buttons">
+                    <Link to="/checkout" className="checkout">Proceed to checkout</Link>
+                    <Link to="/"> Back to shop </Link>
                   </div>
                 </div>
               </div>
             </div>
             </>
-          }
-            
+          } 
         </div>
     </div>
-    {/* {
-      cartItem.length !== 0 ? <RecommendedItemsSlider AllData={AllData}/> : null
-    }  */}
     </>
   )
 }

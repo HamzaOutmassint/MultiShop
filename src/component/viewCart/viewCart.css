@@ -48,10 +48,22 @@
   color: #fff;
   background-color: #1a5df7;
 }
-
+.container-shopping-cart{
+  margin-top: 56px;
+}
+.container-shopping-cart .shopping-cart-title{
+  font-size: 34px;
+  line-height: 44px;
+  font-weight: 500;
+  padding: 0 0 50px 0;
+  margin-top: -10px;
+  font-family: 'Hind';
+  text-align: center;
+}
 .shopcart {
   display: flex;
   margin: 10px;
+  font-family: 'Hind';
 }
 .shopcart .shopcart-items {
   display: flex;
@@ -176,14 +188,16 @@
   max-height: 220px;
   max-width: 330px;
   background-color: #fff;
+  font-family: 'Poppins';
 }
-.shopcart .shopcart-total .subTotal {
+.shopcart .shopcart-total ul {
   display: flex;
   padding: 7px;
   font-size: 16px;
   justify-content: space-between;
   font-weight: 600;
 }
+
 .shopcart .shopcart-total .subTotal .price {
   font-size: 20px;
   font-weight: 500;
@@ -196,7 +210,7 @@
   font-weight: 600;
 }
 .shopcart .shopcart-total .grandTotal .price {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 500;
   color: #3471ff;
 }
@@ -205,9 +219,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 5px;
 }
 .shopcart .shopcart-total .buttons a {
-  width: 100%;
+  margin-top: 10px;
+  color:#0d6efd;
 }
 .shopcart .shopcart-total .buttons .checkout {
   border: 2px solid #3471ff;
@@ -224,6 +240,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  font-family: 'Hind';
 }
 .shopcart .shopcart-total .buttons .checkout:hover {
   color: #fff;
@@ -234,6 +251,7 @@
   color: #3471ff;
   width: 100%;
   margin-top: 5px;
+  text-align: center;
 }
 
 .RecommendedItems {

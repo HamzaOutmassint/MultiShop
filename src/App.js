@@ -26,8 +26,7 @@ function App() {
   })
   const [wishlist , setWishlist] = useState([])
   
-  /*-------------------------------------------get data from database----------------------------------- */
-  // to get all products from database
+  /*---------------------------------------get all the data from database----------------------------------- */
   useEffect(()=>{
     axios.get('http://localhost/data/AllProducts.php').then((response) => {
       setAllProducts(response.data);
@@ -36,8 +35,8 @@ function App() {
     });
   }, []);
   /*-------------------------------------------(end)get data from database----------------------------------- */
-  /*-----------------------------------------start get products from db-------------------------------------- */
-  // get the product of shopping cart from db
+  /*-----------------------------------start methods CRUD (shopping cart)------------------------------------ */
+
   useEffect(()=>{
     if(JSON.parse(window.localStorage.getItem("seccess")) === true){
       const token = {"token":localStorage.getItem("auth_token")}
@@ -50,8 +49,6 @@ function App() {
       setCartItem(JSON.parse(localStorage.getItem("cart") || "[]" ))
     }
   }, [reloadInChangesForCart]);
-  /*-------------------------------------------end get products from db-------------------------------------- */
-  /*-------------------------------------------start methods CRUD-------------------------------------------- */
 
   const AddToCart =(item)=>{
     const productItem = cartItem.find(ele=> ele.product_id === item.product_id)
@@ -63,7 +60,6 @@ function App() {
         const productInfo = {product_id, product_quantity, token}
         return(
           axios.post('http://localhost/data/shoppingCart.php',productInfo).then((response) => {
-            // console.log(response)
             setReloadInChangesForCart([...reloadInChangesForCart , productInfo])
           }).catch((error)=> {
             console.log(error);
@@ -82,7 +78,6 @@ function App() {
     if(JSON.parse(window.localStorage.getItem("seccess")) === true){
       const Item = {id}
       axios.post('http://localhost/data/deleteFromShoppinCart.php',Item).then((response) => {
-        // console.log(response)
         setReloadInChangesForCart([...reloadInChangesForCart , Item])
       }).catch((error)=> {
         console.log(error);
@@ -92,6 +87,35 @@ function App() {
       setCartItem(newCartItem)
       localStorage.setItem("cart",JSON.stringify(newCartItem))
     }
+  }
+
+  const ClearShopingCart=()=>{
+    if(JSON.parse(window.localStorage.getItem("seccess")) === true){
+      setCartItem([])
+      const Item = {'dalete_all':true}
+      axios.post('http://localhost/data/deleteFromShoppinCart.php',Item).then((response) => {
+        setReloadInChangesForCart([...reloadInChangesForCart , Item])
+      }).catch((error)=> {
+        console.log(error);
+      })
+    }else{
+      setCartItem([])
+      localStorage.setItem("cart",JSON.stringify([]))
+    }
+  }
+
+  // increment or decerement the quantity of product
+  const handlInecrement=(card_id)=>{
+    const IneCartItem = cartItem.map(item=>(
+      card_id === item.product_id ? {...item , product_quantity : parseInt(item.product_quantity) + 1} : item
+    ))
+    setCartItem(IneCartItem)
+  }
+  const handlDecrement=(card_id)=>{
+    const DeCartItem = cartItem.map(item=>(
+      card_id === item.product_id ? {...item , product_quantity : item.product_quantity - (item.product_quantity > 1 ?1:0)} : item
+    ))
+    setCartItem(DeCartItem)
   }
 
   const logOut=()=>{
@@ -119,9 +143,9 @@ function App() {
             <Route path="cart" element={<ViewCart 
                                           cartItem={cartItem} 
                                           DeleteItemFromTheCart={DeleteItemFromTheCart} 
-                                          // handlInecrement={handlInecrement} 
-                                          // handlDecrement={handlDecrement} 
-                                          // clearAll={ClearShopingCart} 
+                                          handlInecrement={handlInecrement} 
+                                          handlDecrement={handlDecrement} 
+                                          clearShopingCart={ClearShopingCart} 
                                           />} />
             <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
             <Route path="account" element={<Account />} />

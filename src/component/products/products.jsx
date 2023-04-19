@@ -103,7 +103,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                   productsData.length === 0 
                   ? 
                     <div className="empty">
-                      <span>There is no products</span>
+                      <span>There is no products found...</span>
                     </div>
                   :
                     <>
@@ -120,14 +120,22 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                       }
                     </>
                 :
-                  <div className="empty">
-                    <span>{Error}, Please try again later.</span>
-                  </div> 
+                  <>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                    <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
+                  </>
               :  
                 data.length === 0 
                 ? 
                   <div className="empty">
-                    <span>There is no products</span>
+                    <span>There is no products found...</span>
                   </div>
                 :
                   <>

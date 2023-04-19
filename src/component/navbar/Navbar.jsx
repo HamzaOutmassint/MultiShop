@@ -171,11 +171,21 @@ function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
         {/*-------------------start the navbar of phone and ipads-------------*/}
 
         <div className="mobile-bottom-navigation">
-            <button className="action-btn"  onClick={()=>setOpen(true)}><img src={hamburgerIcon} alt="hamburgerIcon" width={40}/></button>
-            <Link  to="cart" className="action-btn"><img src={shoppingCratIcon} alt="shoppingCartIcon" width={35}/><span className="count">0</span></Link>
-            <Link  to="/" className="action-btn"><img src={homeIcon} alt="homeIcon" width={35}/></Link>
-            <Link  to="wishlist" className="action-btn"><img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span></Link>
-            <button className="action-btn"  onClick={()=>setOpen2(true)}><img src={dashboardIcon} alt="dashboardIcon" width={35}/></button>
+            <button className="action-btn"  onClick={()=>setOpen(true)}>
+              <img src={hamburgerIcon} alt="hamburgerIcon" width={40}/>
+            </button>
+            <Link  to="cart" className="action-btn">
+              <img src={shoppingCratIcon} alt="shoppingCartIcon" width={35}/><span className="count">{cartItem.length}</span>
+            </Link>
+            <Link  to="/" className="action-btn">
+              <img src={homeIcon} alt="homeIcon" width={35}/>
+            </Link>
+            <Link  to="wishlist" className="action-btn">
+              <img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span>
+            </Link>
+            <button className="action-btn"  onClick={()=>setOpen2(true)}>
+              <img src={dashboardIcon} alt="dashboardIcon" width={35}/>
+            </button>
         </div>
 
         <Drawer variant='temporary' open={open} onClose={() => setOpen(false)}>
