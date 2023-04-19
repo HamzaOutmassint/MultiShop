@@ -74,6 +74,7 @@
   padding: 15px;
   border-radius: 4px;
   background-color: #fff;
+  justify-content: space-between;
 }
 .shopcart .shopcart-items .clear-all {
   width: -moz-fit-content;
@@ -100,7 +101,14 @@
 .shopcart .shopcart-items table {
   width: 100%;
 }
-.shopcart .shopcart-items table tr {
+.shopcart .shopcart-items table tr .smallDevices{
+  display: none;
+}
+.shopcart .shopcart-items table tr .smallDevices .headerMain,
+.shopcart .shopcart-items table tr .smallDevices .headerBottom{
+  display: flex;
+}
+.shopcart .shopcart-items table tr .largeDevices{
   display: flex;
   padding: 7px;
 }
@@ -358,5 +366,32 @@
 @media (max-width: 570px) {
   .emptyCart h5  {
     font-size: 0.8rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .shopcart{
+    flex-direction: column;
+  }
+  .shopcart .shopcart-items {
+    margin-right:0;
+  }
+  .shopcart .shopcart-total {
+    margin: 15px 0 0 0;
+  }
+  .shopcart .shopcart-items table tr .largeDevices{
+    display: none !important;
+  }
+  .shopcart .shopcart-items table tr .smallDevices{
+    display: flex !important;
+    flex-direction: column;
+  }
+  .shopcart .shopcart-items table tr .smallDevices .headerMain td{
+   margin: 0 !important;
+  }
+  .shopcart .shopcart-items table tr .quntity .QTY {
+    padding: 3px 1px;
+  }
+  .shopcart .shopcart-items table tr .quntity .QTY button {
+    font-size: 6px;
   }
 }

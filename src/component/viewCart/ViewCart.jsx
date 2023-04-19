@@ -35,26 +35,78 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                       {cartItem.map((item,index)=>{
                         totalCartPrice += parseInt(item.product_price) * parseInt(item.product_quantity)
                         return (
-                          <tr key={index}>
-                            <td style={{marginRight:"10px"}}>
-                              <img  className="image" src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
-                            </td>
-                            <td className="name"><Link to={`/product#${item.product_id}`}>{item.product_name}</Link></td>
-                            <td className="price">{FormatPrice(item.product_price)}</td>
-                            <td className="quntity">
-                              <div className="QTY">
-                                <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><RemoveRoundedIcon/></button>
-                                  <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={item.product_quantity}/>
-                                <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><AddRoundedIcon /></button>
-                              </div>
-                            </td>
-                            <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
-                            <td className="remove">
-                              <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
-                                <DeleteIcon fontSize="inherit" />
-                              </IconButton>
+                          <>
+                          <tr key={index} >
+                            <div className="largeDevices">
+                              <td style={{marginRight:"10px"}}>
+                                <img  className="image" src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
                               </td>
+                              <td className="name"><Link to={`/product#${item.product_id}`}>{item.product_name}</Link></td>
+                              <td className="price">{FormatPrice(item.product_price)}</td>
+                              <td className="quntity">
+                                <div className="QTY">
+                                  <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><RemoveRoundedIcon/></button>
+                                    <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={item.product_quantity}/>
+                                  <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><AddRoundedIcon /></button>
+                                </div>
+                              </td>
+                              <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
+                              <td className="remove">
+                                <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
+                                  <DeleteIcon fontSize="inherit" />
+                                </IconButton>
+                              </td>
+                            </div>
+                            <div className="smallDevices">
+                              <div className="headerMain">
+                                <td style={{marginRight:"10px"}}>
+                                  <img  className="image" src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
+                                </td>
+                                <td className="name"><Link to={`/product#${item.product_id}`}>{item.product_name}</Link></td>
+                                <td className="price">{FormatPrice(item.product_price)}</td>
+                              </div>
+                              <div  className="headerBottom">
+                                <td className="quntity">
+                                  <div className="QTY">
+                                    <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><RemoveRoundedIcon/></button>
+                                      <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={item.product_quantity}/>
+                                    <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><AddRoundedIcon /></button>
+                                  </div>
+                                </td>
+                                <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
+                                <td className="remove">
+                                  <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
+                                    <DeleteIcon fontSize="inherit" />
+                                  </IconButton>
+                                </td>
+                              </div>
+                            </div>
                           </tr>
+                          {/* <tr key={index} className="smallDevices">
+                            <div>
+                              <td style={{marginRight:"10px"}}>
+                                <img  className="image" src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
+                              </td>
+                              <td className="name"><Link to={`/product#${item.product_id}`}>{item.product_name}</Link></td>
+                              <td className="price">{FormatPrice(item.product_price)}</td>
+                            </div>
+                            <div>
+                              <td className="quntity">
+                                <div className="QTY">
+                                  <button type="button"  id="positif" onClick={()=>handlDecrement(item.product_id)}><RemoveRoundedIcon/></button>
+                                    <input readOnly name="msgQantity float-end ms-2 me-2" type="text" id="msg" value={item.product_quantity}/>
+                                  <button type="button" id="nigatif" onClick={()=>handlInecrement(item.product_id)}><AddRoundedIcon /></button>
+                                </div>
+                              </td>
+                              <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
+                              <td className="remove">
+                                <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
+                                  <DeleteIcon fontSize="inherit" />
+                                </IconButton>
+                              </td>
+                            </div>
+                          </tr> */}
+                          </>
                         )})}
                     </tbody>
                   </table>
