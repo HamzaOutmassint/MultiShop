@@ -36,7 +36,21 @@ function App() {
     });
   }, []);
   /*-------------------------------------------(end)get data from database----------------------------------- */
-
+  /*-----------------------------------------start get products from db-------------------------------------- */
+  // get the product of shopping cart from db
+  useEffect(()=>{
+    if(JSON.parse(window.localStorage.getItem("seccess")) === true){
+      const token = {"token":localStorage.getItem("auth_token")}
+      axios.post('http://localhost/data/getTheShoppinCart.php',token).then((response) => {
+        setCartItem(response.data)
+      }).catch((error)=> {
+        console.log(error);
+      });
+    }else{
+      setCartItem(JSON.parse(localStorage.getItem("cart") || "[]" ))
+    }
+  }, [reloadInChangesForCart]);
+  /*-------------------------------------------end get products from db-------------------------------------- */
   /*-------------------------------------------start methods CRUD-------------------------------------------- */
 
   const AddToCart =(item)=>{
@@ -46,11 +60,11 @@ function App() {
         const token = localStorage.getItem("auth_token");
         const product_id = item["product_id"]
         const product_quantity = item["product_quantity"]
-        const Item = {product_id, product_quantity, token}
+        const productInfo = {product_id, product_quantity, token}
         return(
-          axios.post('http://localhost/data/shoppingCart.php',Item).then((response) => {
+          axios.post('http://localhost/data/shoppingCart.php',productInfo).then((response) => {
             // console.log(response)
-            setReloadInChangesForCart([...reloadInChangesForCart , Item])
+            setReloadInChangesForCart([...reloadInChangesForCart , productInfo])
           }).catch((error)=> {
             console.log(error);
           })
@@ -64,10 +78,9 @@ function App() {
     }  
   }
 
-  const DeleteItemFromTheCart =(item)=>{
+  const DeleteItemFromTheCart =(id)=>{
     if(JSON.parse(window.localStorage.getItem("seccess")) === true){
-      const product_id = item["product_id"]
-      const Item = {product_id}
+      const Item = {id}
       axios.post('http://localhost/data/deleteFromShoppinCart.php',Item).then((response) => {
         // console.log(response)
         setReloadInChangesForCart([...reloadInChangesForCart , Item])
@@ -75,7 +88,7 @@ function App() {
         console.log(error);
       })
     }else{
-      const newCartItem = cartItem.filter(ele=> ele.product_id !== item.product_id)
+      const newCartItem = cartItem.filter(ele=> ele.product_id !== id)
       setCartItem(newCartItem)
       localStorage.setItem("cart",JSON.stringify(newCartItem))
     }
@@ -92,7 +105,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Navbar logOut={logOut}/>
+      <Navbar logOut={logOut} cartItem={cartItem} DeleteItemFromTheCart={DeleteItemFromTheCart}/>
       <AllProductsContext.Provider value={AllProducts}>
         <AddToCartContext.Provider value={AddToCart}>
           <Routes>

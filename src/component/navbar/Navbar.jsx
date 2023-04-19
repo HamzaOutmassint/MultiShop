@@ -14,16 +14,20 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 import LockOpenRoundedIcon from '@mui/icons-material/LockOpenRounded';
 import HowToRegRoundedIcon from '@mui/icons-material/HowToRegRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {Link} from "react-router-dom"
 import { Drawer, Box } from '@mui/material'
-import {useState , useEffect} from "react"
+import {useState , useEffect, Fragment} from "react"
 import shoppingCratIcon from "../../assets/images/icons/shopping-bag.png";
 import homeIcon from "../../assets/images/icons/home.png";
 import heartIcon from "../../assets/images/icons/heart (1).png";
 import dashboardIcon from "../../assets/images/icons/dashboard.png";
 import hamburgerIcon from "../../assets/images/icons/hamburger.png";
+import { FormatPrice } from '../Context/ContextFile';
 
-function Navbar({logOut}) {
+function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
   /*---------- this state for the sidebar in -------------*/
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -99,12 +103,38 @@ function Navbar({logOut}) {
                     <Link  to="wishlist" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
                   </div>
                   <div className="CartDropDown">
-                    <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">0</span></Link>
+                    <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">{cartItem.length}</span></Link>
                     <ul>
-                      <li>
-                        <LocalMallOutlinedIcon sx={{ fontSize: 70 , color:"rgb(192 178 178 / 52%)", marginBottom:"8px" }} />
-                        <p>No Products in the Cart</p>
-                      </li>
+                      {
+                        cartItem.length > 0
+                        ?
+                          <li className='shopingCart'>
+                            {
+                              cartItem.map((item,index)=>(
+                                <Fragment  key={index}>
+                                <div className='ProductDetails'>
+                                  <img src={require(`../../assets/images/products/${item.product_image}`)} alt="" />
+                                  <div className='NameAndQuntity'>
+                                    <p className="name">{item.product_name}</p>
+                                    <span>{item.product_quantity} X <span>{FormatPrice(item.product_price)}</span></span>
+                                  </div>
+                                  <div className='delete'>
+                                    <IconButton aria-label="delete" onClick={()=>DeleteItemFromTheCart(item.product_id)}>
+                                      <DeleteIcon fontSize="inherit" />
+                                    </IconButton>
+                                  </div>
+                                </div>
+                                <hr/>
+                                </Fragment>
+                              ))
+                            }
+                          </li>
+                        :
+                          <li>
+                            <LocalMallOutlinedIcon sx={{ fontSize: 70 , color:"rgb(192 178 178 / 52%)", marginBottom:"8px" }} />
+                            <p>No Products in the Cart</p>
+                          </li>
+                      }
                     </ul>
                   </div>
                 </div>
@@ -156,7 +186,9 @@ function Navbar({logOut}) {
                             <Link to="account" onClick={() => setOpen(false)}>
                               <li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Account</li>
                             </Link>
-                            {/* <Link to="login" onClick={logOut}><li> Log Out </li></Link> */}
+                            <Link to="login" onClick={()=>{logOut() ; setOpen(false)}}>
+                              <li><LogoutRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}}/> Log Out </li>
+                            </Link>
                           </>
                         :
                           <>

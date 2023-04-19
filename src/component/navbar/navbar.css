@@ -554,9 +554,10 @@
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
       top: 60px;
-      left: -64px;
+      left: -109px;
       border-radius: 5px;
-      width: 251.44px;
+      /* width: 251.44px; */
+      width: 292.44px;
       padding: 26px 20px 23px;
     }
     .header-user-actions .CartDropDown ul li{
@@ -565,6 +566,51 @@
       justify-content: center;
       flex-direction: column;
       color: rgba(140, 113, 113, 0.766);
+    }
+    .header-user-actions .CartDropDown ul .shopingCart{
+      padding: 5px 10px;
+      color: #000;
+      text-transform: capitalize;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails{
+      display: flex;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails img{
+      flex: 3;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding: 5px 5px 5px 0 ;
+      height: 100px !important;
+      object-fit: fill;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails .NameAndQuntity{
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      width: 128.25px;
+      height: 100px;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails .NameAndQuntity p{
+      font-size: 17px;
+      padding: 3px;
+      margin-bottom: 5px;
+      height: 57px;
+      overflow: hidden;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails .NameAndQuntity span{
+      font-size: 15px;
+      font-weight: 500;
+      padding: 3px;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails .NameAndQuntity span span{
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .header-user-actions .CartDropDown ul .shopingCart .ProductDetails .delete{
+      flex: 1;
+      padding-top: 5px;
     }
 
     .header-user-actions .action-btn {
