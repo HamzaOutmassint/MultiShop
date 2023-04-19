@@ -101,6 +101,9 @@
 .shopcart .shopcart-items table {
   width: 100%;
 }
+.shopcart .shopcart-items table tr:not(:last-child) .largeDevices{
+  border-bottom: 1px solid #e5dada !important;
+}
 .shopcart .shopcart-items table tr .smallDevices{
   display: none;
 }
@@ -111,9 +114,6 @@
 .shopcart .shopcart-items table tr .largeDevices{
   display: flex;
   padding: 7px;
-}
-.shopcart .shopcart-items table tr:not(:last-child) {
-  border-bottom: 1px solid #e5dada;
 }
 .shopcart .shopcart-items table tr .image {
   flex: 0.8;
@@ -384,6 +384,10 @@
   .shopcart .shopcart-items table tr .smallDevices{
     display: flex !important;
     flex-direction: column;
+  }
+  .shopcart .shopcart-items table tr:not(:first-child) .smallDevices{
+    border-top: 1px solid #e5dada !important;
+    margin-top: 7px;
   }
   .shopcart .shopcart-items table tr .smallDevices .headerMain td{
    margin: 0 !important;

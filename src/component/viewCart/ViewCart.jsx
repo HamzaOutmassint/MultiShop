@@ -52,7 +52,7 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                               </td>
                               <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
                               <td className="remove">
-                                <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
+                                <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item.product_id)}>
                                   <DeleteIcon fontSize="inherit" />
                                 </IconButton>
                               </td>
@@ -75,7 +75,7 @@ function ViewCart({cartItem , DeleteItemFromTheCart , handlDecrement , handlInec
                                 </td>
                                 <td className="newPrice">{FormatPrice(parseInt(item.product_price) * parseInt(item.product_quantity))}</td>
                                 <td className="remove">
-                                  <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item)}>
+                                  <IconButton aria-label="delete" size="small" onClick={()=>DeleteItemFromTheCart(item.product_id)}>
                                     <DeleteIcon fontSize="inherit" />
                                   </IconButton>
                                 </td>
