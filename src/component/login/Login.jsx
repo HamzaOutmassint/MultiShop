@@ -30,6 +30,7 @@ export default function Login() {
       console.log(error);
     });
   }
+
   const SchemaValid = object().shape({
     email: string().email().required('required *'),
     password: string().required('Required *'),
@@ -41,7 +42,6 @@ export default function Login() {
     )
   }
 
-
   function Loding(){
     if(Loading){
       document.querySelector("#login").className="login-btn"
@@ -51,7 +51,8 @@ export default function Login() {
       document.querySelector("#login").removeAttribute("classe")
       document.querySelector("#loading").className="btn btn-primary loading-btn-none"
     }
-   }
+  }
+
   return (
     <>
     <CustomSeparator Get="login"/>
@@ -103,7 +104,6 @@ export default function Login() {
         </div>
       </div>
     </div>
-    
     </>
   )
 }

@@ -105,14 +105,18 @@
   font-size: 22px !important;
   color: #000;
 }
-.menPage .men-products .section-right .productsInFirstStyle .empty {
-  width: 100%;
+.menPage .men-products .section-right .productsInFirstStyle .empty,
+.menPage .men-products .section-right .productsInSecondStyle .empty {
+  width: 784px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 400px;
+  font-family: Hind;
+  text-align: center;
 }
-.menPage .men-products .section-right .productsInFirstStyle .empty span {
+.menPage .men-products .section-right .productsInFirstStyle .empty span ,
+.menPage .men-products .section-right .productsInSecondStyle .empty span {
   font-size: 36px;
   color: #aea8a8;
   font-style: italic;
@@ -141,6 +145,9 @@
   .menPage .men-products .section-right .title h6,
   .menPage .men-products .section-right .title .Product-style{
     display: none;
+  }
+  .menPage .men-products .section-right .productsInFirstStyle .empty {
+    width: auto !important;
   }
 }
 @media (min-width: 570px) {
@@ -180,6 +187,9 @@
     position: inherit !important;
     padding: 0 !important;
     visibility: visible !important;
+  }
+  .menPage .men-products .section-right .productsInFirstStyle .empty {
+    width: 668px;
   }
 }
 

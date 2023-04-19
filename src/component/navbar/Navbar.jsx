@@ -23,7 +23,7 @@ import heartIcon from "../../assets/images/icons/heart (1).png";
 import dashboardIcon from "../../assets/images/icons/dashboard.png";
 import hamburgerIcon from "../../assets/images/icons/hamburger.png";
 
-function Navbar() {
+function Navbar({logOut}) {
   /*---------- this state for the sidebar in -------------*/
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -80,9 +80,19 @@ function Navbar() {
                   <div className="AccountDropDown">
                     <button className="action-btn"><PersonOutlineRoundedIcon fontSize="26px" style={{":hover":{"color":'/fff'}}}/></button>
                     <ul>
-                      <Link to="login"><li> Sign in</li></Link>
-                      <Link to="register"><li>Register</li></Link>
-                      <Link to="account"><li>Account</li></Link>
+                      {
+                        JSON.parse(window.localStorage.getItem("seccess")) === true 
+                        ? 
+                          <>
+                            <Link to="account"><li>Account</li></Link>
+                            <Link to="login" onClick={logOut}><li> Log Out </li></Link>
+                          </>
+                        :
+                          <>
+                            <Link to="login"><li> Sign in</li></Link>
+                            <Link to="register"><li>Register</li></Link>
+                          </>
+                      } 
                     </ul>
                   </div>
                   <div className="WishlistDropDown">
@@ -139,9 +149,25 @@ function Navbar() {
                 </div>
                 <div className="mainMenu">
                   <ul>
-                    <Link to="login"><li><LockOpenRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} /> Sign in</li></Link>
-                    <Link to="register"><li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Register</li></Link>
-                    <Link to="account"><li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Account</li></Link>
+                  {
+                        JSON.parse(window.localStorage.getItem("seccess")) === true 
+                        ? 
+                          <>
+                            <Link to="account" onClick={() => setOpen(false)}>
+                              <li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Account</li>
+                            </Link>
+                            {/* <Link to="login" onClick={logOut}><li> Log Out </li></Link> */}
+                          </>
+                        :
+                          <>
+                            <Link to="login" onClick={() => setOpen(false)}>
+                              <li><LockOpenRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} /> Sign in</li>
+                            </Link>
+                            <Link to="register" onClick={() => setOpen(false)}>
+                              <li><HowToRegRoundedIcon sx={{fontSize:"18px" , marginRight:"5px"}} />Register</li>
+                            </Link>
+                          </>
+                      } 
                   </ul>
                 </div>
                 <div className="menu-bottom">

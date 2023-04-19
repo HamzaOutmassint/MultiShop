@@ -1,4 +1,4 @@
-import {AllProductsContext} from "./component/Context/ContextFile";
+import {AddToCartContext, AllProductsContext} from "./component/Context/ContextFile";
 import { BrowserRouter ,Routes ,Route  } from "react-router-dom";
 import { CategoryPage } from "./pages/categoryPage/CategoryPage";
 import Navbar from "./component/navbar/Navbar";
@@ -37,7 +37,33 @@ function App() {
   }, []);
   /*-------------------------------------------(end)get data from database----------------------------------- */
 
-  // method to remove one product from the cart
+  /*-------------------------------------------start methods CRUD-------------------------------------------- */
+
+  const AddToCart =(item)=>{
+    const productItem = cartItem.find(ele=> ele.product_id === item.product_id)
+    if(!productItem){	
+      if(JSON.parse(window.localStorage.getItem("seccess")) === true ){
+        const token = localStorage.getItem("auth_token");
+        const product_id = item["product_id"]
+        const product_quantity = item["product_quantity"]
+        const Item = {product_id, product_quantity, token}
+        return(
+          axios.post('http://localhost/data/shoppingCart.php',Item).then((response) => {
+            // console.log(response)
+            setReloadInChangesForCart([...reloadInChangesForCart , Item])
+          }).catch((error)=> {
+            console.log(error);
+          })
+        )
+      }else{
+        setCartItem([...cartItem, item])
+        localStorage.setItem("cart",JSON.stringify([...cartItem, item]))
+      }
+    }else{
+      alert("this product is already in shopping cart")
+    }  
+  }
+
   const DeleteItemFromTheCart =(item)=>{
     if(JSON.parse(window.localStorage.getItem("seccess")) === true){
       const product_id = item["product_id"]
@@ -55,31 +81,40 @@ function App() {
     }
   }
 
+  const logOut=()=>{
+    localStorage.clear()
+    setCartItem([])
+  }
+
+  /*-------------------------------------------end methods CRUD-------------------------------------------- */
+
 
   return (
     <>
     <BrowserRouter>
-      <Navbar/>
+      <Navbar logOut={logOut}/>
       <AllProductsContext.Provider value={AllProducts}>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/men" element={<CategoryPage get="Men" />} />
-          <Route exact path="/women" element={<CategoryPage get="Women" />} />
-          <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
-          <Route path="product" element={<Product />} />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="cart" element={<ViewCart 
-                                        cartItem={cartItem} 
-                                        DeleteItemFromTheCart={DeleteItemFromTheCart} 
-                                        // handlInecrement={handlInecrement} 
-                                        // handlDecrement={handlDecrement} 
-                                        // clearAll={ClearShopingCart} 
-                                        />} />
-          <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
-          <Route path="account" element={<Account />} />
-          <Route path="manage-your-profiles" element={<ManageProfiel />} />
-        </Routes>
+        <AddToCartContext.Provider value={AddToCart}>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/men" element={<CategoryPage get="Men" />} />
+            <Route exact path="/women" element={<CategoryPage get="Women" />} />
+            <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
+            <Route path="product" element={<Product />} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="cart" element={<ViewCart 
+                                          cartItem={cartItem} 
+                                          DeleteItemFromTheCart={DeleteItemFromTheCart} 
+                                          // handlInecrement={handlInecrement} 
+                                          // handlDecrement={handlDecrement} 
+                                          // clearAll={ClearShopingCart} 
+                                          />} />
+            <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
+            <Route path="account" element={<Account />} />
+            <Route path="manage-your-profiles" element={<ManageProfiel />} />
+          </Routes>
+        </AddToCartContext.Provider>
       </AllProductsContext.Provider>
       <Footer />
     </BrowserRouter>

@@ -2,13 +2,14 @@ import EnhancedEncryptionOutlinedIcon from '@mui/icons-material/EnhancedEncrypti
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 // import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import {FormatPrice} from "../Context/ContextFile"
+import {AddToCartContext, FormatPrice} from "../Context/ContextFile"
 import Rating from '@mui/material/Rating';
 // import { styled } from '@mui/material/styles';
 // import Zoom from '@mui/material/Zoom';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import "./cart.css"
+import { useContext } from 'react';
 	
 // this for the button add to wishlist
 // const LightTooltip = styled(({ className, ...props }) => (
@@ -20,6 +21,7 @@ import "./cart.css"
 // }));
 
 const Cart = ({details , style}) => {
+  const AddToCart = useContext(AddToCartContext)
   if(style === 'firstStyle'){
     return (
       <div className="showcase">
@@ -33,7 +35,9 @@ const Cart = ({details , style}) => {
                 <abbr title='add to favorite'><button className="btn-action"><FavoriteBorderRoundedIcon /></button></abbr>
               {/* </LightTooltip> */}
                 <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
-                <abbr title='add to cart'><button className="btn-action"><EnhancedEncryptionOutlinedIcon /></button></abbr>
+                <abbr title='add to cart'>
+                  <button className="btn-action" onClick={()=>AddToCart(details)}><EnhancedEncryptionOutlinedIcon /></button>
+                </abbr>
             </div>
           </div>
           <div className="showcase-content">
