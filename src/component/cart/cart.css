@@ -119,6 +119,7 @@
     color: var(--white);
     border-color: var(--second-color);
 }
+.showcase .soldOut{ cursor: default;}
 
 .showcase .showcase-content {
     padding: 15px 20px 0;

@@ -1,4 +1,4 @@
-import {AddToCartContext, AllProductsContext} from "./component/Context/ContextFile";
+import {AddToCartContext, AddToWishlistContext, AllProductsContext} from "./component/Context/ContextFile";
 import { BrowserRouter ,Routes ,Route  } from "react-router-dom";
 import { CategoryPage } from "./pages/categoryPage/CategoryPage";
 import Navbar from "./component/navbar/Navbar";
@@ -18,7 +18,7 @@ import ManageProfiel from "./component/manageProfiel/ManageProfiel";
 
 function App() {
   const [AllProducts,setAllProducts] = useState([])
-  // const [reloadInChangesForWishlist , setReloadInChangesForWishlist] = useState([])
+  const [reloadInChangesForWishlist , setReloadInChangesForWishlist] = useState([])
   const [reloadInChangesForCart , setReloadInChangesForCart] = useState([])
   const getTheCartFromLocalstorage = JSON.parse(localStorage.getItem("cart") || "[]" )
   const [cartItem , setCartItem] = useState(() => {
@@ -122,35 +122,65 @@ function App() {
     localStorage.clear()
     setCartItem([])
   }
+  /*-------------------------------------------end methods CRUD-------------------------------------------- */
+  /*-------------------------------------------start methods CRUD (wishlist)------------------------------- */
+    const AddToWishlist =(product_id)=>{
+      const productItem = wishlist.find(ele=> ele.product_id === product_id)
+      if(!productItem){
+        const token = localStorage.getItem("auth_token");
+        const Item = {product_id , token}
+        return(
+          axios.post('http://localhost/data/wishlist.php',Item).then((response) => {
+            setReloadInChangesForWishlist([...reloadInChangesForWishlist , Item])
+          }).catch((error)=> {
+            console.log(error);
+          })
+        )
+      }else{
+        alert("this product is already in the wishlist")
+      }  
+    }
 
+     //I called this useEffect Method Taken(), it's for to get favorate item from the wishlist table in database 
+    useEffect(()=>{
+      const token = {"token":localStorage.getItem("auth_token")}
+      axios.post('http://localhost/data/getTheWishlist.php',token).then((response) => {
+        console.log(response.data)
+        setWishlist(response.data)
+      }).catch((error)=> {
+        console.log(error);
+      });
+    }, [reloadInChangesForWishlist]);
   /*-------------------------------------------end methods CRUD-------------------------------------------- */
 
 
   return (
     <>
     <BrowserRouter>
-      <Navbar logOut={logOut} cartItem={cartItem} DeleteItemFromTheCart={DeleteItemFromTheCart}/>
+      <Navbar logOut={logOut} cartItem={cartItem} wishlist={wishlist} DeleteItemFromTheCart={DeleteItemFromTheCart}/>
       <AllProductsContext.Provider value={AllProducts}>
         <AddToCartContext.Provider value={AddToCart}>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/men" element={<CategoryPage get="Men" />} />
-            <Route exact path="/women" element={<CategoryPage get="Women" />} />
-            <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
-            <Route path="product" element={<Product />} />
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
-            <Route path="cart" element={<ViewCart 
-                                          cartItem={cartItem} 
-                                          DeleteItemFromTheCart={DeleteItemFromTheCart} 
-                                          handlInecrement={handlInecrement} 
-                                          handlDecrement={handlDecrement} 
-                                          clearShopingCart={ClearShopingCart} 
-                                          />} />
-            <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
-            <Route path="account" element={<Account />} />
-            <Route path="manage-your-profiles" element={<ManageProfiel />} />
-          </Routes>
+          <AddToWishlistContext.Provider value={AddToWishlist}>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/men" element={<CategoryPage get="Men" />} />
+              <Route exact path="/women" element={<CategoryPage get="Women" />} />
+              <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
+              <Route path="product" element={<Product />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              <Route path="cart" element={<ViewCart 
+                                            cartItem={cartItem} 
+                                            DeleteItemFromTheCart={DeleteItemFromTheCart} 
+                                            handlInecrement={handlInecrement} 
+                                            handlDecrement={handlDecrement} 
+                                            clearShopingCart={ClearShopingCart} 
+                                            />} />
+              <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
+              <Route path="account" element={<Account />} />
+              <Route path="manage-your-profiles" element={<ManageProfiel />} />
+            </Routes>
+          </AddToWishlistContext.Provider>
         </AddToCartContext.Provider>
       </AllProductsContext.Provider>
       <Footer />

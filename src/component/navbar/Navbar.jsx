@@ -27,7 +27,7 @@ import dashboardIcon from "../../assets/images/icons/dashboard.png";
 import hamburgerIcon from "../../assets/images/icons/hamburger.png";
 import { FormatPrice } from '../Context/ContextFile';
 
-function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
+function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
   /*---------- this state for the sidebar in -------------*/
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -105,7 +105,7 @@ function Navbar({logOut,cartItem,DeleteItemFromTheCart}) {
                     </ul>
                   </div>
                   <div className="WishlistDropDown">
-                    <Link  to="wishlist" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">0</span></Link>
+                    <Link  to="wishlist" className="action-btn"><FavoriteBorderRoundedIcon fontSize="26px"/><span className="count">{wishlist.length}</span></Link>
                   </div>
                   <div className="CartDropDown">
                     <Link  to="cart" className="action-btn"><LocalMallOutlinedIcon fontSize="26px"/><span className="count">{cartItem.length}</span></Link>
