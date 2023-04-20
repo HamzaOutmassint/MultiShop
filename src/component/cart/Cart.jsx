@@ -1,7 +1,8 @@
 import EnhancedEncryptionOutlinedIcon from '@mui/icons-material/EnhancedEncryptionOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import {AddToCartContext, AddToWishlistContext, FormatPrice} from "../Context/ContextFile"
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import {AddToCartContext, AddToWishlistContext, FormatPrice, RemoveFromWishlistContext} from "../Context/ContextFile"
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
@@ -12,28 +13,37 @@ import { useContext } from 'react';
 const Cart = ({details , style}) => {
   const AddToCart = useContext(AddToCartContext)
   const AddToWishlist = useContext(AddToWishlistContext)
+  const DeleteItemFromTheWishlist = useContext(RemoveFromWishlistContext)
   if(style === 'firstStyle'){
     return (
       <div className="showcase">
           <div className="showcase-banner">
             <img src={require(`../../assets/images/products/${details.product_image}`)} alt="Mens Winter Leathers Jackets" width="300" className="product-img default"/>
             {
-              details.status==="in stock" ? null : <p className="showcase-badge angle black">sale</p>
+              details.status==="out of stock" ? <p className="showcase-badge angle black">sale</p> : null
             }
             <div className="showcase-actions">
-                <abbr title='add to favorite'>
-                  <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
-                </abbr>
+                {
+                  details.favorite_product === 1
+                  ?
+                    <abbr title='remove from the wishlist'>
+                      <button className="btn-action" onClick={()=>DeleteItemFromTheWishlist(details.product_id)}><DeleteOutlineRoundedIcon /></button>
+                    </abbr>
+                  :
+                    <abbr title='add to favorite'>
+                      <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
+                    </abbr>
+                }
                 <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
                 {
-                  details.status==="in stock" 
+                  details.status==="out of stock" 
                   ? 
-                    <abbr title='add to cart'>
-                      <button className="btn-action" onClick={()=>AddToCart(details)}><EnhancedEncryptionOutlinedIcon /></button>
-                    </abbr>
-                  : 
                     <abbr title='sold out'>
                       <button className="btn-action soldOut"><EnhancedEncryptionOutlinedIcon /></button>
+                    </abbr>
+                  : 
+                    <abbr title='add to cart'>
+                      <button className="btn-action" onClick={()=>AddToCart(details)}><EnhancedEncryptionOutlinedIcon /></button>
                     </abbr>
                 }
             </div>

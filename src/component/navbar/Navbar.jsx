@@ -181,7 +181,7 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
               <img src={homeIcon} alt="homeIcon" width={35}/>
             </Link>
             <Link  to="wishlist" className="action-btn">
-              <img src={heartIcon} alt="heartIcon" width={40}/><span className="count">0</span>
+              <img src={heartIcon} alt="heartIcon" width={40}/><span className="count">{wishlist.length}</span>
             </Link>
             <button className="action-btn"  onClick={()=>setOpen2(true)}>
               <img src={dashboardIcon} alt="dashboardIcon" width={35}/>

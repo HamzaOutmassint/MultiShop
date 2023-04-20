@@ -2,18 +2,18 @@ import "./wishlist.css"
 import { Link } from "react-router-dom"
 import CustomSeparator from "../breadcrumbs/breadcrumbs"
 import Cart from "../cart/Cart"
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 function Wishlist({wishlist}) {
   // const SE_wishlist = JSON.parse(window.localStorage.getItem("SE_wishlist"))
-  useEffect(()=>{
-    if(wishlist.length >= 3){
-      document.getElementById("WishlistContent").className="WishlistContent SecondWishlistContent"
-    }else{
-      document.getElementById("WishlistContent").className="WishlistContent"
-    }
-  },[wishlist])
+  // useEffect(()=>{
+  //   if(wishlist.length >= 3){
+  //     document.getElementById("WishlistContent").className="WishlistContent SecondWishlistContent"
+  //   }else{
+  //     document.getElementById("WishlistContent").className="WishlistContent"
+  //   }
+  // },[wishlist])
   return (
     <>
     <CustomSeparator Get="wishlist"/>
@@ -36,15 +36,8 @@ function Wishlist({wishlist}) {
                 {wishlist.map(ele=>(
                     <Cart 
                         key={ele.product_id}
-                        product_id={ele.product_id}
-                        item={ele}
-                        page="Wishlist"
-                        Style="firstStyle"
-                        product_image={ele.product_image}
-                        price={ele.product_price}
-                        oldPrice={ele.old_price}
-                        desc={ele.description}
-                        name={ele.product_name}
+                        details={ele} 
+                        style = {`firstStyle`}
                       />
                 ))}
               </div>

@@ -1,4 +1,4 @@
-import {AddToCartContext, AddToWishlistContext, AllProductsContext} from "./component/Context/ContextFile";
+import {AddToCartContext, AddToWishlistContext, AllProductsContext, RemoveFromWishlistContext} from "./component/Context/ContextFile";
 import { BrowserRouter ,Routes ,Route  } from "react-router-dom";
 import { CategoryPage } from "./pages/categoryPage/CategoryPage";
 import Navbar from "./component/navbar/Navbar";
@@ -124,6 +124,16 @@ function App() {
   }
   /*-------------------------------------------end methods CRUD-------------------------------------------- */
   /*-------------------------------------------start methods CRUD (wishlist)------------------------------- */
+  
+    useEffect(()=>{
+      const token = {"token":localStorage.getItem("auth_token")}
+      axios.post('http://localhost/data/getTheWishlist.php',token).then((response) => {
+        setWishlist(response.data)
+      }).catch((error)=> {
+        console.log(error);
+      });
+    }, [reloadInChangesForWishlist]);
+
     const AddToWishlist =(product_id)=>{
       const productItem = wishlist.find(ele=> ele.product_id === product_id)
       if(!productItem){
@@ -141,16 +151,15 @@ function App() {
       }  
     }
 
-     //I called this useEffect Method Taken(), it's for to get favorate item from the wishlist table in database 
-    useEffect(()=>{
-      const token = {"token":localStorage.getItem("auth_token")}
-      axios.post('http://localhost/data/getTheWishlist.php',token).then((response) => {
-        console.log(response.data)
-        setWishlist(response.data)
+    const DeleteItemFromTheWishlist =(product_id)=>{
+      const Item = {product_id}
+      axios.post('http://localhost/data/deleteFromWishlist.php',Item).then((response) => {
+        setReloadInChangesForWishlist([...reloadInChangesForWishlist , Item])
       }).catch((error)=> {
         console.log(error);
-      });
-    }, [reloadInChangesForWishlist]);
+      })
+    }
+
   /*-------------------------------------------end methods CRUD-------------------------------------------- */
 
 
@@ -161,25 +170,27 @@ function App() {
       <AllProductsContext.Provider value={AllProducts}>
         <AddToCartContext.Provider value={AddToCart}>
           <AddToWishlistContext.Provider value={AddToWishlist}>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/men" element={<CategoryPage get="Men" />} />
-              <Route exact path="/women" element={<CategoryPage get="Women" />} />
-              <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
-              <Route path="product" element={<Product />} />
-              <Route path="register" element={<Register />} />
-              <Route path="login" element={<Login />} />
-              <Route path="cart" element={<ViewCart 
-                                            cartItem={cartItem} 
-                                            DeleteItemFromTheCart={DeleteItemFromTheCart} 
-                                            handlInecrement={handlInecrement} 
-                                            handlDecrement={handlDecrement} 
-                                            clearShopingCart={ClearShopingCart} 
-                                            />} />
-              <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
-              <Route path="account" element={<Account />} />
-              <Route path="manage-your-profiles" element={<ManageProfiel />} />
-            </Routes>
+            <RemoveFromWishlistContext.Provider value={DeleteItemFromTheWishlist}>
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/men" element={<CategoryPage get="Men" />} />
+                <Route exact path="/women" element={<CategoryPage get="Women" />} />
+                <Route exact path="/accessories" element={<CategoryPage get="Accessories" />} />
+                <Route path="product" element={<Product />} />
+                <Route path="register" element={<Register />} />
+                <Route path="login" element={<Login />} />
+                <Route path="cart" element={<ViewCart 
+                                              cartItem={cartItem} 
+                                              DeleteItemFromTheCart={DeleteItemFromTheCart} 
+                                              handlInecrement={handlInecrement} 
+                                              handlDecrement={handlDecrement} 
+                                              clearShopingCart={ClearShopingCart} 
+                                              />} />
+                <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
+                <Route path="account" element={<Account />} />
+                <Route path="manage-your-profiles" element={<ManageProfiel />} />
+              </Routes>
+            </RemoveFromWishlistContext.Provider>
           </AddToWishlistContext.Provider>
         </AddToCartContext.Provider>
       </AllProductsContext.Provider>

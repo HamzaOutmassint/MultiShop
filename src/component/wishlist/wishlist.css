@@ -75,13 +75,14 @@
   font-weight: 500;
 }
 .WishlistContent .IfTheListIsFullOff {
-  display: flex;
-  flex-wrap: wrap;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 25px 30px 10px 30px;
+  padding: 10px 30px;
   justify-content: center;
   border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
 }
 .WishlistContent .IfTheListIsFullOff .Card {
   margin: 0 35px 20px 10px;
@@ -119,8 +120,13 @@
   color: #fff;
 }
 .WishlistContent h5 {
-  margin: 16px 0 16px 0;
-  text-transform: uppercase;
+  font-size: 34px;
+  line-height: 44px;
+  font-weight: 500;
+  padding: 0 0 50px 0;
+  margin-top: -10px;
+  font-family: 'Hind';
+  text-align: center;
 }/*# sourceMappingURL=wishlist.css.map */
 
 
@@ -139,6 +145,12 @@
     font-size: 15px !important;
   }
 }
+@media (min-width: 480px){
+  .WishlistContent .IfTheListIsFullOff {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
 /**
   * responsive larger than 768px screen
   */
@@ -146,5 +158,15 @@
 @media (max-width: 768px) {
   .WishlistContent .IfTheListIsEmpty h5 {
     font-size: 0.9rem;
+  }
+}
+@media (min-width: 1024px){
+  .WishlistContent .IfTheListIsFullOff {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px){
+  .WishlistContent .IfTheListIsFullOff {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
