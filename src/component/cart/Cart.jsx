@@ -5,12 +5,21 @@ import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import {AddToCartContext, AddToWishlistContext, FormatPrice, RemoveFromWishlistContext} from "../Context/ContextFile"
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Box, Button, Modal } from '@mui/material';
 import "./cart.css"
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
+const ModelStyle = {
+  position: 'absolute', top: '50%', left: '50%',
+  transform: 'translate(-50%, -50%)', width: 500,
+  bgcolor: 'background.paper', boxShadow: 24, p: 4,
+  display:'flex',flexDirection: 'column',color:"#191919",
+  fontSize: '16px',fontWeight: '500',alignItems: 'center',
+  height: '152px',justifyContent: 'space-between'
+};
 
 const Cart = ({details , style}) => {
+  const [open, setOpen] = useState(false);
   const AddToCart = useContext(AddToCartContext)
   const AddToWishlist = useContext(AddToWishlistContext)
   const DeleteItemFromTheWishlist = useContext(RemoveFromWishlistContext)
@@ -24,15 +33,32 @@ const Cart = ({details , style}) => {
             }
             <div className="showcase-actions">
                 {
-                  details.favorite_product === 1
+                  JSON.parse(window.localStorage.getItem("seccess")) === true 
                   ?
-                    <abbr title='remove from the wishlist'>
-                      <button className="btn-action" onClick={()=>DeleteItemFromTheWishlist(details.product_id)}><DeleteOutlineRoundedIcon /></button>
-                    </abbr>
+                    details.favorite_product === 1
+                    ?
+                      <abbr title='remove from the wishlist'>
+                        <button className="btn-action" onClick={()=>DeleteItemFromTheWishlist(details.product_id)}><DeleteOutlineRoundedIcon /></button>
+                      </abbr>
+                    :
+                      <abbr title='add to favorite'>
+                        <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
+                      </abbr>
                   :
-                    <abbr title='add to favorite'>
-                      <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
+                    <>
+                    <abbr title='You need to login'>
+                      <button className="btn-action" onClick={()=>setOpen(true)}><FavoriteBorderRoundedIcon /></button>
                     </abbr>
+                    <Modal open={open} onClose={()=>setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                      <Box sx={ModelStyle} className='boxWishlist'>
+                        <p className='msg'>Please login and you will add product to your wishlist</p>
+                        <div className='btn-section'>
+                          <Link to="/login"><button className="btn-signIn">SIGN IN</button></Link>
+                          <Link to="/register"><button className="registerButton">REGISTER</button></Link>
+                        </div>
+                      </Box>
+                    </Modal>
+                    </>
                 }
                 <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
                 {
@@ -94,44 +120,38 @@ const Cart = ({details , style}) => {
             <small>{FormatPrice(details.old_price)}</small>
           </div>
           <div className="button">
-            {details.status === "out of stock"
-            ?
-            <Button variant="contained"  size="small" className="soldOut">
-              sold out
-            </Button>
-            :
-            <Button variant="contained"  size="small">
-              Add to cart
-            </Button>
-            }
-            
             {
-            // JSON.parse(window.localStorage.getItem("seccess")) === true 
-            // ?
-            //   favoriteProduct === "1" 
-            //   ? 
-            //   <Button variant="contained" className="active" size="small" onClick={()=>AddToWishlist(item)}>
-            //     Wishlist
-            //   </Button>
-            //   :
-            //   <Button variant="contained" size="small" onClick={()=>AddToWishlist(item)}>
-            //     Wishlist
-            //   </Button>
-            // :
-            //   <>
-            //     <Button variant="contained" size="small" onClick={handleOpen}>
-            //       Wishlist
-            //     </Button>
-            //     <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-            //       <Box sx={style}>
-            //         <p>Please login and you will add product to your wishlist</p>
-            //         <div>
-            //           <Link to="/login"><button className="Button">SIGN IN</button></Link>
-            //           <Link to="/register"><button className="registerButton">REGISTER</button></Link>
-            //         </div>
-            //       </Box>
-            //     </Modal>
-            //   </>
+            details.status === "out of stock"
+            ?
+              <Button variant="contained"  size="small" className="soldOut">
+                sold out
+              </Button>
+            :
+              <Button variant="contained"  size="small" onClick={()=>AddToCart(details)}>
+                Add to cart
+              </Button>
+            }
+            {
+            JSON.parse(window.localStorage.getItem("seccess")) === true 
+            ?
+              <Button variant="contained" size="small" onClick={()=>AddToWishlist(details.product_id)}>
+                Add to Wishlist
+              </Button>
+            :
+              <>
+                <Button variant="contained" size="small" onClick={()=>setOpen(true)}> 
+                  Add to Wishlist
+                </Button>
+                <Modal open={open} onClose={()=>setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                  <Box sx={ModelStyle} className='boxWishlist'>
+                    <p>Please login and you will add product to your wishlist</p>
+                    <div className='btn-section'>
+                      <Link to="/login"><button className="btn-signIn">SIGN IN</button></Link>
+                      <Link to="/register"><button className="registerButton">REGISTER</button></Link>
+                    </div>
+                  </Box>
+                </Modal>
+              </>
             }
           </div>
         </div>

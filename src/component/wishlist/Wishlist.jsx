@@ -43,11 +43,11 @@ function Wishlist({wishlist}) {
               </div>
             :
             <div className="IfTheListIsEmpty">
+              <i className="emptyHeart"><FavoriteBorderRoundedIcon sx={{ fontSize: 180 , color:"rgba(41, 39, 39, 0.768)" }}/><span></span></i>
               <h5>WISHLIST</h5> 
-              <i className="bi bi-heart emptyHeart"><span></span></i>
               <span>Please login and you will add product to your wishlist</span>
-              <div>
-                <Link to="/login"><button className="Button">SIGN IN</button></Link>
+              <div className='btn-section'>
+                <Link to="/login"><button className="btn-signIn">SIGN IN</button></Link>
                 <Link to="/register"><button className="registerButton">REGISTER</button></Link>
               </div>
             </div>

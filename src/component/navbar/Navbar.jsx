@@ -195,10 +195,10 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
                     <button className="menu-close-btn" onClick={()=>setOpen(false)}><HighlightOffRoundedIcon /></button>
                 </div>
                 <div className="mainMenu">
-                    <Link to="/" onClick={() => setOpen(false)}>home <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/men" onClick={() => setOpen(false)}>men <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/women" onClick={() => setOpen(false)}>women <KeyboardArrowRightRoundedIcon /></Link>
-                    <Link to="/accessories" onClick={() => setOpen(false)}>accessories <KeyboardArrowRightRoundedIcon /></Link>
+                    <a href="/">home <KeyboardArrowRightRoundedIcon /></a>
+                    <a href="/men">men <KeyboardArrowRightRoundedIcon /></a>
+                    <a href="/women">women <KeyboardArrowRightRoundedIcon /></a>
+                    <a href="/accessories">accessories <KeyboardArrowRightRoundedIcon /></a>
                 </div>
                 <div className="mainMenu">
                   <ul>

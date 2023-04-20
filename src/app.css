@@ -1275,6 +1275,12 @@
       width: 462px !important;
     }
    }
+
+  @media (max-width: 570px) { 
+    .boxWishlist{
+      width: 344px !important;
+    }
+  }
   @media (min-width: 570px) {  
   
     /**
@@ -1613,6 +1619,45 @@
   border-radius: 7px;
   font-family: Hind, sans-serif;
 }
+.MuiBox-root .msg{
+  text-align: center;
+}
+.MuiBox-root .btn-section{
+  display: flex;
+}
+.MuiBox-root .btn-signIn {
+  border: 2px solid #3471ff;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 6px 29px;
+  border-radius: 6px;
+  background-color: #3471ff;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all ease 0.2s;
+  margin-right: 12px;
+}
+.MuiBox-root .btn-signIn:hover {
+  color: #fff;
+  background-color: #1a5df7;
+}
+.MuiBox-root .registerButton {
+  border: 2px solid #3471ff;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 29px;
+  border-radius: 6px;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: #3471ff;
+  transition: all ease 0.2s;
+  margin-right: 12px;
+}
+.MuiBox-root .registerButton:hover {
+  color: #fff;
+  background-color: #1a5df7;
+}
+
 .MuiBox-root h6 {
   font-size: 17px !important;
   line-height: 26px !important;
