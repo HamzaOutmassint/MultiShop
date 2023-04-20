@@ -9,7 +9,7 @@ import Cart from "../cart/Cart";
 import "./products.css";
 
 
-var  data 
+var  filteredProducts  
 function Products({page,handlProduct,filterBySize,filterByType,brands,productsData,Error}){
   const [style,setStyle] = useState("firstStyle")
   const [countFilter, setCountFilter] = useState(0)
@@ -33,22 +33,23 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
  
   const filterProducts =(ele,title)=>{
     if(ele==="jacket"){
-      data = productsData.filter(item =>(
-        item.product_name === ele
+      filteredProducts = productsData.filter(item =>(
+        item.product_name.toLowerCase() === ele
       ))
       setCountFilter(countFilter + 1 )
     }else if(ele==="all products"){
-      data = [...productsData]
+      filteredProducts = [...productsData]
       setCountFilter(countFilter + 1 )
     }else{
-      data = productsData.filter(item =>(
-        item[title] === ele
+      filteredProducts = productsData.filter(item =>(
+        item[title] === ele.toLowerCase()
       ))
       setCountFilter(countFilter + 1 )
     }
   }
+
   const filterByPrice =(min,max)=>{
-    data = productsData.filter(item =>(
+    filteredProducts  = productsData.filter(item =>(
       parseInt(item.product_price) >= parseInt(min) && parseInt(item.product_price) <= parseInt(max)
     ))
     setCountFilter(countFilter + 1 )
@@ -79,14 +80,14 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                 filterByType={filterByType} 
                 filterBySize={filterBySize}
                 brands={brands}
-                filterProducts={filterProducts}
+                // filterProducts={filterProducts}
                 filterByPrice={filterByPrice}
                 productsData={productsData}
                 newClassForSideBar="sidebarInFilterMethod"
               />
               </Box>
             </Drawer>
-            <span className="nb-pro"> <span> {countFilter === 0 ? productsData.length : data.length}</span> Products</span>
+            <span className="nb-pro"> <span> {countFilter === 0 ? productsData.length : filteredProducts.length}</span> Products</span>
             <h6>{page}</h6>
             <div className="Product-style">
               <span>View as</span>
@@ -132,7 +133,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                     <div><Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} height={350} /></div>
                   </>
               :  
-                data.length === 0 
+              filteredProducts.length === 0 
                 ? 
                   <div className="empty">
                     <span>There is no products found...</span>
@@ -140,7 +141,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                 :
                   <>
                     {
-                      data.map((ele)=>(
+                      filteredProducts.map((ele)=>(
                         <Cart
                           details={ele} 
                           key={ele.product_id}
@@ -149,7 +150,7 @@ function Products({page,handlProduct,filterBySize,filterByType,brands,productsDa
                       ))
                     }
                     {
-                      data.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
+                      filteredProducts.length >= 6 ? <div className="noMoreItems"><span>NO MORE PRODUCTS</span></div> : null
                     }
                   </>
               }

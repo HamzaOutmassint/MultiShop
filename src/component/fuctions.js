@@ -35,6 +35,6 @@ const handlProduct = (PTS)=>{
 export default handlProduct
 
 
-export const Departments=[ "all products", "winter clotes","summer clotes","jeans","footwear","jacket" ]
+export const Departments=[ "all products", "winter","summer","jeans","footwear","jacket" ]
 export const Sizes=["S" , "M" , "X" , "XL" , "XLL"]
 export const brands=["nike","adidas","zara","lacost","lovi's"]

@@ -29,7 +29,7 @@ function Wishlist({wishlist}) {
                 <i className="emptyHeart"><FavoriteBorderRoundedIcon sx={{ fontSize: 180 , color:"rgba(41, 39, 39, 0.768)" }}/><span></span></i>
                 <h5>Your Favorites list is Empty</h5>
                 <span>Start adding items to your Watchlist today! Simply tap ‘Add to watchlist’ next to the item you want to keep a close eye on </span><br />
-                <Link to="/" ><button className="Button">CONTINUE SHOPPING</button></Link>
+                <Link to="/" ><button className="btn-signIn">CONTINUE SHOPPING</button></Link>
               </div>
               : 
               <div className="IfTheListIsFullOff">

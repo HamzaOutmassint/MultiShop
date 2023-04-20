@@ -50,7 +50,6 @@ export const CategoryPage = ({get}) => {
             handlProduct={handlProduct} 
             filterByType={Departments} 
             filterBySize={Sizes}
-            brands={brands}
             productsData={MenProducts}
             Error={Error}
           />

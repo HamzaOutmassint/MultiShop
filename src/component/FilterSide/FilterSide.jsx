@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import './filterSide.css'
 
-function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterProducts,filterByPrice,newClassForSideBar}) {
+function FilterSide({filterBySize,filterByType,filterByPrice,newClassForSideBar,filterProducts}) {
   const [clothesDropDown , setClothesDropDown]= useState(true);
   const [glassesDropDown , setGlassesDropDown]= useState(true);
   var min = document.getElementById("min")
@@ -31,7 +31,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
                 <div className='wear-type'>
                   {
                     filterByType.map(ele=>(
-                      <Link to={`?department =${ele}`} key={ele}>
+                      <Link to={`?department =${ele}`} key={ele} onClick={()=>filterProducts(ele,'department')}>
                         <li>
                             <p>{ele}</p>
                         </li>
@@ -54,7 +54,7 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
                 <div className='wear-size'>
                 {
                   filterBySize.map(ele=>(
-                    <Link to={`?size =${ele}`} key={ele}>
+                    <Link to={`?size =${ele}`} key={ele} onClick={()=>filterProducts(ele,'size')}  >
                       <li>
                           <p>{ele}</p>
                       </li>
@@ -79,7 +79,15 @@ function FilterSide({filterBySize,filterByType,brands,handlProduct,Data,filterPr
                   <input type="number" placeholder="$0.00" id="max" required />
                 </div>
               </div>
-              <Button variant="outlined" size="small" onClick={(e)=>{if(min.value==="" || max.value===""){e.preventDefault()}else{filterByPrice(min.value,max.value);min.value="";max.value=""}}}>
+              <Button 
+                variant="outlined" 
+                size="small" 
+                onClick={(e)=>{if(min.value==="" || max.value===""){
+                  e.preventDefault()
+                }else{
+                  filterByPrice(min.value,max.value);min.value="";max.value=""
+                }}}
+                >
                 Apply
               </Button>
             </li>
