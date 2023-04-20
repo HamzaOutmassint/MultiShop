@@ -765,7 +765,8 @@
   
   .sidebar-submenu-title:hover { color: var(--eerie-black); }
   
-  .sidebar .product-name { text-transform: capitalize; }
+  .sidebar .product-name { text-transform: capitalize; color: var(--sonic-silver);}
+  .sidebar .product-name:hover { color: var(--eerie-black); }
   
   .sidebar-accordion-menu.active .add-icon,
   .sidebar-accordion-menu .remove-icon { display: none; }

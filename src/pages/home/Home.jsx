@@ -68,27 +68,27 @@ function Home() {
                     <ul id="clothes" className={clothesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
                       <li className="sidebar-submenu-category">
                         <a href="#shirt" className="sidebar-submenu-title">
-                          <p className="product-name">Shirt</p>
-                          <data value="300" className="stock" title="Available Stock">300</data>
+                          <button className="product-name" onClick={()=>console.log("hdfdf")}>Shirt</button>
+                          {/* <data value="300" className="stock" title="Available Stock">300</data> */}
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#jacket" className="sidebar-submenu-title">
-                          <p className="product-name">jacket</p>
-                          <data value="50" className="stock" title="Available Stock">50</data>
+                        <button className="product-name" onClick={()=>console.log("hdfdf")}>jacket</button>
+                          {/* <data value="50" className="stock" title="Available Stock">50</data> */}
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#dress" className="sidebar-submenu-title">
-                          <p className="product-name">dress & frock</p>
-                          <data value="87" className="stock" title="Available Stock">87</data>
+                        <button className="product-name" onClick={()=>console.log("hdfdf")}>dress & frock</button>
+                          {/* <data value="87" className="stock" title="Available Stock">87</data>: */}
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li className="sidebar-menu-category">
                     <button className="sidebar-accordion-menu" onClick={()=>setGlassesDropDown(!glassesDropDown)}>
-                      <div className="menu-title-flex"><p className="menu-title">Glasses</p></div>
+                      <div className="menu-title-flex"><p className="menu-title">Footwear</p></div>
                       <div>
                           {
                               glassesDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
@@ -98,21 +98,29 @@ function Home() {
                     <ul id="glasses" className={glassesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
                       <li className="sidebar-submenu-category">
                         <a href="#sunglasses" className="sidebar-submenu-title">
-                          <p className="product-name">Sunglasses</p>
-                          <data value="50" className="stock" title="Available Stock">50</data>
+                          <p className="product-name">Sports</p>
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#leness" className="sidebar-submenu-title">
-                          <p className="product-name">Lenses</p>
-                          <data value="48" className="stock" title="Available Stock">48</data>
+                          <p className="product-name">Formal</p>
+                        </a>
+                      </li>
+                      <li className="sidebar-submenu-category">
+                        <a href="#leness" className="sidebar-submenu-title">
+                          <p className="product-name">Casual</p>
+                        </a>
+                      </li>
+                      <li className="sidebar-submenu-category">
+                        <a href="#leness" className="sidebar-submenu-title">
+                          <p className="product-name">Party Wear</p>
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li className="sidebar-menu-category">
                     <button className="sidebar-accordion-menu" onClick={()=>setBagDropDown(!bagDropDown)}>
-                      <div className="menu-title-flex"><p className="menu-title">Bags</p></div>
+                      <div className="menu-title-flex"><p className="menu-title">WATCHES</p></div>
                       <div>
                           {
                               bagDropDown?<KeyboardArrowUpRoundedIcon />:<KeyboardArrowDownRoundedIcon />
@@ -122,26 +130,12 @@ function Home() {
                     <ul id="bag" className={bagDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"} >
                       <li className="sidebar-submenu-category">
                         <a href="#bag" className="sidebar-submenu-title">
-                          <p className="product-name">Shopping Bag</p>
-                          <data value="62" className="stock" title="Available Stock">62</data>
+                          <p className="product-name">Pocket Watch</p>
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#backbag" className="sidebar-submenu-title">
-                          <p className="product-name">Gym Backpack</p>
-                          <data value="35" className="stock" title="Available Stock">35</data>
-                        </a>
-                      </li>
-                      <li className="sidebar-submenu-category">
-                        <a href="#purs" className="sidebar-submenu-title">
-                          <p className="product-name">Purse</p>
-                          <data value="80" className="stock" title="Available Stock">80</data>
-                        </a>
-                      </li>
-                      <li className="sidebar-submenu-category">
-                        <a href="#h" className="sidebar-submenu-title">
-                          <p className="product-name">Wallet</p>
-                          <data value="75" className="stock" title="Available Stock">75</data>
+                          <p className="product-name">Smart Watch</p>
                         </a>
                       </li>
                     </ul>
