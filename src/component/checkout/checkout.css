@@ -1,0 +1,105 @@
+.checkout-section{
+    display: flex;
+    flex-direction: column;
+    flex: 2 1;
+    border-radius: 4px;
+    background-color: #fff;
+    justify-content: space-between;
+}
+.checkout-section .checkout-items{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5dada;
+    margin-right: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #fff;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.checkout-section .checkout-items h1{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #c45500 !important;
+    letter-spacing: .5px;
+}
+.checkout-section .checkout-items .msg{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #8b8484;
+    margin-bottom: 15px;
+}
+.checkout-section .checkout-items .addNewAddress{
+    border: none;
+    background-color: transparent;
+    color: #007185;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: end;
+    width: fit-content;
+}
+.checkout-section .checkout-items .addNewAddress:hover{
+    text-decoration: underline;
+}
+.checkout-section .checkout-items .useThisAddress{
+    background-color: #8393ec;
+    padding: 2px 15px;
+    border-radius: 9px;
+    font-weight: 500;
+    margin-left: 12px;
+    color: #fff;
+}
+.checkout-section .checkout-items .useThisAddress:hover{
+    background-color: #6d81f0;
+}
+.checkout-section .checkout-items .addresses {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.checkout-section .checkout-items .addresses .address {
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 2px 6px;
+    background-color: #FCF5EE;
+    border: 1px solid #FBD8B4;
+    margin: 3px 0;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 9px;
+    width: 468px;
+    max-width: 468px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.checkout-section .checkout-items .addresses .address button {
+    border: none;
+    background-color: transparent;
+    color: #007185;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+}
+.checkout-section .checkout-items .addresses .address button:hover {
+    text-decoration: underline;
+}
+.checkout-section .checkout-items  .addresses .address input {
+    margin-top: 3px !important;
+    margin-right: 3px !important;
+    cursor: pointer;
+    flex: 1;
+}
+.checkout-section .checkout-items  .addresses .address label {
+    cursor: pointer;
+    flex: 23 1;
+}

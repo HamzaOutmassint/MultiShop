@@ -183,4 +183,7 @@
   .accountBox .accountContent .accountMain .AccountDetails .profileSettingIcon {
     display: none;
   }
+  .accountBox .accountContent .accountMain .addresses .address {
+    width: auto !important;
+  }
 } 

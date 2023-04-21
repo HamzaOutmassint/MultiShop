@@ -41,7 +41,7 @@ const Cart = ({details , style}) => {
                         <button className="btn-action" onClick={()=>DeleteItemFromTheWishlist(details.product_id)}><DeleteOutlineRoundedIcon /></button>
                       </abbr>
                     :
-                      <abbr title='add to favorite'>
+                      <abbr title='add to wishlist'>
                         <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
                       </abbr>
                   :
@@ -60,7 +60,9 @@ const Cart = ({details , style}) => {
                     </Modal>
                     </>
                 }
-                <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
+                <abbr title='Quick view'>
+                  <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
+                </abbr>
                 {
                   details.status==="out of stock" 
                   ? 

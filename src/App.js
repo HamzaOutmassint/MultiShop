@@ -14,6 +14,7 @@ import ViewCart from "./component/viewCart/ViewCart";
 import Wishlist from "./component/wishlist/Wishlist";
 import Account from "./component/account/Account";
 import ManageProfiel from "./component/manageProfiel/ManageProfiel";
+import { Checkout } from "./component/checkout/Checkout";
 
 
 function App() {
@@ -162,7 +163,6 @@ function App() {
 
   /*-------------------------------------------end methods CRUD-------------------------------------------- */
 
-
   return (
     <>
     <BrowserRouter>
@@ -189,6 +189,7 @@ function App() {
                 <Route path="wishlist" element={<Wishlist wishlist={wishlist}/>} />
                 <Route path="account" element={<Account />} />
                 <Route path="manage-your-profiles" element={<ManageProfiel />} />
+                <Route path="checkout" element={<Checkout />} />
               </Routes>
             </RemoveFromWishlistContext.Provider>
           </AddToWishlistContext.Provider>
