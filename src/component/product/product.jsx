@@ -4,7 +4,7 @@ import { useContext, useState , useEffect } from "react";
 import CustomSeparator from "../breadcrumbs/breadcrumbs";
 import paymentImg from "../../assets/images/payment.png"
 import {Link, useLocation } from 'react-router-dom';
-// import CustomerReviews from "../reviews/Review";
+import CustomerReviews from "../reviews/Review";
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
@@ -35,7 +35,6 @@ const style2 = {
 // this style for progress of stars review
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 20,
-  // borderRadius: 5, 
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
   },
@@ -46,7 +45,6 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function Product() {
   const AllProducts = useContext(AllProductsContext)
-  // to create a date 
   var options = {year: 'numeric', month: 'long', day: 'numeric' };
   var today  = new Date();
   const location = useLocation();
@@ -77,15 +75,7 @@ function Product() {
   const indexOfFirstReview = indexOfLastReview - ReviewsPerPage
   const currentReview = Reviews.slice(indexOfFirstReview,indexOfLastReview)
 
-
   const result = AllProducts.find( ele =>{ return ele.product_id === parseInt(location.hash.substring(1)) })
-  // const womenDataItem = womenData.find( ele =>{ return ele.product_id === parseInt(location.hash.substring(1)) })
-  // const accessoriesDataItem = accessoriesData.find( ele =>{ return ele.product_id === parseInt(location.hash.substring(1)) })
-
-  // if(menDataItem !== undefined){  result = menDataItem }
-  // else if(womenDataItem !== undefined){  result = womenDataItem }
-  // else if(accessoriesDataItem !== undefined){  result = accessoriesDataItem }
-
 
   const click_positif=()=>{
     setQuantity(Quantity+1)
@@ -141,28 +131,28 @@ function Product() {
   }
 
   // useEffect for get the data review from database 
-  // useEffect(()=>{
-  //   const productId = {"product_id":location.hash.substring(1)}
-  //   axios.post('http://localhost/data/getReviews.php',productId).then((response) => {
-  //     setReviews(response.data);
-  //     // console.log(response.data)
-  //   }).catch((error)=> {
-  //     console.log(error);
-  //   });
-  // }, [thanksFroReview , location.hash.substring(1)]);
+  useEffect(()=>{
+    const productId = {"product_id":location.hash.substring(1)}
+    axios.post('http://localhost/data/getReviews.php',productId).then((response) => {
+      setReviews(response.data);
+      // console.log(response.data)
+    }).catch((error)=> {
+      console.log(error);
+    });
+  }, [thanksFroReview , location.hash.substring(1)]);
   
   // useEffect for get the rating data from database 
-  // useEffect(()=>{
-  //   const productId = {"product_id":location.hash.substring(1)}
-  //   axios.post('http://localhost/data/getRating.php',productId).then((response) => {
-  //     // console.log(response.data)
-  //     setRating(response.data)
-  //     setCurrentPage(1)
-  //     setPage(1)
-  //   }).catch((error)=> {
-  //     console.log(error);
-  //   });
-  // }, [thanksFroReview , location.hash.substring(1)]);
+  useEffect(()=>{
+    const productId = {"product_id":location.hash.substring(1)}
+    axios.post('http://localhost/data/getRating.php',productId).then((response) => {
+      // console.log(response.data)
+      setRating(response.data)
+      setCurrentPage(1)
+      setPage(1)
+    }).catch((error)=> {
+      console.log(error);
+    });
+  }, [thanksFroReview , location.hash.substring(1)]);
 
   var fiveStar =Math.round(parseInt((Ratings.five_star_review / Ratings.total_review)*100))  
   var fourStar =Math.round(parseInt((Ratings.four_star_review / Ratings.total_review)*100) ) 
@@ -375,27 +365,25 @@ function Product() {
                       </Box>
                       </Modal>
                     }
-                    
                     {
-                    <div className="empty">
-                      <span>No customer reviews</span>
-                    </div>
-                    // Reviews.length === 0 
-                    // ?
-                    // :
-                    // <CustomerReviews 
-                    //   Reviews={currentReview} 
-                    //   ReviewsPerPage={ReviewsPerPage} 
-                    //   totalReviews={Reviews.length}
-                    //   paginate={paginate}
-                    //   page={page}
-                    //  />
+                    Reviews.length === 0 
+                    ?
+                      <div className="empty">
+                        <span>No customer reviews</span>
+                      </div>
+                    :
+                      <CustomerReviews 
+                        Reviews={currentReview} 
+                        ReviewsPerPage={ReviewsPerPage} 
+                        totalReviews={Reviews.length}
+                        paginate={paginate}
+                        page={page}
+                      />
                     }
                   </div>
                 </div>
               </div>
             </div>
-            {/* <RecommendedItemsSlider AllData={allData}/> */}
             </>
         : null
       )
