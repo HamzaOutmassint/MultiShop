@@ -6,7 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({logOut}) => {
   return (
     
     <footer>
@@ -24,12 +24,6 @@ const Footer = () => {
                 </li>
                 <li className="footer-nav-item">
                     <Link to="/accessories" className="footer-nav-link">Accessories</Link>
-                </li>
-                <li className="footer-nav-item">
-                    <Link to="z" className="footer-nav-link">Bags</Link>
-                </li>
-                <li className="footer-nav-item">
-                    <Link to="z" className="footer-nav-link">Glasses</Link>
                 </li>
             </ul>
 

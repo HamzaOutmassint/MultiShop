@@ -68,19 +68,19 @@ function Home() {
                     <ul id="clothes" className={clothesDropDown?"sidebar-submenu-category-list active":"sidebar-submenu-category-list"}>
                       <li className="sidebar-submenu-category">
                         <a href="#shirt" className="sidebar-submenu-title">
-                          <button className="product-name" onClick={()=>console.log("hdfdf")}>Shirt</button>
+                          <button className="product-name">Shirt</button>
                           {/* <data value="300" className="stock" title="Available Stock">300</data> */}
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#jacket" className="sidebar-submenu-title">
-                        <button className="product-name" onClick={()=>console.log("hdfdf")}>jacket</button>
+                        <button className="product-name">jacket</button>
                           {/* <data value="50" className="stock" title="Available Stock">50</data> */}
                         </a>
                       </li>
                       <li className="sidebar-submenu-category">
                         <a href="#dress" className="sidebar-submenu-title">
-                        <button className="product-name" onClick={()=>console.log("hdfdf")}>dress & frock</button>
+                        <button className="product-name">dress & frock</button>
                           {/* <data value="87" className="stock" title="Available Stock">87</data>: */}
                         </a>
                       </li>

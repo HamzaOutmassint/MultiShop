@@ -195,7 +195,7 @@ function App() {
           </AddToWishlistContext.Provider>
         </AddToCartContext.Provider>
       </AllProductsContext.Provider>
-      <Footer />
+      <Footer logOut={logOut} />
     </BrowserRouter>
     </>
     
