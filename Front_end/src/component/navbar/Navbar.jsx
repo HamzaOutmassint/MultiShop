@@ -26,8 +26,9 @@ import heartIcon from "../../assets/images/icons/heart (1).png";
 import dashboardIcon from "../../assets/images/icons/dashboard.png";
 import hamburgerIcon from "../../assets/images/icons/hamburger.png";
 import { FormatPrice } from '../Context/ContextFile';
+import LinearProgress from '@mui/material/LinearProgress';
 
-function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
+function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart,Loading}) {
   /*---------- this state for the sidebar in -------------*/
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -154,7 +155,9 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
             </div>
         </div>
         {/*------------------------ end header main -----------------------*/}
-
+        {
+          Loading?<LinearProgress/>:null
+        }
         {/*------------------------ start header bottom -----------------------*/}
         <nav className="desktop-navigation-menu">
             <div className="container">
@@ -169,7 +172,6 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart}) {
         {/*------------------------ end header bottom -----------------------*/}
 
         {/*-------------------start the navbar of phone and ipads-------------*/}
-
         <div className="mobile-bottom-navigation">
             <button className="action-btn"  onClick={()=>setOpen(true)}>
               <img src={hamburgerIcon} alt="hamburgerIcon" width={40}/>

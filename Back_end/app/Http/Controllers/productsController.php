@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,5 +36,37 @@ class productsController extends Controller
         } else {
             echo "[]";
         }
+    }
+    public function addToShoppinCart(Request $request){
+        $shoppingCart = new ShoppingCart();
+
+        $shoppingCart->product_id = $request->product_id;
+        $shoppingCart->product_quantity = $request->product_quantity;
+        $shoppingCart->user_token = $request->token;
+        $shoppingCart->save();
+
+        $returnData = [
+            "success" => true ,
+            "message" => "Add to shopping cart successfully",
+        ];
+        echo json_encode($returnData);
+    }
+    public function DeleteItemFromTheCart(Request $request){
+        $item = ShoppingCart::where("product_id", $request->id)->first();
+        $item->delete();
+
+        $returnData = [
+            "success" => true ,
+            "message" => "the item is deleted successfully from shopping cart ",
+        ];
+        echo json_encode($returnData);
+    }
+    public function ClearShopingCart(){
+        $item = ShoppingCart::truncate();
+
+        $returnData = [
+            "success" => true
+        ];
+        echo json_encode($returnData);
     }
 }

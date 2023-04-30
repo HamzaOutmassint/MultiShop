@@ -32,3 +32,6 @@ Route::get('/MenProducts', [productsController::class, 'getMenProducts']);
 Route::get('/WomenProducts', [productsController::class, 'getWomenProducts']);
 Route::get('/AccesoriesProducts', [productsController::class, 'getAccesoriesProducts']);
 Route::post('/getTheShoppinCart', [productsController::class, 'getTheShoppinCart']);
+Route::post('/addToShoppinCart', [productsController::class, 'addToShoppinCart']);
+Route::post('/deleteItemFromTheCart', [productsController::class, 'DeleteItemFromTheCart']);
+Route::post('/ClearShopingCart', [productsController::class, 'ClearShopingCart']);
