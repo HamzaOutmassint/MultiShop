@@ -44,7 +44,7 @@ import CustomSeparator from "../breadcrumbs/breadcrumbs";
     };
 
     useEffect(()=>{
-        axios.post('http://localhost/data/getCustomerInfo.php',token).then((response) => {
+        axios.post('http://127.0.0.1:8000/api/getCustomerInfo',token).then((response) => {
             setCustomer(response.data)
           }).catch((error)=> {
             console.log(error);
@@ -59,7 +59,7 @@ import CustomSeparator from "../breadcrumbs/breadcrumbs";
             setErroreMsg(true)
         }else{
             const newFullName = {first_name:first_name , last_name:last_name ,token:localStorage.getItem("auth_token")}
-            axios.post('http://localhost/data/updateFullNameOfCustomer.php',newFullName).then((response) => {
+            axios.put('http://127.0.0.1:8000/api/updateFullNameOfCustomer',newFullName).then((response) => {
             setReloadInChanges([...reloadInChanges , newFullName])
             handleClose()
             setErroreMsg(false)
@@ -75,7 +75,7 @@ import CustomSeparator from "../breadcrumbs/breadcrumbs";
             setErroreMsg(true)
         }else{
             const newEmail = {email:email,token:localStorage.getItem("auth_token")}
-            axios.post('http://localhost/data/updateEmail.php',newEmail).then((response) => {
+            axios.put('http://127.0.0.1:8000/api/updateEmail',newEmail).then((response) => {
             setReloadInChanges([...reloadInChanges , newEmail])
             handleClose()
             setErroreMsg(false)
@@ -92,7 +92,7 @@ import CustomSeparator from "../breadcrumbs/breadcrumbs";
             setErroreMsg(true)
         }else{
             const newPassword = {password:new_password,token:localStorage.getItem("auth_token")}
-            axios.post('http://localhost/data/updatePassword.php',newPassword).then((response) => {
+            axios.put('http://127.0.0.1:8000/api/updatePassword',newPassword).then((response) => {
             setReloadInChanges([...reloadInChanges , newPassword])
             handleClose()
             setErroreMsg(false)
