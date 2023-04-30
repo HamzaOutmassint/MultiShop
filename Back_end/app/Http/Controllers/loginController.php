@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Login;
 use Illuminate\Http\Request;
 
@@ -122,5 +123,64 @@ class loginController extends Controller
             ];
             echo json_encode($returnData);
         }
+    }
+    public function AddAddress(Request $request){
+        $address = new Address();
+
+        $address->full_name = $request->full_name;
+        $address->user_address = $request->address;
+        $address->city = $request->city;
+        $address->country = $request->country;
+        $address->phone = $request->phone;
+        $address->postal_code = $request->postal_code;
+        $address->state = $request->state;
+        $address->token = $request->token;
+        $address->save();
+
+        $returnData = [
+            "success" => true ,
+            "message" => $request,
+        ];
+        echo json_encode($returnData);
+    }
+    public function getAddress(Request $request){
+        return Address::where("token" , $request->token)->get();
+    }
+    public function updateAddress(Request $request){
+        $address = Address::find($request->id);
+
+        if($address){
+            $address->full_name = $request->full_name;
+            $address->user_address = $request->address;
+            $address->city = $request->city;
+            $address->country = $request->country;
+            $address->phone = $request->phone;
+            $address->postal_code = $request->postal_code;
+            $address->state = $request->state;
+            $address->token = $request->token;
+            $address->save();
+
+            $returnData = [
+                "success" => true ,
+                "message" => "the address is updated successfully",
+            ];
+            echo json_encode($returnData);
+        }else{
+            $returnData = [
+                "success" => false ,
+                "message" => "the address is not found",
+            ];
+            echo json_encode($returnData);
+        }
+    }
+    public function deleteAddress(Request $request){
+        $address = Address::where("id", $request->idAddress)->where("token",$request->token)->first();
+        $address->delete();
+
+        $returnData = [
+            "success" => true ,
+            "message" => "the address is deleted successfully",
+        ];
+        echo json_encode($returnData);
     }
 }

@@ -26,6 +26,10 @@ Route::post('/getCustomerInfo', [loginController::class, 'getCustomerInfo']);
 Route::put('/updateFullNameOfCustomer', [loginController::class, 'updateFullNameOfCustomer']);
 Route::put('/updatePassword', [loginController::class, 'updatePassword']);
 Route::put('/updateEmail', [loginController::class, 'updateEmail']);
+Route::post('/AddAddress', [loginController::class, 'AddAddress']);
+Route::post('/getAddress', [loginController::class, 'getAddress']);
+Route::put('/updateAddress', [loginController::class, 'updateAddress']);
+Route::post('/deleteAddress', [loginController::class, 'deleteAddress']);
 
 Route::get('/AllProducts', [productsController::class, 'getAllProducts']);
 Route::get('/MenProducts', [productsController::class, 'getMenProducts']);

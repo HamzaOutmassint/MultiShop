@@ -39,12 +39,14 @@ function Account() {
   const handleOpen2 = () => setOpen2(true);
   const handleClose = () =>{ setOpen(false); setOpen2(false);} 
   const [index, setIndex] = useState(0);
+  const [Loading,setLoading] = useState(false)
 
   useEffect(()=>{
 
     const getTheData=async()=>{
-      await axios.post('http://localhost/data/getAddress.php',token).then((response) => {
+      await axios.post('http://127.0.0.1:8000/api/getAddress',token).then((response) => {
         setTakenAddress(response.data)
+        setLoading(false)
       }).catch((error)=> {
         console.log(error);
       });
@@ -68,6 +70,7 @@ function Account() {
 
    // method for add reviews in database
    const addAddress=(e)=>{
+    setLoading(true)
     e.preventDefault()
     var full_name = document.getElementById("full_name").value
     var address = document.getElementById("address").value
@@ -80,7 +83,7 @@ function Account() {
     }else{
       setErroreMsg(false)
       handleClose()
-      axios.post('http://localhost/data/address.php',Address).then((response) => {
+      axios.post('http://127.0.0.1:8000/api/AddAddress',Address).then((response) => {
         setReloadInChanges([...reloadInChanges , Address])
       }).catch((error)=> {
         console.log(error);
@@ -103,7 +106,7 @@ function Account() {
     var phone = document.getElementById("phone").value
     var postal_code = document.getElementById("postal_code").value
     const newAddress = {...EditAddress,full_name:full_name,address:address , city:city,country:country,state:state , phone:phone,postal_code:postal_code,token:localStorage.getItem("auth_token")}
-    axios.post('http://localhost/data/updateAddress.php',newAddress).then((response) => {
+    axios.put('http://127.0.0.1:8000/api/updateAddress',newAddress).then((response) => {
       setReloadInChanges([...reloadInChanges , newAddress])
       handleClose()
     }).catch((error)=> {
@@ -113,7 +116,7 @@ function Account() {
   const DeleteAddress =(ele,index)=>{
     index > 0 ? setIndex(index-1) : setIndex(0)
     const AddressInfo = {"idAddress":ele.id , "token":localStorage.getItem("auth_token")}
-    axios.post('http://localhost/data/deleteAddress.php',AddressInfo).then((response) => {
+    axios.post('http://127.0.0.1:8000/api/deleteAddress',AddressInfo).then((response) => {
       setReloadInChanges([...reloadInChanges , AddressInfo])
     }).catch((error)=> {
       console.log(error);
@@ -185,6 +188,15 @@ function Account() {
                         </div>
                       </div>
                     ))
+                  }
+                  {
+                    Loading
+                    ?
+                    <div className='address'>
+                      <Skeleton variant="rectangular" sx={{ bgcolor: 'rgb(246 231 231 / 51%)' }} animation="wave" width={"100%"} />
+                    </div>
+                    :
+                    null
                   }
                   {
                     TakenAddress.length > 0 ?
