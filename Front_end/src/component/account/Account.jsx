@@ -213,7 +213,7 @@ function Account() {
                           </div>
                           <div className="field">
                           <label>address *</label>
-                            <input type="text" name="address"  placeholder="hamza.out@example.com" id="address" defaultValue={`${TakenAddress[index]["user_address"]}`}/>
+                            <input type="text" name="address"  placeholder="Enter your address" id="address" defaultValue={`${TakenAddress[index]["user_address"]}`}/>
                           </div> 
                           <div className="field">
                           <label>Phone number</label>
@@ -267,7 +267,7 @@ function Account() {
                   </div>
                   <div className="field">
                    <label>address *</label>
-                    <input type="text" name="address" onChange={(e)=>handlChange(e)} placeholder="hamza.out@example.com" id="address" />
+                    <input type="text" name="address" onChange={(e)=>handlChange(e)} placeholder="Enter your address" id="address" />
                   </div> 
                   <div className="field">
                    <label>Phone number</label>

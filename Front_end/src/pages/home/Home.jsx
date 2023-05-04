@@ -1,18 +1,29 @@
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
-import {AllProductsContext} from "../../component/Context/ContextFile"
+// import {AllProductsContext} from "../../component/Context/ContextFile"
 import mainBanner from "../../assets/images/banner-7.jpg"
 import therdBanner from "../../assets/images/banner-6.jpg"
-import {useState , useContext } from 'react';
-import Cart from '../../component/cart/Cart';
-import "./home.css"
 import Skeleton from '@mui/material/Skeleton';
+import {useState , useEffect } from 'react';
+import Cart from '../../component/cart/Cart';
+import axios from "axios";
+import "./home.css"
 
 function Home() {
-  const AllProducts = useContext(AllProductsContext)
+  // const AllProducts = useContext(AllProductsContext)
+  const [AllProducts , setAllProducts] = useState([]);
   const [clothesDropDown , setClothesDropDown]= useState(null);
   const [glassesDropDown , setGlassesDropDown]= useState(null);
   const [bagDropDown , setBagDropDown]= useState(null);
+
+
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/api/AllProducts').then((response) => {
+       setAllProducts(response.data);
+     }).catch((error)=> {
+       console.log(error);
+     });
+  },[])
 
   return (
     <>

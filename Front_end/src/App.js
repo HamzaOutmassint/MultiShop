@@ -1,4 +1,4 @@
-import {AddToCartContext, AddToWishlistContext, AllProductsContext, RemoveFromWishlistContext} from "./component/Context/ContextFile";
+import {AddToCartContext, AddToWishlistContext, RemoveFromWishlistContext} from "./component/Context/ContextFile";
 import { BrowserRouter ,Routes ,Route  } from "react-router-dom";
 import { CategoryPage } from "./pages/categoryPage/CategoryPage";
 import Navbar from "./component/navbar/Navbar";
@@ -19,7 +19,6 @@ import { Checkout } from "./component/checkout/Checkout";
 
 function App() {
   const [Loading,setLoading] = useState(false)
-  const [AllProducts,setAllProducts] = useState([])
   const [reloadInChangesForWishlist , setReloadInChangesForWishlist] = useState([])
   const [reloadInChangesForCart , setReloadInChangesForCart] = useState([])
   const getTheCartFromLocalstorage = JSON.parse(localStorage.getItem("cart") || "[]" )
@@ -27,16 +26,7 @@ function App() {
     return JSON.parse(window.localStorage.getItem("seccess")) === true ? [] : getTheCartFromLocalstorage
   })
   const [wishlist , setWishlist] = useState([])
-  
-  /*---------------------------------------get all the data from database----------------------------------- */
-  useEffect(()=>{
-    axios.get('http://localhost/data/AllProducts.php').then((response) => {
-      setAllProducts(response.data);
-    }).catch((error)=> {
-      console.log(error);
-    });
-  }, []);
-  /*-------------------------------------------(end)get data from database----------------------------------- */
+
   /*-----------------------------------start methods CRUD (shopping cart)------------------------------------ */
 
   useEffect(()=>{
@@ -172,7 +162,7 @@ function App() {
     <>
     <BrowserRouter>
       <Navbar logOut={logOut} cartItem={cartItem} wishlist={wishlist} DeleteItemFromTheCart={DeleteItemFromTheCart} Loading={Loading}/>
-      <AllProductsContext.Provider value={AllProducts}>
+      {/* <AllProductsContext.Provider value={AllProducts}> */}
         <AddToCartContext.Provider value={AddToCart}>
           <AddToWishlistContext.Provider value={AddToWishlist}>
             <RemoveFromWishlistContext.Provider value={DeleteItemFromTheWishlist}>
@@ -199,7 +189,7 @@ function App() {
             </RemoveFromWishlistContext.Provider>
           </AddToWishlistContext.Provider>
         </AddToCartContext.Provider>
-      </AllProductsContext.Provider>
+      {/* </AllProductsContext.Provider> */}
       <Footer logOut={logOut} />
     </BrowserRouter>
     </>

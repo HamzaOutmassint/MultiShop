@@ -1,4 +1,3 @@
-// import { AccessoriesProductsContext, MenProductsContext, WomenProductsContext } from '../../component/Context/ContextFile'
 import { Sizes , brands , Departments } from '../../component/fuctions'
 import CustomSeparator from '../../component/breadcrumbs/breadcrumbs'
 import Products from '../../component/products/products';
@@ -17,21 +16,21 @@ export const CategoryPage = ({get}) => {
     useEffect(()=>{
         if(get==="Men"){
             // to get all men products from database
-            axios.get('http://localhost/data/Men.php').then((response) => {
+            axios.get('http://127.0.0.1:8000/api/MenProducts').then((response) => {
                 setMenProducts(response.data);
             }).catch((error)=> {
                 setError(error.message);
             });
         }else if(get==="Women"){
             // to get all women products from database
-            axios.get('http://localhost/data/Women.php').then((response) => {
+            axios.get('http://127.0.0.1:8000/api/WomenProducts').then((response) => {
                 setWomenProducts(response.data);
             }).catch((error)=> {
                 setError(error.message);
             });
         }else{
             // to get all accessories products from database
-            axios.get('http://localhost/data/accesories.php').then((response) => {
+            axios.get('http://127.0.0.1:8000/api/AccesoriesProducts').then((response) => {
                 setAccessoriesProducts(response.data);
             }).catch((error)=> {
                 setError(error.message);

@@ -1,20 +1,20 @@
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import {AddToCartContext,FormatPrice} from "../Context/ContextFile";
-import Skeleton from '@mui/material/Skeleton';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { useContext, useState , useEffect } from "react";
 import CustomSeparator from "../breadcrumbs/breadcrumbs";
 import paymentImg from "../../assets/images/payment.png"
 import {Link, useLocation } from 'react-router-dom';
 import CustomerReviews from "../reviews/Review";
+import Skeleton from '@mui/material/Skeleton';
+import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import axios from "axios";
 import "./product.css" 
-import { styled } from '@mui/material/styles';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 
 const style = {
   position: 'absolute', top: '50%', left: '50%',
@@ -70,7 +70,7 @@ function Product() {
 
  
   useEffect(()=>{
-     axios.get('http://localhost/data/AllProducts.php').then((response) => {
+     axios.get('http://127.0.0.1:8000/api/AllProducts').then((response) => {
         setAllProducts(response.data);
       }).catch((error)=> {
         console.log(error);
@@ -128,8 +128,7 @@ function Product() {
       setErroreMsg(false)
       handleClose()
       setThanksFroReview(true)
-      axios.post('http://localhost/data/review.php',Review).then((response) => {
-        console.log(response.data)
+      axios.post('http://127.0.0.1:8000/api/AddReview',Review).then((response) => {
       }).catch((error)=> {
         console.log(error);
       });
@@ -139,7 +138,7 @@ function Product() {
   // useEffect for get the data review from database 
   useEffect(()=>{
     const productId = {"product_id":location.hash.substring(1)}
-    axios.post('http://localhost/data/getReviews.php',productId).then((response) => {
+    axios.post('http://127.0.0.1:8000/api/getReviews',productId).then((response) => {
       setReviews(response.data);
     }).catch((error)=> {
       console.log(error);
