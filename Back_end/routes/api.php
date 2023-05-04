@@ -41,3 +41,4 @@ Route::post('/deleteItemFromTheCart', [productsController::class, 'DeleteItemFro
 Route::post('/ClearShopingCart', [productsController::class, 'ClearShopingCart']);
 Route::post('/AddReview', [productsController::class, 'AddReview']);
 Route::post('/getReviews', [productsController::class, 'getReviews']);
+Route::post('/getRating', [productsController::class, 'getRating']);

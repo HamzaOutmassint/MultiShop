@@ -110,4 +110,66 @@ class productsController extends Controller
             return [];
         }
     }
+
+    public function getRating(Request $request)
+    {
+        $data = $request->json()->all();
+        $total_review = 0;
+        $five_star_review = 0;
+        $four_star_review = 0;
+        $three_star_review = 0;
+        $two_star_review = 0;
+        $one_star_review = 0;
+
+        $reviews = DB::select("SELECT name , title , content , value , dateReview from `reviews` where product_id = ?;", [$data["product_id"]]);
+        $row = count($reviews);
+        if ($row > 0) {
+            foreach ($reviews as $key => $value) {
+                $total_review++;
+                if ($value->value == 5) {
+                    $five_star_review++;
+                };
+                if ($value->value == 4) {
+                    $four_star_review++;
+                };
+                if ($value->value == 3) {
+                    $three_star_review++;
+                };
+                if ($value->value == 2) {
+                    $two_star_review++;
+                };
+                if ($value->value == 1) {
+                    $one_star_review++;
+                };
+            }
+            $avg = (
+                ((5 * $five_star_review) + (4 * $four_star_review) + (3 * $three_star_review) + (2 * $two_star_review) + (1 * $one_star_review))
+                /
+                ($one_star_review + $two_star_review + $three_star_review + $four_star_review + $five_star_review)
+            );
+            $output = array(
+                "total_review" => $total_review,
+                "one_star_review" => $one_star_review,
+                "two_star_review" => $two_star_review,
+                "three_star_review" => $three_star_review,
+                "four_star_review" => $four_star_review,
+                "five_star_review" => $five_star_review,
+                "product_id" => $data["product_id"],
+                "avg" => round($avg, 2)
+            );
+            return response()->json($output);
+        } else {
+            $output = array(
+                "total_review" => $total_review,
+                "one_star_review" => $one_star_review,
+                "two_star_review" => $two_star_review,
+                "three_star_review" => $three_star_review,
+                "four_star_review" => $four_star_review,
+                "five_star_review" => $five_star_review,
+                "product_id" => $data["product_id"],
+                "avg" => 0
+            );
+            return response()->json($output);
+        }
+    }
 }

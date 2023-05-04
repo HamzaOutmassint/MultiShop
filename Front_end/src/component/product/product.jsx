@@ -148,7 +148,7 @@ function Product() {
   // useEffect for get the rating data from database 
   useEffect(()=>{
     const productId = {"product_id":location.hash.substring(1)}
-    axios.post('http://localhost/data/getRating.php',productId).then((response) => {
+    axios.post('http://127.0.0.1:8000/api/getRating',productId).then((response) => {
       setRating(response.data)
       setCurrentPage(1)
       setPage(1)
