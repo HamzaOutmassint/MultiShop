@@ -81,6 +81,11 @@ class productsController extends Controller
     }
 
     /*-------------------------------review--------------------------------- */
+    // public function getWishlist(Request $request){
+
+    // }
+
+    /*-------------------------------review--------------------------------- */
     public function AddReview(Request $request)
     {
         $review = new Review();
