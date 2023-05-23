@@ -123,7 +123,7 @@ function App() {
   
     useEffect(()=>{
       const token = {"token":localStorage.getItem("auth_token")}
-      axios.post('http://localhost/data/getTheWishlist.php',token).then((response) => {
+      axios.post('http://127.0.0.1:8000/api/getWishlist',token).then((response) => {
         setWishlist(response.data)
       }).catch((error)=> {
         console.log(error);
@@ -136,7 +136,7 @@ function App() {
         const token = localStorage.getItem("auth_token");
         const Item = {product_id , token}
         return(
-          axios.post('http://localhost/data/wishlist.php',Item).then((response) => {
+          axios.post('http://127.0.0.1:8000/api/addToWishlist',Item).then((response) => {
             setReloadInChangesForWishlist([...reloadInChangesForWishlist , Item])
           }).catch((error)=> {
             console.log(error);
@@ -149,7 +149,7 @@ function App() {
 
     const DeleteItemFromTheWishlist =(product_id)=>{
       const Item = {product_id}
-      axios.post('http://localhost/data/deleteFromWishlist.php',Item).then((response) => {
+      axios.post('http://127.0.0.1:8000/api/removeFromWishlist',Item).then((response) => {
         setReloadInChangesForWishlist([...reloadInChangesForWishlist , Item])
       }).catch((error)=> {
         console.log(error);

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\ShoppingCart;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class productsController extends Controller
 {
@@ -81,9 +83,105 @@ class productsController extends Controller
     }
 
     /*-------------------------------review--------------------------------- */
-    // public function getWishlist(Request $request){
+    public function getWishlist(Request $request){
+        $data = $request->json()->all();
 
-    // }
+        $wishlists = DB::table('wishlists')
+            ->join('products', 'wishlists.product_id', '=', 'products.product_id')
+            ->join('logins', 'wishlists.user_token', '=', 'logins.token')
+            ->select(
+                'products.product_id',
+                'product_name',
+                'product_price',
+                'old_price',
+                'product_image',
+                'description',
+                'categorie',
+                'size',
+                'department',
+                'product_quantity',
+                'favorite_product',
+                'status'
+            )
+            ->where('wishlists.user_token', $data['token'])
+            ->distinct()
+            ->get();
+
+        if ($wishlists->count() > 0) {
+            return $wishlists->toJson();
+        } else {
+            return '[]';
+        }
+    }
+    public function addToWishlist(Request $request){
+        $data = $request->json()->all();
+
+        try {
+            DB::beginTransaction();
+
+            DB::table('wishlists')->insert([
+                'product_id' => $data['product_id'],
+                'user_token' => $data['token']
+            ]);
+
+            DB::table('products')
+                ->where('product_id', $data['product_id'])
+                ->update(['favorite_product' => 1]);
+
+            $returnData = [
+                'success' => true,
+                'message' => 'Added to wishlist successfully'
+            ];
+
+            DB::commit();
+
+            return response()->json($returnData);
+        } catch (QueryException $e) {
+            $returnData = [
+                'success' => false,
+                'message' => 'Failed to add to wishlist'
+            ];
+
+            DB::rollBack();
+
+            return response()->json($returnData);
+        }
+    }
+
+    public function removeFromWishlist(Request $request)
+    {
+        $data = $request->json()->all();
+
+        try {
+            DB::beginTransaction();
+
+            DB::table('wishlists')
+                ->where('product_id', $data['product_id'])
+                ->delete();
+
+            DB::table('products')
+                ->where('product_id', $data['product_id'])
+                ->update(['favorite_product' => 0]);
+
+            $returnData = [
+                'success' => true,
+                'message' => 'Removed from wishlist successfully'
+            ];
+
+            DB::commit();
+
+            return response()->json($returnData);
+        } catch (QueryException $e) {
+            $returnData = [
+                'success' => false,
+                'message' => 'Failed to remove from wishlist'
+            ];
+
+            DB::rollBack();
+
+            return response()->json($returnData);
+        }
+    }
 
     /*-------------------------------review--------------------------------- */
     public function AddReview(Request $request)

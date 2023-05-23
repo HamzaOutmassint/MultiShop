@@ -39,6 +39,9 @@ Route::post('/getTheShoppinCart', [productsController::class, 'getTheShoppinCart
 Route::post('/addToShoppinCart', [productsController::class, 'addToShoppinCart']);
 Route::post('/deleteItemFromTheCart', [productsController::class, 'DeleteItemFromTheCart']);
 Route::post('/ClearShopingCart', [productsController::class, 'ClearShopingCart']);
+Route::post('/getWishlist', [productsController::class, 'getWishlist']);
+Route::post('/addToWishlist', [productsController::class, 'addToWishlist']);
+Route::post('/removeFromWishlist', [productsController::class, 'removeFromWishlist']);
 Route::post('/AddReview', [productsController::class, 'AddReview']);
 Route::post('/getReviews', [productsController::class, 'getReviews']);
 Route::post('/getRating', [productsController::class, 'getRating']);
