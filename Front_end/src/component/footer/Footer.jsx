@@ -85,7 +85,7 @@ const Footer = ({logOut}) => {
 
         <div className="footer-bottom">
             <div className="container">
-                <img src={paymentImg} alt="payment method" className="payment-img" />
+                <img src={paymentImg} alt="payment method" className="payment-img" width={100} height={100} />
                 <p className="copyright">
                     Copyright &copy; hamza outmassint | 2022-2023
                 </p>

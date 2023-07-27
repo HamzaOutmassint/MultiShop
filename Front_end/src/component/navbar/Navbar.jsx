@@ -83,12 +83,12 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart,Loading}) {
 
                 <div className="header-search-container">
                     <input type="search" name="search" className="search-field" placeholder="Enter your product name..." />
-                    <button className="search-btn"> <SearchRoundedIcon /></button>
+                    <span className="search-btn"> <SearchRoundedIcon /></span>
                 </div>
 
                 <div className="header-user-actions">
                   <div className="AccountDropDown">
-                    <button className="action-btn"><PersonOutlineRoundedIcon fontSize="26px" style={{":hover":{"color":'/fff'}}}/></button>
+                    <span className="button action-btn"><PersonOutlineRoundedIcon fontSize="26px" style={{":hover":{"color":'/fff'}}}/></span>
                     <ul>
                       {
                         JSON.parse(window.localStorage.getItem("seccess")) === true 
@@ -158,7 +158,7 @@ function Navbar({logOut,cartItem,wishlist,DeleteItemFromTheCart,Loading}) {
         {
           Loading?<LinearProgress/>:null
         }
-        {/*------------------------ start header bottom -----------------------*/}
+        {/*------------------------ start header bottosm -----------------------*/}
         <nav className="desktop-navigation-menu">
             <div className="container">
                 <ul className="desktop-menu-category-list">

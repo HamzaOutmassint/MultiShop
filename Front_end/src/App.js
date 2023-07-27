@@ -7,6 +7,7 @@ import {useState , useEffect} from "react"
 import Home from "./pages/home/Home";
 import axios from "axios";
 import "./app.css"
+import "./fonts.css"
 import Product from "./component/product/product";
 import Register from "./component/signin/Register";
 import Login from "./component/login/Login";
@@ -63,6 +64,7 @@ function App() {
       }else{
         setCartItem([...cartItem, item])
         localStorage.setItem("cart",JSON.stringify([...cartItem, item]))
+        setLoading(false)
       }
     }else{
       alert("this product is already in shopping cart")
@@ -74,7 +76,7 @@ function App() {
     if(JSON.parse(window.localStorage.getItem("seccess")) === true){
       const Item = {id}
       axios.post('http://127.0.0.1:8000/api/deleteItemFromTheCart',Item).then((response) => {
-          setReloadInChangesForCart([...reloadInChangesForCart , Item])
+        setReloadInChangesForCart([...reloadInChangesForCart , Item])
       }).catch((error)=> {
         console.log(error);
       })
@@ -82,6 +84,7 @@ function App() {
       const newCartItem = cartItem.filter(ele=> ele.product_id !== id)
       setCartItem(newCartItem)
       localStorage.setItem("cart",JSON.stringify(newCartItem))
+      setLoading(false)
     }
   }
 
@@ -97,6 +100,7 @@ function App() {
     }else{
       setCartItem([])
       localStorage.setItem("cart",JSON.stringify([]))
+      setLoading(false)
     }
   }
 

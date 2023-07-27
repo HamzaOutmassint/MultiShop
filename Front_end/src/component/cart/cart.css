@@ -112,6 +112,7 @@
     -o-transition: var(--transition-timing);
     transition: var(--transition-timing);
     display: flex;
+    cursor: pointer;
 }
 
 .showcase .btn-action:hover {

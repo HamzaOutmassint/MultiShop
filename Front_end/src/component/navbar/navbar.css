@@ -525,7 +525,7 @@
     .header-user-actions .CartDropDown ul:hover{
       display: block;
     }
-    .header-user-actions .AccountDropDown button:hover ~ ul,
+    .header-user-actions .AccountDropDown .button:hover ~ ul,
     .header-user-actions .CartDropDown a:hover ~ ul{
       display: block;
     }

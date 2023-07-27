@@ -1,6 +1,5 @@
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
-// import {AllProductsContext} from "../../component/Context/ContextFile"
 import mainBanner from "../../assets/images/banner-7.jpg"
 import therdBanner from "../../assets/images/banner-6.jpg"
 import Skeleton from '@mui/material/Skeleton';
@@ -10,7 +9,6 @@ import axios from "axios";
 import "./home.css"
 
 function Home() {
-  // const AllProducts = useContext(AllProductsContext)
   const [AllProducts , setAllProducts] = useState([]);
   const [clothesDropDown , setClothesDropDown]= useState(null);
   const [glassesDropDown , setGlassesDropDown]= useState(null);
@@ -33,7 +31,7 @@ function Home() {
           <div className="container">
             <div className="slider-container has-scrollbar">
               <div className="slider-item">
-                <img src={mainBanner} alt="women's latest fashion sale" className="banner-img" />
+                <img src={mainBanner} fetchpriority="high" alt="women's latest fashion sale" className="banner-img" />
                 <div className="banner-content">
                   <p className="banner-subtitle">Trending item</p>
                   <h2 className="banner-title">Men's latest fashion sale</h2>

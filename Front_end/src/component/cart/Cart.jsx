@@ -55,7 +55,7 @@ const Cart = ({details , style}) => {
                       </abbr>
                     :
                       <abbr title='add to wishlist'>
-                        <button className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></button>
+                        <span className="btn-action" onClick={()=>AddToWishlist(details.product_id)}><FavoriteBorderRoundedIcon /></span>
                       </abbr>
                   :
                     <>
@@ -66,25 +66,25 @@ const Cart = ({details , style}) => {
                       <Box sx={ModelStyle} className='boxWishlist'>
                         <p className='msg'>Please login and you will add product to your wishlist</p>
                         <div className='btn-section'>
-                          <Link to="/login"><button className="btn-signIn">SIGN IN</button></Link>
-                          <Link to="/register"><button className="registerButton">REGISTER</button></Link>
+                          <Link to="/login"><span className="btn-signIn">SIGN IN</span></Link>
+                          <Link to="/register"><span className="registerButton" >REGISTER</span></Link>
                         </div>
                       </Box>
                     </Modal>
                     </>
                 }
                 <abbr title='Quick view'>
-                  <Link to={`/product#${details.product_id}`}><button className="btn-action"><RemoveRedEyeOutlinedIcon /></button></Link>
+                  <Link to={`/product#${details.product_id}`}><span className="btn-action" ><RemoveRedEyeOutlinedIcon /></span></Link>
                 </abbr>
                 {
                   details.status==="out of stock" 
                   ? 
                     <abbr title='sold out'>
-                      <button className="btn-action soldOut"><EnhancedEncryptionOutlinedIcon /></button>
+                      <span className="btn-action soldOut" ><EnhancedEncryptionOutlinedIcon /></span>
                     </abbr>
                   : 
                     <abbr title='add to cart'>
-                      <button className="btn-action" onClick={()=>AddToCart(details)}><EnhancedEncryptionOutlinedIcon /></button>
+                      <span className="btn-action" onClick={()=>AddToCart(details)}><EnhancedEncryptionOutlinedIcon /></span>
                     </abbr>
                 }
             </div>
@@ -161,8 +161,8 @@ const Cart = ({details , style}) => {
                   <Box sx={ModelStyle} className='boxWishlist'>
                     <p>Please login and you will add product to your wishlist</p>
                     <div className='btn-section'>
-                      <Link to="/login"><button className="btn-signIn">SIGN IN</button></Link>
-                      <Link to="/register"><button className="registerButton">REGISTER</button></Link>
+                      <Link to="/login"><span className="btn-signIn" >SIGN IN</span></Link>
+                      <Link to="/register"><span className="registerButton" >REGISTER</span></Link>
                     </div>
                   </Box>
                 </Modal>
