@@ -1,5 +1,5 @@
 import axios from "axios";
-import CustomSeparator from "../breadcrumbs/breadcrumbs";
+import CustomSeparator from "../breadcrumbs/Breadcrumbs";
 import { Link, useNavigate } from "react-router-dom"
 import {Formik , Field , Form} from "formik"
 import { object, string } from 'yup';

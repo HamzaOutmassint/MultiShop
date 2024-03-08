@@ -1,6 +1,6 @@
 import { Sizes , brands , Departments } from '../../component/fuctions'
-import CustomSeparator from '../../component/breadcrumbs/breadcrumbs'
-import Products from '../../component/products/products';
+import CustomSeparator from '../../component/breadcrumbs/Breadcrumbs'
+import Products from '../../component/products/Products';
 import handlProduct from "../../component/fuctions";
 import { useState ,  useEffect} from 'react'
 import axios from "axios";

@@ -3,7 +3,7 @@ import {AddToCartContext,FormatPrice} from "../Context/ContextFile";
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { useContext, useState , useEffect } from "react";
-import CustomSeparator from "../breadcrumbs/breadcrumbs";
+import CustomSeparator from "../breadcrumbs/Breadcrumbs";
 import paymentImg from "../../assets/images/payment.png"
 import {Link, useLocation } from 'react-router-dom';
 import CustomerReviews from "../reviews/Review";

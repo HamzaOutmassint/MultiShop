@@ -8,7 +8,7 @@ import Home from "./pages/home/Home";
 import axios from "axios";
 import "./app.css"
 import "./fonts.css"
-import Product from "./component/product/product";
+import Product from "./component/product/Product";
 import Register from "./component/signin/Register";
 import Login from "./component/login/Login";
 import ViewCart from "./component/viewCart/ViewCart";

@@ -8,7 +8,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
-import CustomSeparator from "../breadcrumbs/breadcrumbs";
+import CustomSeparator from "../breadcrumbs/Breadcrumbs";
 
     // this for style model
   const style = {

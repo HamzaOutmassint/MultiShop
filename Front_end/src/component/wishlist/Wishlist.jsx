@@ -1,6 +1,6 @@
 import "./wishlist.css"
 import { Link } from "react-router-dom"
-import CustomSeparator from "../breadcrumbs/breadcrumbs"
+import CustomSeparator from "../breadcrumbs/Breadcrumbs"
 import Cart from "../cart/Cart"
 // import { useEffect } from "react"
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';

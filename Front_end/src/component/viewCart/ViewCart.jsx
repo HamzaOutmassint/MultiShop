@@ -1,4 +1,4 @@
-import CustomSeparator from "../breadcrumbs/breadcrumbs";
+import CustomSeparator from "../breadcrumbs/Breadcrumbs";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom"

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import CustomSeparator from "../breadcrumbs/breadcrumbs";
+import CustomSeparator from "../breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom"
 import "./login.css";
 import {Formik , Field , Form} from "formik"

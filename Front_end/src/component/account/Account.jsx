@@ -9,7 +9,7 @@ import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded
 import axios from 'axios';
 import { useState , useEffect } from 'react';
 import Skeleton from '@mui/material/Skeleton';
-import CustomSeparator from '../breadcrumbs/breadcrumbs';
+import CustomSeparator from '../breadcrumbs/Breadcrumbs';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
